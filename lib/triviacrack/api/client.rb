@@ -41,6 +41,8 @@ module TriviaCrack
         body = response.body
 
         @session = body["session"]["session"]
+        @user_id = body["id"]
+        @username = body["username"]
 
         Unirest.default_header("Cookie", "ap_session=#{@session}")
 
