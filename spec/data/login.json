@@ -1,0 +1,25 @@
+{
+  "phone": "999",
+  "zip_code": "12345",
+  "photo_url": "",
+  "fb_show_picture": true,
+  "country": "CA",
+  "twitter_name": "",
+  "id": 111,
+  "allow_og_posts": false,
+  "username": "example",
+  "coins": 64,
+  "session": {
+    "session": "session123",
+    "deviceKey": "device123",
+    "valid": true,
+    "expirationTime": "03/21/2015 11:07:42 EST",
+    "sample": "s"
+  },
+  "email": "user@example.com",
+  "description": "",
+  "language": "EN",
+  "has_pass": true,
+  "online_status": "ONLINE",
+  "fb_show_name": true
+}

@@ -1,0 +1,363 @@
+{
+  "id": 2222,
+  "opponent": {
+    "id": 0,
+    "alerts_count": 0,
+    "username": "example.2"
+  },
+  "game_status": "PENDING_APPROVAL",
+  "language": "EN",
+  "created": "02/18/2015 23:52:03 EST",
+  "last_turn": "02/18/2015 23:52:03 EST",
+  "type": "NORMAL",
+  "expiration_date": "02/21/2015 23:52:03 EST",
+  "my_turn": true,
+  "statistics": {
+    "player_one_statistics": {
+      "correct_answers": 0,
+      "incorrect_answers": 0,
+      "challenges_won": 0,
+      "questions_answered": 0,
+      "crowns_won": 0
+    },
+    "player_two_statistics": {
+      "correct_answers": 0,
+      "incorrect_answers": 0,
+      "challenges_won": 0,
+      "questions_answered": 0,
+      "crowns_won": 0
+    }
+  },
+  "duelGameType": false,
+  "normalType": true,
+  "spins_data": {
+    "spins": [{
+      "type": "CROWN",
+      "questions": [{
+        "question": {
+          "id": 12785,
+          "category": "HISTORY",
+          "text": "What type of writing was used in the Ancient Egypt?",
+          "answers": ["Cuneiform writing", "Ideographic writing", "Codex", "Hieroglyphic writing"],
+          "author": {
+            "id": 18326659,
+            "name": "albitadinamita11",
+            "username": "albitadinamita11",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "translator": {
+            "id": 17827910,
+            "name": "Sandra Guerrero",
+            "username": "sandra.guerrero.357",
+            "facebook_id": "100000175671594",
+            "facebook_name": "Sandra Guerrero",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 3,
+          "media_type": "NORMAL"
+        },
+        "powerup_question": {
+          "id": 25175685,
+          "category": "HISTORY",
+          "text": "Which document contains the Bill of Rights?",
+          "answers": ["The Articles Of Confederation", "The Declaration Of Independence", "The Constitution", "The Emancipation Proclamation"],
+          "author": {
+            "id": 87224962,
+            "name": "kelind",
+            "username": "kelind",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "correct_answer": 2,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 23161200,
+          "category": "GEOGRAPHY",
+          "text": "What currency is represented by the symbol: £?",
+          "answers": ["Pound", "American Dollar", "Yen", "Peso"],
+          "author": {
+            "id": 105137588,
+            "name": "Katie Pampuch",
+            "username": "katieandoreo",
+            "facebook_id": "636211257",
+            "facebook_name": "Katie Pampuch",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 0,
+          "media_type": "NORMAL"
+        },
+        "powerup_question": {
+          "id": 5908789,
+          "category": "GEOGRAPHY",
+          "text": "Which of the following countries is not in Europe?",
+          "answers": ["Thailand", "Spain", "Italy", "Greece"],
+          "author": {
+            "id": 45047543,
+            "name": "jessica_k59",
+            "username": "jessica_k59",
+            "facebook_id": "664765460",
+            "facebook_name": "Jessica Kalinic",
+            "fb_show_picture": true,
+            "fb_show_name": false
+          },
+          "correct_answer": 0,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 41262,
+          "category": "ARTS",
+          "text": "What nationality was the composer Claude Debussy?",
+          "answers": ["Belgian", "Swiss", "French", "Spanish"],
+          "correct_answer": 2,
+          "media_type": "NORMAL"
+        },
+        "powerup_question": {
+          "id": 26238389,
+          "category": "ARTS",
+          "text": "Which of these is not a stringed instrument?",
+          "answers": ["Ukelele", "Harp", "Cello", "Bassoon"],
+          "author": {
+            "id": 116483759,
+            "name": "anda12",
+            "username": "anda12",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "correct_answer": 3,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 23473896,
+          "category": "SPORTS",
+          "text": "In Pool, when racking up the balls to play 9-Ball, which ball number is put in the front?",
+          "answers": ["9", "1", "7", "2"],
+          "author": {
+            "id": 85541236,
+            "name": "Neil Armani",
+            "username": "neil.armani",
+            "facebook_id": "1110969533",
+            "facebook_name": "Neil Armani",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        },
+        "powerup_question": {
+          "id": 16367516,
+          "category": "SPORTS",
+          "text": "In Ice Hockey, how do the officials start each play?",
+          "answers": ["Dropoff", "Faceoff", "Kickoff", "Stare-Off"],
+          "author": {
+            "id": 76102943,
+            "name": "dahmasontrivia",
+            "username": "dahmasontrivia",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 18111730,
+          "category": "ENTERTAINMENT",
+          "text": "What boxer appeared in The Hangover?",
+          "answers": ["Muhammad Ali", "Mike Tyson", "Sugar Ray Leonard", "George Foreman"],
+          "author": {
+            "id": 82122280,
+            "name": "Jim Stortz",
+            "username": "jimstortz",
+            "facebook_id": "100000779873410",
+            "facebook_name": "Jim Stortz",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        },
+        "powerup_question": {
+          "id": 23028986,
+          "category": "ENTERTAINMENT",
+          "text": "What is the name of Spongebob's grumpy neighbor?",
+          "answers": ["Patrick", "Squidward", "Sandy", "Gary"],
+          "author": {
+            "id": 102615136,
+            "name": "lexi21b",
+            "username": "lexi21b",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 92404,
+          "category": "SCIENCE",
+          "text": "Where is the chlorophyll of a plant?",
+          "answers": ["Leaf", "Flower", "Stem", "Root"],
+          "author": {
+            "id": 24113335,
+            "name": "Phillipe Miura",
+            "username": "phillipehiroche",
+            "facebook_id": "100001700983617",
+            "facebook_name": "Phillipe Miura",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "translator": {
+            "id": 22114194,
+            "name": "sofia.nadir.ramos",
+            "username": "sofia.nadir.ramos",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "correct_answer": 0,
+          "media_type": "NORMAL"
+        },
+        "powerup_question": {
+          "id": 6793470,
+          "category": "SCIENCE",
+          "text": "The symbol for the element silver in the Periodic Table is derived from its name in Latin, which is...?",
+          "answers": ["Platum", "Argentum", "Silverum", "Argius"],
+          "author": {
+            "id": 42221297,
+            "name": "sarinha_andrad",
+            "username": "sarinha_andrad",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        }
+      }]
+    }, {
+      "type": "DUEL",
+      "questions": [{
+        "question": {
+          "id": 1571,
+          "category": "HISTORY",
+          "text": "What year did Cuba become independent from Spain?",
+          "answers": ["1831", "1898", "1912", "1887"],
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 4815,
+          "category": "GEOGRAPHY",
+          "text": "Which of the following ecoregions can NOT be found in the Gobi desert?",
+          "answers": ["Eastern steppe", "Tian Shan range", "Alashan Plateau semi-desert", "All can be found there"],
+          "correct_answer": 3,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 49985,
+          "category": "ARTS",
+          "text": "How many Horcruxes did Lord Voldemort make?",
+          "answers": ["Six", "Three", "Seven", "Nine"],
+          "author": {
+            "id": 23694251,
+            "name": "Ruth Parada",
+            "username": "ruth.parada.5",
+            "facebook_id": "100000903063794",
+            "facebook_name": "Ruth Parada",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 2,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 293,
+          "category": "SPORTS",
+          "text": "This sport was born in India, men can win the Thomas Cup and women, the Uber Cup. What sport is it?",
+          "answers": ["Bowling", "Fencing", "Basketball", "Badminton"],
+          "correct_answer": 3,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 20722067,
+          "category": "ENTERTAINMENT",
+          "text": "Which of the following did not star Leonardo DiCaprio?",
+          "answers": ["The Wolf Of Wall Street", "Titanic", "The Dark Knight", "Inception"],
+          "author": {
+            "id": 90101313,
+            "name": "Emily Timm",
+            "username": "emily_timm",
+            "facebook_id": "1479602887",
+            "facebook_name": "Emily Timm",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 2,
+          "media_type": "NORMAL"
+        }
+      }, {
+        "question": {
+          "id": 25495188,
+          "category": "SCIENCE",
+          "text": "What is the most inner layer of Earth's structure?",
+          "answers": ["Ocean", "Core", "Crust", "Mantle"],
+          "author": {
+            "id": 88944958,
+            "name": "meggggiee1028",
+            "username": "meggggiee1028",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        }
+      }],
+      "tie_break_question": {
+        "id": 19165923,
+        "category": "SPORTS",
+        "text": "How often are Summer Olympic Games held?",
+        "answers": ["5 Years", "2 Years", "4 Years", "3 Years"],
+        "author": {
+          "id": 87813918,
+          "name": "Zack Halbert",
+          "username": "zack_halbert",
+          "facebook_id": "1045515285",
+          "facebook_name": "Zack Halbert",
+          "fb_show_picture": true,
+          "fb_show_name": true
+        },
+        "correct_answer": 2,
+        "media_type": "NORMAL"
+      }
+    }]
+  },
+  "available_crowns": ["ENTERTAINMENT", "SCIENCE", "SPORTS", "HISTORY", "GEOGRAPHY", "ARTS"],
+  "my_player_number": 1,
+  "player_one": {
+    "charges": 0
+  },
+  "player_two": {
+    "charges": 0
+  },
+  "round_number": 1,
+  "sub_status": "P1_WAITING_FIRST_TURN",
+  "is_random": true,
+  "unread_messages": 0,
+  "status_version": 0,
+  "my_level_data": {
+    "level": 31,
+    "points": 541,
+    "progress": 48,
+    "goal_points": 558,
+    "level_up": false
+  }
+}

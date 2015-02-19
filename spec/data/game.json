@@ -1,0 +1,147 @@
+{
+  "id": 1111,
+  "opponent": {
+    "id": 111,
+    "alerts_count": 0,
+    "username": "example.2",
+    "facebook_id": "",
+    "fb_show_picture": true,
+    "fb_show_name": true,
+    "allow_og_posts": true,
+    "level_data": {
+      "level": 116
+    }
+  },
+  "game_status": "ACTIVE",
+  "language": "EN",
+  "created": "02/18/2015 00:11:33 EST",
+  "last_turn": "02/18/2015 13:17:41 EST",
+  "type": "NORMAL",
+  "expiration_date": "02/21/2015 13:17:41 EST",
+  "my_turn": true,
+  "statistics": {
+    "player_one_statistics": {
+      "category_questions": [{
+        "category": "GEOGRAPHY",
+        "correct": 2,
+        "incorrect": 1,
+        "worst": false
+      }, {
+        "category": "SCIENCE",
+        "correct": 3,
+        "incorrect": 0,
+        "worst": false
+      }, {
+        "category": "HISTORY",
+        "correct": 2,
+        "incorrect": 2,
+        "worst": false
+      }, {
+        "category": "ARTS",
+        "correct": 3,
+        "incorrect": 0,
+        "worst": false
+      }, {
+        "category": "ENTERTAINMENT",
+        "correct": 2,
+        "incorrect": 0,
+        "worst": false
+      }],
+      "correct_answers": 12,
+      "incorrect_answers": 3,
+      "challenges_won": 0,
+      "questions_answered": 15,
+      "crowns_won": 3
+    },
+    "player_two_statistics": {
+      "category_questions": [{
+        "category": "GEOGRAPHY",
+        "correct": 1,
+        "incorrect": 3,
+        "worst": false
+      }, {
+        "category": "ARTS",
+        "correct": 1,
+        "incorrect": 0,
+        "worst": false
+      }, {
+        "category": "SCIENCE",
+        "correct": 3,
+        "incorrect": 0,
+        "worst": false
+      }],
+      "correct_answers": 5,
+      "incorrect_answers": 3,
+      "challenges_won": 0,
+      "questions_answered": 8,
+      "crowns_won": 1
+    }
+  },
+  "duelGameType": false,
+  "normalType": true,
+  "spins_data": {
+    "spins": [{
+      "type": "NORMAL",
+      "questions": [{
+        "question": {
+          "id": 16653413,
+          "category": "SPORTS",
+          "text": "What is the only NBA team in Canada?",
+          "answers": ["Vancouver Grizzlies", "Toronto Raptors", "Calgary Bears", "Alberta Bulls"],
+          "author": {
+            "id": 73373513,
+            "name": "Mo Fazli",
+            "username": "mofazli15",
+            "facebook_id": "828230719",
+            "facebook_name": "Mo Fazli",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        },
+        "powerup_question": {
+          "id": 16695662,
+          "category": "SPORTS",
+          "text": "What were the first two teams to join the NHL?",
+          "answers": ["Montréal Canadiens & Toronto Maple Leafs", "Detroit Red Wings & New York Rangers", "Boston Bruins & Detroit Red Wings", "Toronto Maple Leafs & Chicago Blackhawks"],
+          "author": {
+            "id": 76788639,
+            "name": "Rebecca C",
+            "username": "rac.coates",
+            "facebook_id": "604390292",
+            "facebook_name": "Rebecca C",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 0,
+          "media_type": "NORMAL"
+        }
+      }]
+    }]
+  },
+  "available_crowns": ["ENTERTAINMENT", "ARTS", "SPORTS"],
+  "my_player_number": 1,
+  "available_extra_shots": 1,
+  "player_one": {
+    "charges": 0,
+    "crowns": ["HISTORY", "SCIENCE", "GEOGRAPHY"]
+  },
+  "player_two": {
+    "charges": 0,
+    "crowns": ["SCIENCE"]
+  },
+  "round_number": 4,
+  "sub_status": "P1_PLAYING_TURN",
+  "previous_sub_status": "P1_WAITING_TURN",
+  "is_random": true,
+  "unread_messages": 0,
+  "status_version": 23,
+  "my_level_data": {
+    "level": 30,
+    "points": 520,
+    "progress": 84,
+    "goal_points": 525,
+    "level_up": false
+  }
+}

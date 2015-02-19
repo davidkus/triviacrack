@@ -1,0 +1,949 @@
+{
+  "time": "02/18/2015 16:30:05 EST",
+  "coins": 79,
+  "extra_shots": 3,
+  "lives": {
+    "quantity": 3,
+    "max": 3,
+    "unlimited": false
+  },
+  "inbox": {
+    "total": 0,
+    "news": 0
+  },
+  "unread_conversations": 0,
+  "level_data": {
+    "level": 30,
+    "points": 521,
+    "progress": 87,
+    "goal_points": 525,
+    "level_up": false
+  },
+  "list": [{
+    "id": 1111,
+    "opponent": {
+      "id": 111,
+      "alerts_count": 0,
+      "username": "example.2",
+      "facebook_id": "",
+      "fb_show_picture": true,
+      "fb_show_name": true,
+      "allow_og_posts": true,
+      "level_data": {
+        "level": 39
+      }
+    },
+    "game_status": "ACTIVE",
+    "language": "EN",
+    "created": "02/17/2015 21:47:19 EST",
+    "last_turn": "02/18/2015 11:25:19 EST",
+    "type": "NORMAL",
+    "expiration_date": "02/21/2015 11:25:19 EST",
+    "my_turn": false,
+    "statistics": {
+      "player_one_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 1,
+          "incorrect": 2,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 0,
+          "incorrect": 1,
+          "worst": true,
+          "performance": 0
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 3,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 1,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 10,
+        "incorrect_answers": 4,
+        "challenges_won": 0,
+        "questions_answered": 14,
+        "crowns_won": 4
+      },
+      "player_two_statistics": {
+        "category_questions": [{
+          "category": "SPORTS",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 1,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 0,
+          "incorrect": 2,
+          "worst": false
+        }],
+        "correct_answers": 9,
+        "incorrect_answers": 3,
+        "challenges_won": 0,
+        "questions_answered": 12,
+        "crowns_won": 2
+      }
+    },
+    "duelGameType": false,
+    "normalType": true,
+    "available_crowns": ["HISTORY", "ENTERTAINMENT", "ARTS", "SCIENCE"],
+    "my_player_number": 1,
+    "player_one": {
+      "charges": 0,
+      "crowns": ["HISTORY", "ENTERTAINMENT", "GEOGRAPHY", "SCIENCE"]
+    },
+    "player_two": {
+      "charges": 1,
+      "crowns": ["GEOGRAPHY", "SPORTS"]
+    },
+    "round_number": 4,
+    "sub_status": "P2_PLAYING_TURN",
+    "previous_sub_status": "P2_PLAYING_TURN",
+    "is_random": true,
+    "unread_messages": 0,
+    "status_version": 26,
+    "my_level_data": {
+      "level": 30,
+      "points": 521,
+      "progress": 87,
+      "goal_points": 525,
+      "level_up": false
+    }
+  }, {
+    "id": 1112,
+    "opponent": {
+      "id": 112,
+      "alerts_count": 0,
+      "username": "example.4",
+      "facebook_id": "1",
+      "facebook_name": "Example 4",
+      "fb_show_picture": true,
+      "fb_show_name": true,
+      "allow_og_posts": true,
+      "level_data": {
+        "level": 17
+      }
+    },
+    "game_status": "ACTIVE",
+    "language": "EN",
+    "created": "02/16/2015 17:02:50 EST",
+    "last_turn": "02/16/2015 17:04:28 EST",
+    "type": "NORMAL",
+    "expiration_date": "02/19/2015 17:04:28 EST",
+    "my_turn": false,
+    "statistics": {
+      "player_one_statistics": {
+        "category_questions": [{
+          "category": "SPORTS",
+          "correct": 1,
+          "incorrect": 1,
+          "worst": false
+        }],
+        "correct_answers": 1,
+        "incorrect_answers": 1,
+        "challenges_won": 0,
+        "questions_answered": 2,
+        "crowns_won": 0
+      },
+      "player_two_statistics": {
+        "category_questions": [{
+          "category": "HISTORY",
+          "correct": 0,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 1,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 1,
+        "incorrect_answers": 1,
+        "challenges_won": 0,
+        "questions_answered": 2,
+        "crowns_won": 0
+      }
+    },
+    "duelGameType": false,
+    "normalType": true,
+    "available_crowns": ["HISTORY", "ENTERTAINMENT", "ARTS", "GEOGRAPHY", "SCIENCE", "SPORTS"],
+    "my_player_number": 2,
+    "player_one": {
+      "charges": 1
+    },
+    "player_two": {
+      "charges": 1
+    },
+    "round_number": 2,
+    "sub_status": "P1_WAITING_TURN",
+    "previous_sub_status": "P2_PLAYING_FIRST_TURN",
+    "is_random": true,
+    "unread_messages": 0,
+    "status_version": 4,
+    "my_level_data": {
+      "level": 30,
+      "points": 521,
+      "progress": 87,
+      "goal_points": 525,
+      "level_up": false
+    }
+  }, {
+    "id": 1113,
+    "opponent": {
+      "id": 113,
+      "alerts_count": 0,
+      "username": "example.5",
+      "facebook_id": "",
+      "fb_show_picture": true,
+      "fb_show_name": true,
+      "allow_og_posts": true,
+      "level_data": {
+        "level": 15
+      }
+    },
+    "game_status": "ACTIVE",
+    "language": "EN",
+    "created": "02/15/2015 20:38:49 EST",
+    "last_turn": "02/17/2015 16:06:37 EST",
+    "type": "NORMAL",
+    "expiration_date": "02/20/2015 16:06:37 EST",
+    "my_turn": false,
+    "statistics": {
+      "player_one_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 1,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 0,
+          "incorrect": 2,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 3,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 0,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 7,
+        "incorrect_answers": 5,
+        "challenges_won": 0,
+        "questions_answered": 12,
+        "crowns_won": 1
+      },
+      "player_two_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 0,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 0,
+          "incorrect": 3,
+          "worst": false
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 7,
+        "incorrect_answers": 4,
+        "challenges_won": 0,
+        "questions_answered": 11,
+        "crowns_won": 3
+      }
+    },
+    "duelGameType": false,
+    "normalType": true,
+    "available_crowns": ["ARTS", "GEOGRAPHY", "SCIENCE"],
+    "my_player_number": 1,
+    "player_one": {
+      "charges": 0,
+      "crowns": ["SCIENCE"]
+    },
+    "player_two": {
+      "charges": 0,
+      "crowns": ["HISTORY", "ENTERTAINMENT", "SPORTS"]
+    },
+    "round_number": 5,
+    "sub_status": "P2_WAITING_TURN",
+    "previous_sub_status": "P1_PLAYING_TURN",
+    "is_random": true,
+    "unread_messages": 0,
+    "status_version": 23,
+    "my_level_data": {
+      "level": 30,
+      "points": 521,
+      "progress": 87,
+      "goal_points": 525,
+      "level_up": false
+    }
+  }, {
+    "id": 1115,
+    "opponent": {
+      "id": 114,
+      "alerts_count": 0,
+      "username": "example.6",
+      "facebook_id": "",
+      "fb_show_picture": true,
+      "fb_show_name": true,
+      "allow_og_posts": true,
+      "level_data": {
+        "level": 116
+      }
+    },
+    "game_status": "ACTIVE",
+    "language": "EN",
+    "created": "02/18/2015 00:11:33 EST",
+    "last_turn": "02/18/2015 13:17:41 EST",
+    "type": "NORMAL",
+    "expiration_date": "02/21/2015 13:17:41 EST",
+    "my_turn": true,
+    "statistics": {
+      "player_one_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 1,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 2,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 2,
+          "incorrect": 2,
+          "worst": true,
+          "performance": 50
+        }, {
+          "category": "SCIENCE",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 13,
+        "incorrect_answers": 3,
+        "challenges_won": 0,
+        "questions_answered": 16,
+        "crowns_won": 3
+      },
+      "player_two_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 1,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 1,
+          "incorrect": 3,
+          "worst": false
+        }],
+        "correct_answers": 5,
+        "incorrect_answers": 3,
+        "challenges_won": 0,
+        "questions_answered": 8,
+        "crowns_won": 1
+      }
+    },
+    "duelGameType": false,
+    "normalType": true,
+    "spins_data": {
+      "spins": [{
+        "type": "NORMAL",
+        "questions": [{
+          "question": {
+            "id": 15593975,
+            "category": "SPORTS",
+            "text": "What country is the soccer team Real Madrid from?",
+            "answers": ["Spain", "England", "Italy", "Mexico"],
+            "author": {
+              "id": 72888815,
+              "name": "adrianahjuarez",
+              "username": "adrianahjuarez",
+              "fb_show_picture": false,
+              "fb_show_name": false
+            },
+            "correct_answer": 0,
+            "media_type": "NORMAL"
+          },
+          "powerup_question": {
+            "id": 520,
+            "category": "SPORTS",
+            "text": "Who wins in a badminton match?",
+            "answers": ["The best of 7 sets", "The best of 3 sets", "The best of 1 set", "The best of 15 sets"],
+            "author": {
+              "id": 10730224,
+              "name": "Leila Zgz",
+              "username": "leila.vela.54",
+              "facebook_id": "1412540407",
+              "facebook_name": "Leila Zgz",
+              "fb_show_picture": true,
+              "fb_show_name": true
+            },
+            "translator": {
+              "id": 35495955,
+              "name": "Juan Pablo San Martín",
+              "username": "saanmaa",
+              "facebook_id": "1275759889",
+              "facebook_name": "Juan Pablo San Martín",
+              "fb_show_picture": true,
+              "fb_show_name": true
+            },
+            "correct_answer": 1,
+            "media_type": "NORMAL"
+          }
+        }]
+      }]
+    },
+    "available_crowns": ["ENTERTAINMENT", "ARTS", "SPORTS"],
+    "my_player_number": 1,
+    "available_extra_shots": 1,
+    "player_one": {
+      "charges": 1,
+      "crowns": ["HISTORY", "GEOGRAPHY", "SCIENCE"]
+    },
+    "player_two": {
+      "charges": 0,
+      "crowns": ["SCIENCE"]
+    },
+    "round_number": 4,
+    "sub_status": "P1_PLAYING_TURN",
+    "previous_sub_status": "P1_PLAYING_TURN",
+    "is_random": true,
+    "unread_messages": 0,
+    "status_version": 24,
+    "my_level_data": {
+      "level": 30,
+      "points": 521,
+      "progress": 87,
+      "goal_points": 525,
+      "level_up": false
+    }
+  }, {
+    "id": 1116,
+    "opponent": {
+      "id": 116,
+      "alerts_count": 0,
+      "username": "example.7",
+      "facebook_id": "",
+      "fb_show_picture": true,
+      "fb_show_name": true,
+      "allow_og_posts": true,
+      "level_data": {
+        "level": 23
+      }
+    },
+    "game_status": "ENDED",
+    "language": "EN",
+    "created": "02/17/2015 17:04:00 EST",
+    "last_turn": "02/18/2015 02:07:31 EST",
+    "win": true,
+    "type": "NORMAL",
+    "ended_reason": "NORMAL",
+    "expiration_date": "02/21/2015 02:07:31 EST",
+    "my_turn": true,
+    "events": [{
+      "type": "GAME_ENDED",
+      "coins_reward": 3,
+      "lives_reward": 0
+    }],
+    "statistics": {
+      "player_one_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 4,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 2,
+          "incorrect": 2,
+          "worst": true,
+          "performance": 50
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 4,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 3,
+          "incorrect": 2,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 6,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 22,
+        "incorrect_answers": 4,
+        "challenges_won": 0,
+        "questions_answered": 26,
+        "crowns_won": 6
+      },
+      "player_two_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 1,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 1,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 1,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 3,
+          "incorrect": 2,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 8,
+        "incorrect_answers": 4,
+        "challenges_won": 0,
+        "questions_answered": 12,
+        "crowns_won": 2
+      }
+    },
+    "duelGameType": false,
+    "normalType": true,
+    "my_player_number": 1,
+    "player_one": {
+      "charges": 0,
+      "crowns": ["HISTORY", "ARTS", "ENTERTAINMENT", "GEOGRAPHY", "SCIENCE", "SPORTS"]
+    },
+    "player_two": {
+      "charges": 0,
+      "crowns": ["ENTERTAINMENT", "SPORTS"]
+    },
+    "round_number": 5,
+    "ended_date": "02/18/2015 11:22:55 EST",
+    "sub_status": "P1_WON",
+    "previous_sub_status": "P1_WON",
+    "is_random": true,
+    "unread_messages": 0,
+    "status_version": 39,
+    "my_level_data": {
+      "level": 30,
+      "points": 521,
+      "progress": 87,
+      "goal_points": 525,
+      "level_up": false
+    }
+  }, {
+    "id": 1117,
+    "opponent": {
+      "id": 117,
+      "alerts_count": 0,
+      "username": "example.8",
+      "facebook_id": "1",
+      "facebook_name": "Example 8",
+      "fb_show_picture": true,
+      "fb_show_name": true,
+      "allow_og_posts": true,
+      "level_data": {
+        "level": 22
+      }
+    },
+    "game_status": "ACTIVE",
+    "language": "EN",
+    "created": "02/17/2015 23:56:24 EST",
+    "last_turn": "02/18/2015 16:07:32 EST",
+    "type": "NORMAL",
+    "expiration_date": "02/21/2015 16:07:32 EST",
+    "my_turn": true,
+    "statistics": {
+      "player_one_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 0,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 0,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 0,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 5,
+        "incorrect_answers": 3,
+        "challenges_won": 0,
+        "questions_answered": 8,
+        "crowns_won": 1
+      },
+      "player_two_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 3,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 2,
+          "incorrect": 1,
+          "worst": true,
+          "performance": 66
+        }],
+        "correct_answers": 14,
+        "incorrect_answers": 2,
+        "challenges_won": 0,
+        "questions_answered": 16,
+        "crowns_won": 5
+      }
+    },
+    "duelGameType": false,
+    "normalType": true,
+    "spins_data": {
+      "spins": [{
+        "type": "NORMAL",
+        "questions": [{
+          "question": {
+            "id": 928,
+            "category": "SCIENCE",
+            "text": "Which of the following animals inject formic acid when they sting?",
+            "answers": ["Spiders", "Ants", "Snakes", "None"],
+            "correct_answer": 1,
+            "media_type": "NORMAL"
+          },
+          "powerup_question": {
+            "id": 24345199,
+            "category": "SCIENCE",
+            "text": "Which of these celestial objects is the smallest?",
+            "answers": ["Mercury", "The Moon", "Neptune", "Pluto"],
+            "author": {
+              "id": 92990421,
+              "name": "welsh10",
+              "username": "welsh10",
+              "fb_show_picture": false,
+              "fb_show_name": false
+            },
+            "correct_answer": 3,
+            "media_type": "NORMAL"
+          }
+        }]
+      }]
+    },
+    "available_crowns": ["ARTS"],
+    "my_player_number": 2,
+    "available_extra_shots": 1,
+    "player_one": {
+      "charges": 1,
+      "crowns": ["SCIENCE"]
+    },
+    "player_two": {
+      "charges": 0,
+      "crowns": ["HISTORY", "ENTERTAINMENT", "GEOGRAPHY", "SCIENCE", "SPORTS"]
+    },
+    "round_number": 3,
+    "sub_status": "P2_WAITING_TURN",
+    "previous_sub_status": "P1_PLAYING_TURN",
+    "is_random": false,
+    "unread_messages": 0,
+    "status_version": 24,
+    "my_level_data": {
+      "level": 30,
+      "points": 521,
+      "progress": 87,
+      "goal_points": 525,
+      "level_up": false
+    }
+  }, {
+    "id": 1118,
+    "opponent": {
+      "id": 118,
+      "alerts_count": 0,
+      "username": "example.9",
+      "facebook_id": "",
+      "fb_show_picture": true,
+      "fb_show_name": true,
+      "allow_og_posts": true,
+      "level_data": {
+        "level": 23
+      }
+    },
+    "game_status": "ENDED",
+    "language": "EN",
+    "created": "02/15/2015 22:36:28 EST",
+    "last_turn": "02/18/2015 00:21:43 EST",
+    "win": true,
+    "type": "NORMAL",
+    "ended_reason": "NORMAL",
+    "expiration_date": "02/21/2015 00:21:43 EST",
+    "my_turn": true,
+    "events": [{
+      "type": "GAME_ENDED",
+      "coins_reward": 3,
+      "lives_reward": 0
+    }],
+    "statistics": {
+      "player_one_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 3,
+          "incorrect": 2,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 2,
+          "incorrect": 2,
+          "worst": true,
+          "performance": 50
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 4,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 2,
+          "incorrect": 0,
+          "worst": false
+        }],
+        "correct_answers": 15,
+        "incorrect_answers": 5,
+        "challenges_won": 0,
+        "questions_answered": 20,
+        "crowns_won": 3
+      },
+      "player_two_statistics": {
+        "category_questions": [{
+          "category": "ARTS",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "SPORTS",
+          "correct": 6,
+          "incorrect": 1,
+          "worst": false
+        }, {
+          "category": "GEOGRAPHY",
+          "correct": 4,
+          "incorrect": 2,
+          "worst": true,
+          "performance": 66
+        }, {
+          "category": "ENTERTAINMENT",
+          "correct": 3,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "HISTORY",
+          "correct": 4,
+          "incorrect": 0,
+          "worst": false
+        }, {
+          "category": "SCIENCE",
+          "correct": 2,
+          "incorrect": 1,
+          "worst": true,
+          "performance": 66
+        }],
+        "correct_answers": 22,
+        "incorrect_answers": 4,
+        "challenges_won": 0,
+        "questions_answered": 26,
+        "crowns_won": 6
+      }
+    },
+    "duelGameType": false,
+    "normalType": true,
+    "my_player_number": 2,
+    "player_one": {
+      "charges": 2,
+      "crowns": ["HISTORY", "GEOGRAPHY", "SPORTS"]
+    },
+    "player_two": {
+      "charges": 0,
+      "crowns": ["HISTORY", "ARTS", "ENTERTAINMENT", "GEOGRAPHY", "SCIENCE", "SPORTS"]
+    },
+    "round_number": 5,
+    "ended_date": "02/18/2015 11:29:00 EST",
+    "sub_status": "P2_WON",
+    "previous_sub_status": "P2_WON",
+    "is_random": true,
+    "unread_messages": 0,
+    "status_version": 47,
+    "my_level_data": {
+      "level": 30,
+      "points": 521,
+      "progress": 87,
+      "goal_points": 525,
+      "level_up": false
+    }
+  }],
+  "app_config": {
+    "fp_friends_ttl": 300,
+    "fp_chats_ttl": 300,
+    "version": 1424295005,
+    "lives": {
+      "increment_interval": 3600,
+      "increment_quantity": 1
+    },
+    "questions_time": 30,
+    "power_ups": [{
+      "name": "DOUBLE_CHANCE",
+      "cost": 5
+    }, {
+      "name": "BOMB",
+      "cost": 5
+    }, {
+      "name": "SWAP_QUESTION",
+      "cost": 3
+    }, {
+      "name": "EXTRA_TIME",
+      "cost": 1
+    }, {
+      "name": "SECOND_CHANCE",
+      "cost": 15
+    }],
+    "crowns_per_turn_limit": 3,
+    "final_duel_rounds": 25,
+    "available_languages": ["ES", "EN", "PT", "FR", "IT", "CA", "DE", "RU", "JA", "NL"],
+    "extra_shots_limit": 1,
+    "rejected_questions_expiration": 7,
+    "dashboard_ttl": 300,
+    "duel_games_enabled": false,
+    "duel_games_players_min": 2,
+    "duel_games_players_max": 30,
+    "show_questions_reload_seconds": 1,
+    "codes_enabled": false
+  },
+  "notification_id": "",
+  "country": "CA",
+  "new_achievements": false,
+  "country_confirmation": true,
+  "see_ranking": false
+}

@@ -1,0 +1,161 @@
+{
+  "id": 1111,
+  "opponent": {
+    "id": 111,
+    "alerts_count": 0,
+    "username": "example.2",
+    "facebook_id": "",
+    "fb_show_picture": true,
+    "fb_show_name": true,
+    "allow_og_posts": true,
+    "level_data": {
+      "level": 116
+    }
+  },
+  "game_status": "ACTIVE",
+  "language": "EN",
+  "created": "02/18/2015 00:11:33 EST",
+  "last_turn": "02/18/2015 13:17:41 EST",
+  "type": "NORMAL",
+  "expiration_date": "02/21/2015 13:17:41 EST",
+  "my_turn": true,
+  "statistics": {
+    "player_one_statistics": {
+      "category_questions": [{
+        "category": "SPORTS",
+        "correct": 1,
+        "incorrect": 0,
+        "worst": false
+      }, {
+        "category": "ENTERTAINMENT",
+        "correct": 2,
+        "incorrect": 0,
+        "worst": false
+      }, {
+        "category": "SCIENCE",
+        "correct": 3,
+        "incorrect": 0,
+        "worst": false
+      }, {
+        "category": "HISTORY",
+        "correct": 2,
+        "incorrect": 2,
+        "worst": true,
+        "performance": 50
+      }, {
+        "category": "GEOGRAPHY",
+        "correct": 2,
+        "incorrect": 1,
+        "worst": false
+      }, {
+        "category": "ARTS",
+        "correct": 3,
+        "incorrect": 0,
+        "worst": false
+      }],
+      "correct_answers": 13,
+      "incorrect_answers": 3,
+      "challenges_won": 0,
+      "questions_answered": 16,
+      "crowns_won": 3
+    },
+    "player_two_statistics": {
+      "category_questions": [{
+        "category": "GEOGRAPHY",
+        "correct": 1,
+        "incorrect": 3,
+        "worst": false
+      }, {
+        "category": "ARTS",
+        "correct": 1,
+        "incorrect": 0,
+        "worst": false
+      }, {
+        "category": "SCIENCE",
+        "correct": 3,
+        "incorrect": 0,
+        "worst": false
+      }],
+      "correct_answers": 5,
+      "incorrect_answers": 3,
+      "challenges_won": 0,
+      "questions_answered": 8,
+      "crowns_won": 1
+    }
+  },
+  "normalType": true,
+  "duelGameType": false,
+  "spins_data": {
+    "spins": [{
+      "type": "NORMAL",
+      "questions": [{
+        "question": {
+          "id": 15593975,
+          "category": "SPORTS",
+          "text": "What country is the soccer team Real Madrid from?",
+          "answers": ["Spain", "England", "Italy", "Mexico"],
+          "author": {
+            "id": 72888815,
+            "name": "adrianahjuarez",
+            "username": "adrianahjuarez",
+            "fb_show_picture": false,
+            "fb_show_name": false
+          },
+          "correct_answer": 0,
+          "media_type": "NORMAL"
+        },
+        "powerup_question": {
+          "id": 520,
+          "category": "SPORTS",
+          "text": "Who wins in a badminton match?",
+          "answers": ["The best of 7 sets", "The best of 3 sets", "The best of 1 set", "The best of 15 sets"],
+          "author": {
+            "id": 10730224,
+            "name": "Leila Zgz",
+            "username": "leila.vela.54",
+            "facebook_id": "1412540407",
+            "facebook_name": "Leila Zgz",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "translator": {
+            "id": 35495955,
+            "name": "Juan Pablo San Martín",
+            "username": "saanmaa",
+            "facebook_id": "1275759889",
+            "facebook_name": "Juan Pablo San Martín",
+            "fb_show_picture": true,
+            "fb_show_name": true
+          },
+          "correct_answer": 1,
+          "media_type": "NORMAL"
+        }
+      }]
+    }]
+  },
+  "available_crowns": ["SPORTS", "ARTS", "ENTERTAINMENT"],
+  "my_player_number": 1,
+  "available_extra_shots": 1,
+  "player_one": {
+    "charges": 1,
+    "crowns": ["SCIENCE", "GEOGRAPHY", "HISTORY"]
+  },
+  "player_two": {
+    "charges": 0,
+    "crowns": ["SCIENCE"]
+  },
+  "round_number": 4,
+  "sub_status": "P1_PLAYING_TURN",
+  "previous_sub_status": "P1_PLAYING_TURN",
+  "is_random": true,
+  "unread_messages": 0,
+  "status_version": 24,
+  "new_achievements": false,
+  "my_level_data": {
+    "level": 30,
+    "points": 521,
+    "progress": 87,
+    "goal_points": 525,
+    "level_up": false
+  }
+}

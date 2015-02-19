@@ -1,0 +1,25 @@
+{
+  "id": 111,
+  "alerts_count": 0,
+  "username": "example",
+  "facebook_id": "1",
+  "facebook_name": "Example Name",
+  "fb_show_picture": true,
+  "fb_show_name": true,
+  "allow_og_posts": true,
+  "coins": 111,
+  "lives": {
+    "quantity": 3,
+    "max": 3,
+    "unlimited": false
+  },
+  "country": "CA",
+  "extra_shots": 3,
+  "level_data": {
+    "level": 31,
+    "points": 546,
+    "progress": 63,
+    "goal_points": 558,
+    "level_up": false
+  }
+}
