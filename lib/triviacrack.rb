@@ -1,6 +1,6 @@
 require "triviacrack/game"
 require "triviacrack/question"
-require "tirviacrack/user"
+require "triviacrack/user"
 require "triviacrack/version"
 
 require "triviacrack/api/client"
