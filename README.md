@@ -1,6 +1,6 @@
 # Triviacrack
 
-TODO: Write a gem description
+A Ruby interface for the Trivia Crack API.
 
 ## Installation
 
@@ -20,7 +20,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First, create an instance of the `TriviaCrack::API::Client`.
+
+```ruby
+require "triviacrack"
+
+client = TriviaCrack::API::Client.new
+```
+
+Then, use the client to log in using your Trivia Crack email and password.
+
+```ruby
+client.login "user@example.com", "password123"
+```
+
+Now, you can make requests to the Trivia Crack API.
+
+```ruby
+# Get information about the currently logged in user
+user = client.get_user
+
+# Get the list of games available to the currently logged in user
+games = client.get_games
+
+# Answer a question for on of those games
+game = games.first
+client.answer_question game.id, game.question.first, 0
+```
 
 ## Contributing
 
