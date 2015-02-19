@@ -160,7 +160,7 @@ module TriviaCrack
       #   answer_question game.id, question, 1
       #
       # Returns a boolean indicating whether or not the question was answered
-      # correctly.
+      # correctly, and the updated TriviaCrack::Game object.
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def answer_question(game_id, question, answer)
         response = Unirest.post "#{API_HOST}/api/users/#{@user_id}/games/#{game_id}/answers",
@@ -175,7 +175,12 @@ module TriviaCrack
           raise TriviaCrack::Errors::RequestError.new(response.code)
         end
 
-        answer == question.correct_answer
+        game = TriviaCrack::Game.from response.body
+
+        {
+          game: game,
+          correct_answer: answer == question.correct_answer
+        }
       end
 
       # Public: Uses the Trivia Crack API to start a new game for the current

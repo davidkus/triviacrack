@@ -104,7 +104,7 @@ describe TriviaCrack::API::Client do
 
       result = @client.answer_question @game.id, @question, 1
 
-      expect(result).to eq(true)
+      expect(result[:correct_answer]).to eq(true)
     end
 
     it "should return false when answered incorrectly" do
@@ -114,7 +114,7 @@ describe TriviaCrack::API::Client do
 
       result = @client.answer_question @game.id, @question, 0
 
-      expect(result).to eq(false)
+      expect(result[:correct_answer]).to eq(false)
     end
 
     it "should raise an exception when request fails" do

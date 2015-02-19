@@ -61,5 +61,19 @@ describe TriviaCrack::Game do
       expect(game.round_number).to eq(4)
       expect(game.opponent.username).to eq("example.2")
     end
+
+    it "should parse raw data from the answers API" do
+      answer_data = SpecData.get "answer.json"
+
+      game = TriviaCrack::Game.from answer_data
+
+      expect(game.id).to eq(1111)
+      expect(game.language).to eq("EN")
+      expect(game.my_turn).to eq(true)
+      expect(game.game_status).to eq("ACTIVE")
+      expect(game.questions.size).to eq(1)
+      expect(game.round_number).to eq(4)
+      expect(game.opponent.username).to eq("example.2")
+    end
   end
 end
