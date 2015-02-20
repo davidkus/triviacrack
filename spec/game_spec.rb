@@ -49,17 +49,18 @@ describe TriviaCrack::Game do
     it "should parse raw data from dashboard API" do
       dashboard_data = SpecData.get "dashboard.json"
 
-      game_data = dashboard_data["list"][0]
+      game_data = dashboard_data["list"][3]
 
       game = TriviaCrack::Game.from game_data
 
-      expect(game.id).to eq(1111)
+      expect(game.id).to eq(1115)
       expect(game.language).to eq("EN")
-      expect(game.my_turn).to eq(false)
+      expect(game.my_turn).to eq(true)
       expect(game.game_status).to eq("ACTIVE")
-      expect(game.questions.size).to eq(0)
+      expect(game.questions.size).to eq(1)
+      expect(game.questions.first.id).to eq(15593975)
       expect(game.round_number).to eq(4)
-      expect(game.opponent.username).to eq("example.2")
+      expect(game.opponent.username).to eq("example.6")
     end
 
     it "should parse raw data from the answers API" do

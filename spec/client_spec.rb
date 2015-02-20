@@ -141,6 +141,7 @@ describe TriviaCrack::API::Client do
       expect(games[4].id).to eq(1116)
       expect(games[5].id).to eq(1117)
       expect(games[6].id).to eq(1118)
+      expect(games[3].questions[0].id).to eq(15593975)
       expect(games.size).to eq(7)
     end
 

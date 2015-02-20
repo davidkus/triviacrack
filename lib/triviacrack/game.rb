@@ -60,6 +60,7 @@ module TriviaCrack
       questions = []
       if raw_data["spins_data"]
         raw_data["spins_data"]["spins"][0]["questions"].each do |question_data|
+          question_data = question_data["question"]
           question_data["type"] = raw_data["spins_data"]["spins"][0]["type"]
           question = TriviaCrack::Question.from question_data
           questions << question
