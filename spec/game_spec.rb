@@ -1,7 +1,9 @@
 require_relative "spec_helper"
 
 describe TriviaCrack::Game do
+
   describe "#playable?" do
+
     it "should return true when game is ACTIVE and it is user's turn" do
       game = TriviaCrack::Game.new id: 1111, my_turn: true,
                                    game_status: "ACTIVE"
@@ -31,50 +33,4 @@ describe TriviaCrack::Game do
     end
   end
 
-  describe ".from" do
-    it "should parse raw data from games API" do
-      game_data = SpecData.get "game.json"
-
-      game = TriviaCrack::Game.from game_data
-
-      expect(game.id).to eq(1111)
-      expect(game.language).to eq("EN")
-      expect(game.my_turn).to eq(true)
-      expect(game.game_status).to eq("ACTIVE")
-      expect(game.questions.size).to eq(1)
-      expect(game.round_number).to eq(4)
-      expect(game.opponent.username).to eq("example.2")
-    end
-
-    it "should parse raw data from dashboard API" do
-      dashboard_data = SpecData.get "dashboard.json"
-
-      game_data = dashboard_data["list"][3]
-
-      game = TriviaCrack::Game.from game_data
-
-      expect(game.id).to eq(1115)
-      expect(game.language).to eq("EN")
-      expect(game.my_turn).to eq(true)
-      expect(game.game_status).to eq("ACTIVE")
-      expect(game.questions.size).to eq(1)
-      expect(game.questions.first.id).to eq(15593975)
-      expect(game.round_number).to eq(4)
-      expect(game.opponent.username).to eq("example.6")
-    end
-
-    it "should parse raw data from the answers API" do
-      answer_data = SpecData.get "answer.json"
-
-      game = TriviaCrack::Game.from answer_data
-
-      expect(game.id).to eq(1111)
-      expect(game.language).to eq("EN")
-      expect(game.my_turn).to eq(true)
-      expect(game.game_status).to eq("ACTIVE")
-      expect(game.questions.size).to eq(1)
-      expect(game.round_number).to eq(4)
-      expect(game.opponent.username).to eq("example.2")
-    end
-  end
 end

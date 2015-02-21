@@ -1,14 +1,16 @@
-require_relative "spec_helper"
+require "spec_helper"
 
-describe TriviaCrack::Question do
+describe TriviaCrack::Parsers::QuestionParser do
+
   describe ".from" do
-    it "should parse raw data correctly" do
-      answer_data = SpecData.get "answer.json"
 
+    let(:answer_data) { SpecData.get "answer.json" }
+
+    it "should parse raw data correctly" do
       question_data = answer_data["spins_data"]["spins"][0]["questions"][0]["question"]
       question_data["type"] = answer_data["spins_data"]["spins"][0]["type"]
 
-      question = TriviaCrack::Question.from question_data
+      question = TriviaCrack::Parsers::QuestionParser.parse question_data
 
       expect(question.type).to eq("NORMAL")
       expect(question.text).to eq("What country is the soccer team Real Madrid from?")
@@ -17,4 +19,5 @@ describe TriviaCrack::Question do
       expect(question.answers.size).to eq(4)
     end
   end
+
 end
