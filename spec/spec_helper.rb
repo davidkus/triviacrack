@@ -1,6 +1,8 @@
 require "json"
 
+require_relative "../lib/triviacrack/category_statistics"
 require_relative "../lib/triviacrack/game"
+require_relative "../lib/triviacrack/game_statistics"
 require_relative "../lib/triviacrack/question"
 require_relative "../lib/triviacrack/user"
 
@@ -13,7 +15,9 @@ require_relative "../lib/triviacrack/api/user"
 require_relative "../lib/triviacrack/errors/parse_error"
 require_relative "../lib/triviacrack/errors/request_error"
 
+require_relative "../lib/triviacrack/parsers/category_statistics_parser"
 require_relative "../lib/triviacrack/parsers/game_parser"
+require_relative "../lib/triviacrack/parsers/game_statistics_parser"
 require_relative "../lib/triviacrack/parsers/question_parser"
 require_relative "../lib/triviacrack/parsers/user_parser"
 

@@ -1,4 +1,5 @@
 require "triviacrack/game"
+require "triviacrack/parsers/game_statistics_parser"
 require "triviacrack/parsers/question_parser"
 require "triviacrack/parsers/user_parser"
 
@@ -31,7 +32,23 @@ module TriviaCrack
           end
         end
 
+        if raw_data["my_player_number"] == 1
+          my_player = "player_one"
+          opponent_player = "player_two"
+        else
+          my_player = "player_two"
+          opponent_player = "player_two"
+        end
+
         opponent = TriviaCrack::Parsers::UserParser.parse raw_data["opponent"]
+
+        my_crowns = raw_data[my_player]["crowns"]
+        opponent_crowns = raw_data[opponent_player]["crowns"]
+
+        my_statistics =
+          GameStatisticsParser.parse raw_data["statistics"]["#{my_player}_statistics"]
+        opponent_statistics =
+          GameStatisticsParser.parse raw_data["statistics"]["#{opponent_player}_statistics"]
 
         TriviaCrack::Game.new id: raw_data["id"], opponent: opponent,
                               game_status: raw_data["game_status"],
@@ -48,7 +65,11 @@ module TriviaCrack
                               unread_messages: raw_data["unread_messages"],
                               status_version: raw_data["status_version"],
                               available_crowns: raw_data["available_crowns"],
-                              questions: questions
+                              questions: questions,
+                              my_crowns: my_crowns,
+                              opponent_crowns: opponent_crowns,
+                              my_statistics: my_statistics,
+                              opponent_statistics: opponent_statistics
       end
 
     end
