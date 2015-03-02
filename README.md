@@ -63,6 +63,18 @@ puts "david's user id is #{user_id}"
  # => david's user id is 1
 ```
 
+### User Profiles
+
+You can retrieve additional information about a user by fetching their profile.
+
+```ruby
+user_id = 123
+profile = client.get_profile user_id
+```
+
+A user's profile contains their statistics (number of wins / losses, number of
+questions answered correctly, etc), among other things.
+
 ### Game Information
 
 You can retrieve the list of games available to the currently logged in user.
