@@ -45,7 +45,7 @@ describe TriviaCrack::API::Game do
       game = client.get_game 1111
 
       expect(game.id).to eq(1111)
-      expect(game.language).to eq("EN")
+      expect(game.language).to eq(:en)
     end
 
     it "should raise an exception when request fails" do
@@ -69,7 +69,7 @@ describe TriviaCrack::API::Game do
       game = client.start_new_game
 
       expect(game.id).to be(2222)
-      expect(game.language).to eq("EN")
+      expect(game.language).to eq(:en)
       expect(game.playable?).to eq(true)
     end
 

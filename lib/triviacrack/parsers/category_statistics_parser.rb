@@ -20,10 +20,12 @@ module TriviaCrack
       #
       # Returns a TriviaCrack::CategoryStatistics.
       def self.parse(raw_data)
-        TriviaCrack::CategoryStatistics.new category: raw_data["category"],
-                                            correct: raw_data["correct"],
-                                            incorrect: raw_data["incorrect"],
-                                            worst: raw_data["worst"]
+        TriviaCrack::CategoryStatistics.new(
+          category: raw_data["category"].downcase.to_sym,
+          correct: raw_data["correct"],
+          incorrect: raw_data["incorrect"],
+          worst: raw_data["worst"]
+        )
       end
 
     end

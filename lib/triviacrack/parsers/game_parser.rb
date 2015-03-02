@@ -32,6 +32,12 @@ module TriviaCrack
           end
         end
 
+        if raw_data["available_crowns"]
+          crowns = raw_data["available_crowns"].map { |c| c.downcase.to_sym }
+        else
+          crowns = []
+        end
+
         if raw_data["my_player_number"] == 1
           my_player = "player_one"
           opponent_player = "player_two"
@@ -42,34 +48,36 @@ module TriviaCrack
 
         opponent = TriviaCrack::Parsers::UserParser.parse raw_data["opponent"]
 
-        my_crowns = raw_data[my_player]["crowns"]
-        opponent_crowns = raw_data[opponent_player]["crowns"]
+        my_statistics_raw = raw_data["statistics"]["#{my_player}_statistics"]
+        my_statistics_raw["crowns"] = raw_data[my_player]["crowns"]
 
-        my_statistics =
-          GameStatisticsParser.parse raw_data["statistics"]["#{my_player}_statistics"]
-        opponent_statistics =
-          GameStatisticsParser.parse raw_data["statistics"]["#{opponent_player}_statistics"]
+        opponent_statistics_raw =
+          raw_data["statistics"]["#{opponent_player}_statistics"]
 
-        TriviaCrack::Game.new id: raw_data["id"], opponent: opponent,
-                              game_status: raw_data["game_status"],
-                              language: raw_data["language"],
-                              created: raw_data["created"],
-                              last_turn: raw_data["last_turn"],
-                              type: raw_data["type"],
-                              expiration_date: raw_data["expiration_date"],
-                              my_turn: raw_data["my_turn"],
-                              round_number: raw_data["round_number"],
-                              sub_status: raw_data["sub_status"],
-                              prev_sub_status: raw_data["previous_sub_status"],
-                              is_random: raw_data["is_random"],
-                              unread_messages: raw_data["unread_messages"],
-                              status_version: raw_data["status_version"],
-                              available_crowns: raw_data["available_crowns"],
-                              questions: questions,
-                              my_crowns: my_crowns,
-                              opponent_crowns: opponent_crowns,
-                              my_statistics: my_statistics,
-                              opponent_statistics: opponent_statistics
+        opponent_statistics_raw["crowns"] = raw_data[opponent_player]["crowns"]
+
+        my_statistics = GameStatisticsParser.parse my_statistics_raw
+        opponent_statistics = GameStatisticsParser.parse opponent_statistics_raw
+
+        TriviaCrack::Game.new(
+          id: raw_data["id"],
+          opponent: opponent,
+          game_status: raw_data["game_status"].downcase.to_sym,
+          language: raw_data["language"].downcase.to_sym,
+          created: raw_data["created"],
+          last_turn: raw_data["last_turn"],
+          type: raw_data["type"].downcase.to_sym,
+          expiration_date: raw_data["expiration_date"],
+          my_turn: raw_data["my_turn"],
+          round_number: raw_data["round_number"],
+          is_random: raw_data["is_random"],
+          unread_messages: raw_data["unread_messages"],
+          status_version: raw_data["status_version"],
+          available_crowns: crowns,
+          questions: questions,
+          my_statistics: my_statistics,
+          opponent_statistics: opponent_statistics
+        )
       end
 
     end

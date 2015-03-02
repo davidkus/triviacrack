@@ -24,9 +24,15 @@ module TriviaCrack
 
         if raw_data["category_questions"]
           raw_data["category_questions"].each do |category|
-            categories[category["category"]] =
+            categories[category["category"].downcase.to_sym] =
               TriviaCrack::Parsers::CategoryStatisticsParser.parse category
           end
+        end
+
+        if raw_data["crowns"]
+          crowns = raw_data["crowns"].map { |c| c.downcase.to_sym }
+        else
+          crowns = []
         end
 
         TriviaCrack::GameStatistics.new(
@@ -34,8 +40,9 @@ module TriviaCrack
           incorrect_answers: raw_data["incorrect_answers"],
           questions_answered: raw_data["questions_answered"],
           challenges_won: raw_data["challenges_won"],
-          crowns_won: raw_data["crowns_won"],
-          categories: categories)
+          crowns: crowns,
+          categories: categories
+        )
       end
 
     end

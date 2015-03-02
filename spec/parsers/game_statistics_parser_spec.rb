@@ -11,6 +11,7 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
 
     it "should parse raw data from games API" do
       statistics_data = game_data["statistics"]["player_one_statistics"]
+      statistics_data["crowns"] = game_data["player_one"]["crowns"]
       game_statistics =
         TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data
 
@@ -18,12 +19,13 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
       expect(game_statistics.incorrect_answers).to eq(3)
       expect(game_statistics.challenges_won).to eq(0)
       expect(game_statistics.questions_answered).to eq(15)
-      expect(game_statistics.crowns_won).to eq(3)
+      expect(game_statistics.crowns.length).to eq(3)
     end
 
     it "should parse raw data from the dashboard API" do
       game = dashboard_data["list"][3]
       statistics_data = game["statistics"]["player_one_statistics"]
+      statistics_data["crowns"] = game["player_one"]["crowns"]
       game_statistics =
         TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data
 
@@ -31,11 +33,12 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
       expect(game_statistics.incorrect_answers).to eq(3)
       expect(game_statistics.challenges_won).to eq(0)
       expect(game_statistics.questions_answered).to eq(16)
-      expect(game_statistics.crowns_won).to eq(3)
+      expect(game_statistics.crowns.length).to eq(3)
     end
 
     it "should parse raw data from the answer API" do
       statistics_data = answer_data["statistics"]["player_one_statistics"]
+      statistics_data["crowns"] = answer_data["player_one"]["crowns"]
       game_statistics =
         TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data
 
@@ -43,11 +46,12 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
       expect(game_statistics.incorrect_answers).to eq(3)
       expect(game_statistics.challenges_won).to eq(0)
       expect(game_statistics.questions_answered).to eq(16)
-      expect(game_statistics.crowns_won).to eq(3)
+      expect(game_statistics.crowns.length).to eq(3)
     end
 
     it "should parse raw data from the new game API" do
       statistics_data = new_game_data["statistics"]["player_one_statistics"]
+      statistics_data["crowns"] = new_game_data["player_one"]["crowns"]
       game_statistics =
         TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data
 
@@ -55,7 +59,7 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
         expect(game_statistics.incorrect_answers).to eq(0)
         expect(game_statistics.challenges_won).to eq(0)
         expect(game_statistics.questions_answered).to eq(0)
-        expect(game_statistics.crowns_won).to eq(0)
+        expect(game_statistics.crowns.length).to eq(0)
     end
   end
 end

@@ -19,13 +19,15 @@ module TriviaCrack
       #
       # Returns a TriviaCrack::Question.
       def self.parse(raw_data)
-        TriviaCrack::Question.new id: raw_data["id"],
-                                  type: raw_data["type"],
-                                  category: raw_data["category"],
-                                  text: raw_data["text"],
-                                  answers: raw_data["answers"],
-                                  correct_answer: raw_data["correct_answer"],
-                                  media_type: raw_data["media_type"]
+        TriviaCrack::Question.new(
+          id: raw_data["id"],
+          type: raw_data["type"].downcase.to_sym,
+          category: raw_data["category"].downcase.to_sym,
+          text: raw_data["text"],
+          answers: raw_data["answers"],
+          correct_answer: raw_data["correct_answer"],
+          media_type: raw_data["media_type"].downcase.to_sym
+        )
       end
 
     end

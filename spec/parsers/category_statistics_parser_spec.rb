@@ -15,7 +15,7 @@ describe TriviaCrack::Parsers::CategoryStatisticsParser do
       category_statistics =
         TriviaCrack::Parsers::CategoryStatisticsParser.parse category_data
 
-      expect(category_statistics.category).to eq("GEOGRAPHY")
+      expect(category_statistics.category).to eq(:geography)
       expect(category_statistics.correct).to eq(2)
       expect(category_statistics.incorrect).to eq(1)
       expect(category_statistics.worst).to eq(false)
@@ -29,7 +29,7 @@ describe TriviaCrack::Parsers::CategoryStatisticsParser do
       category_statistics =
         TriviaCrack::Parsers::CategoryStatisticsParser.parse category_data
 
-      expect(category_statistics.category).to eq("ARTS")
+      expect(category_statistics.category).to eq(:arts)
       expect(category_statistics.correct).to eq(3)
       expect(category_statistics.incorrect).to eq(0)
       expect(category_statistics.worst).to eq(false)
@@ -42,7 +42,7 @@ describe TriviaCrack::Parsers::CategoryStatisticsParser do
       category_statistics =
         TriviaCrack::Parsers::CategoryStatisticsParser.parse category_data
 
-      expect(category_statistics.category).to eq("SPORTS")
+      expect(category_statistics.category).to eq(:sports)
       expect(category_statistics.correct).to eq(1)
       expect(category_statistics.incorrect).to eq(0)
       expect(category_statistics.worst).to eq(false)

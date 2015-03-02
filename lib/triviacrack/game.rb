@@ -5,18 +5,15 @@ module TriviaCrack
   class Game
 
     attr_reader :id, :opponent, :game_status, :language, :created, :last_turn,
-                :type, :expiration_date, :my_turn, :round_number, :sub_status,
-                :prev_sub_status, :is_random, :unread_messages,
-                :status_version, :available_crowns, :questions, :my_crowns,
-                :opponent_crowns, :my_statistics, :opponent_statistics
+                :type, :expiration_date, :my_turn, :round_number, :is_random,
+                :unread_messages, :status_version, :available_crowns,
+                :questions, :my_statistics, :opponent_statistics
 
     def initialize(id:, opponent: nil, game_status: nil, language: nil,
                    created: nil, last_turn: nil, type: nil,
                    expiration_date: nil, my_turn: nil, round_number: nil,
-                   sub_status: nil, prev_sub_status: nil, is_random: nil,
-                   unread_messages: nil, status_version: nil,
-                   available_crowns: nil, questions: nil, my_crowns: nil,
-                   opponent_crowns: nil, my_statistics: nil,
+                   is_random: nil, unread_messages: nil, status_version: nil,
+                   available_crowns: nil, questions: nil, my_statistics: nil,
                    opponent_statistics: nil)
       @id                   = id
       @opponent             = opponent
@@ -28,15 +25,11 @@ module TriviaCrack
       @expiration_date      = expiration_date
       @my_turn              = my_turn
       @round_number         = round_number
-      @sub_status           = sub_status
-      @prev_sub_status      = prev_sub_status
       @is_random            = is_random
       @unread_messages      = unread_messages
       @status_version       = status_version
       @available_crowns     = available_crowns
       @questions            = questions
-      @my_crowns            = my_crowns
-      @opponent_crowns      = opponent_crowns
       @my_statistics        = my_statistics
       @opponent_statistics  = opponent_statistics
     end
@@ -51,7 +44,7 @@ module TriviaCrack
     #
     # Returns a boolean indicating if the game is playable.
     def playable?
-      @my_turn && @game_status != "ENDED"
+      @my_turn && @game_status != :ended
     end
 
   end

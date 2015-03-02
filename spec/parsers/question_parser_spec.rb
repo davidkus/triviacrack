@@ -12,9 +12,9 @@ describe TriviaCrack::Parsers::QuestionParser do
 
       question = TriviaCrack::Parsers::QuestionParser.parse question_data
 
-      expect(question.type).to eq("NORMAL")
+      expect(question.type).to eq(:normal)
       expect(question.text).to eq("What country is the soccer team Real Madrid from?")
-      expect(question.category).to eq("SPORTS")
+      expect(question.category).to eq(:sports)
       expect(question.correct_answer).to eq(0)
       expect(question.answers.size).to eq(4)
     end
