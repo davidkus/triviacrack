@@ -2,6 +2,7 @@ require 'unirest'
 
 require "triviacrack/api/game"
 require "triviacrack/api/login"
+require "triviacrack/api/profile"
 require "triviacrack/api/question"
 require "triviacrack/api/user"
 
@@ -20,6 +21,7 @@ module TriviaCrack
       include TriviaCrack::API::Login
       include TriviaCrack::API::User
       include TriviaCrack::API::Question
+      include TriviaCrack::API::Profile
 
     end
   end

@@ -1,6 +1,7 @@
 require "time"
 
 require "triviacrack/game"
+require "triviacrack/parsers/constants"
 require "triviacrack/parsers/game_statistics_parser"
 require "triviacrack/parsers/question_parser"
 require "triviacrack/parsers/user_parser"
@@ -11,8 +12,7 @@ module TriviaCrack
   module Parsers
     module GameParser
 
-      # Internal: The format of time values returned by the API.
-      TIME_FORMAT = "%m/%d/%Y %H:%M:%S"
+      include TriviaCrack::Parsers::Constants
 
       # Internal: Parses data returned from the Trivia Crack API to create a
       # TriviaCrack::Game object.
