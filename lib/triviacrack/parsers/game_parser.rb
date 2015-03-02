@@ -1,3 +1,5 @@
+require "time"
+
 require "triviacrack/game"
 require "triviacrack/parsers/game_statistics_parser"
 require "triviacrack/parsers/question_parser"
@@ -8,6 +10,9 @@ require "triviacrack/parsers/user_parser"
 module TriviaCrack
   module Parsers
     module GameParser
+
+      # Internal: The format of time values returned by the API.
+      TIME_FORMAT = "%m/%d/%Y %H:%M:%S"
 
       # Internal: Parses data returned from the Trivia Crack API to create a
       # TriviaCrack::Game object.
@@ -64,10 +69,11 @@ module TriviaCrack
           opponent: opponent,
           game_status: raw_data["game_status"].downcase.to_sym,
           language: raw_data["language"].downcase.to_sym,
-          created: raw_data["created"],
-          last_turn: raw_data["last_turn"],
+          created: Time.strptime(raw_data["created"], TIME_FORMAT),
+          last_turn: Time.strptime(raw_data["last_turn"], TIME_FORMAT),
           type: raw_data["type"].downcase.to_sym,
-          expiration_date: raw_data["expiration_date"],
+          expiration_date: Time.strptime(raw_data["expiration_date"],
+                                         TIME_FORMAT),
           my_turn: raw_data["my_turn"],
           round_number: raw_data["round_number"],
           is_random: raw_data["is_random"],

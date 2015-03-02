@@ -66,6 +66,18 @@ describe TriviaCrack::Parsers::GameParser do
       expect(game.my_statistics).to_not be_nil
       expect(game.opponent_statistics).to_not be_nil
     end
+
+    it "should parse the date correctly" do
+      game = TriviaCrack::Parsers::GameParser.parse game_data
+
+      expect(game.created.day).to eq(18)
+      expect(game.created.month).to eq(2)
+      expect(game.created.year).to eq(2015)
+      expect(game.created.hour).to eq(0)
+      expect(game.created.min).to eq(11)
+      expect(game.created.sec).to eq(33)
+    end
+
   end
 
 end
