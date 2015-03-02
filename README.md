@@ -2,12 +2,19 @@
 
 A Ruby interface for the Trivia Crack API.
 
+The Trivia Crack iOS app uses an undocumented API to store / retrieve
+information about the game state. This Ruby library wraps that API and presents
+it in a clean, documented way.
+
+*Disclaimer*: The Trivia Crack API is undocumented and subject to change at any
+time. Changes in the API _may_ break this library.
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'triviacrack'
+gem "triviacrack"
 ```
 
 And then execute:
@@ -28,24 +35,72 @@ require "triviacrack"
 client = TriviaCrack::API::Client.new
 ```
 
-Then, use the client to log in using your Trivia Crack email and password.
+### Logging In
+
+Use the client to log in using your Trivia Crack email and password.
 
 ```ruby
 client.login "user@example.com", "password123"
 ```
 
-Now, you can make requests to the Trivia Crack API.
+### User Information
+
+You can retrieve information about the currently logged in user.
 
 ```ruby
-# Get information about the currently logged in user
 user = client.get_user
 
-# Get the list of games available to the currently logged in user
-games = client.get_games
+puts "Hello, #{user.username}!"
+ # => Hello, david!
+```
 
-# Answer a question for on of those games
-game = games.first
+You can also retrieve the user ID of the user with a given username.
+
+```ruby
+user_id = client.get_user_id "david"
+
+puts "david's user id is #{user_id}"
+ # => david's user id is 1
+```
+
+### Game Information
+
+You can retrieve the list of games available to the currently logged in user.
+
+```ruby
+games = client.get_games
+```
+
+You can retrieve game information for a specific game (by id).
+
+```ruby
+game = client.get_game 1
+```
+
+You can also start a new game.
+
+```ruby
+game = client.start_new_game
+```
+
+The TriviaCrack::Game object holds information about the opponent, statistics,
+and current questions available to be answered.
+
+### Answering Questions
+
+It is possible to answer questions using the Trivia Crack API.
+
+```ruby
+game = client.get_game 1
+
 client.answer_question game.id, game.question.first, 0
+```
+
+The `answer_question` also returns an updated `TriviaCrack::Game` object, so you
+can avoid making additional API calls to keep the game object up to date.
+
+```ruby
+game = client.answer_question game.id, game.question.first, 0
 ```
 
 ## Contributing
