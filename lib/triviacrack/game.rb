@@ -4,10 +4,59 @@
 module TriviaCrack
   class Game
 
-    attr_reader :id, :opponent, :game_status, :language, :created, :last_turn,
-                :type, :expiration_date, :my_turn, :round_number, :is_random,
-                :unread_messages, :status_version, :available_crowns,
-                :questions, :my_statistics, :opponent_statistics
+    # Public: The unique identifier of the game.
+    attr_reader :id
+
+    # Public: The TriviaCrack::User information for the opponent.
+    attr_reader :opponent
+
+    # Public: The current status of the game (e.g. :active, :ended,
+    # :pending_approval).
+    attr_reader :game_status
+
+    # Public: The language used for the game (e.g. :en).
+    attr_reader :language
+
+    # Public: The datetime on which the game was created.
+    attr_reader :created
+
+    # Public: The datetime on which the last turn was taken.
+    attr_reader :last_turn
+
+    # Public: The type of the game (:normal, :duel)
+    attr_reader :type
+
+    # Public: The datetime on which the game will expire.
+    attr_reader :expiration_date
+
+    # Public: Boolean indicating whether it is the user's turn.
+    attr_reader :my_turn
+
+    # Public: The number of the current round.
+    attr_reader :round_number
+
+    # Public: Boolean indicating whether the game was created with a random
+    # opponent.
+    attr_reader :is_random
+
+    # Public: Number of unread messages.
+    attr_reader :unread_messages
+
+    # Public: The status version.
+    attr_reader :status_version
+
+    # Public: Array of available crowns that can be won by the user.
+    attr_reader :available_crowns
+
+    # Public: Array of questions that can be answered by the user. This array
+    # will be empty if the user is unable to play (i.e. not their turn).
+    attr_reader :questions
+
+    # Public: TriviaCrack::GameStatistics for the user.
+    attr_reader :my_statistics
+
+    # Public: TriviaCrack::GameStatistics for the opponent.
+    attr_reader :opponent_statistics
 
     def initialize(id:, opponent: nil, game_status: nil, language: nil,
                    created: nil, last_turn: nil, type: nil,
