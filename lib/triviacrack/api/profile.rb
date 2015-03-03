@@ -31,6 +31,25 @@ module TriviaCrack
         TriviaCrack::Parsers::ProfileParser.parse response.body
       end
 
+      # Public: Uses the Trivia Crack API to get the profile of current user.
+      #
+      # Examples
+      #
+      #   profile = client.get_my_profile
+      #
+      # Returns the TriviaCrack::Profile for the current user.
+      # Raises TriviaCrack::Errors::RequestError if the request fails.
+      def get_my_profile
+        response =
+          Unirest.get "#{API_HOST}/api/users/#{@user_id}/profiles/#{@user_id}"
+
+        if response.code != 200
+          raise TriviaCrack::Errors::RequestError.new(response.code)
+        end
+
+        TriviaCrack::Parsers::ProfileParser.parse response.body
+      end
+
     end
   end
 end

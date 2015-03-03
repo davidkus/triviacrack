@@ -26,6 +26,7 @@ module TriviaCrack
       # Returns a TriviaCrack::Profile.
       def self.parse(raw_data)
         stats = raw_data["statistics"]
+        versus = raw_data["versus"]
 
         categories = {}
         if stats["category_questions"]
@@ -54,8 +55,8 @@ module TriviaCrack
           challenges_won: stats["challenges"]["won"],
           challenges_lost: stats["challenges"]["lost"],
           categories: categories,
-          my_wins_vs_user: raw_data["versus"]["won"],
-          my_losses_vs_user: raw_data["versus"]["lost"]
+          my_wins_vs_user: versus ? versus["won"] : nil,
+          my_losses_vs_user: versus ? versus["lost"] : nil
         )
       end
 
