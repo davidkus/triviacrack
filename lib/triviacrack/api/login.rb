@@ -25,10 +25,10 @@ module TriviaCrack
       # Raises TriviaCrack::Errors::RequestError if the request fails.
       def login(email, password)
         response = Unirest.post "#{API_HOST}/api/login",
-        parameters: { email: email,
-          password: password,
-          language: "en"
-        }.to_json
+                                parameters: { email: email,
+                                  password: password,
+                                  language: "en"
+                                }.to_json
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)

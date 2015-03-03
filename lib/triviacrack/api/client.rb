@@ -1,4 +1,4 @@
-require 'unirest'
+require "unirest"
 
 require "triviacrack/api/game"
 require "triviacrack/api/login"
