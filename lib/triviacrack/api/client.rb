@@ -9,12 +9,8 @@ module TriviaCrack
   module API
     class Client
 
-      # Public: Sets the session for the API client to the given value.
-      #
-      # session  -  The TriviaCrack API session ID.
-      def set_session(session)
-        @session = session
-      end
+      # Public: The TriviaCrack API session ID.
+      attr_writer :session
 
       include TriviaCrack::API::Game
       include TriviaCrack::API::Login
