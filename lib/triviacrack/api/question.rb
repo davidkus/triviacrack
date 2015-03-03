@@ -28,10 +28,10 @@ module TriviaCrack
       def answer_question(game_id, question, answer)
         response = Unirest.post(
           "#{API_HOST}/api/users/#{@user_id}/games/#{game_id}/answers",
-          parameters: { type: question.type,
+          parameters: { type: question.type.upcase,
             answers: [{ id: question.id,
               answer: answer,
-              category: question.category
+              category: question.category.upcase
               }]
             }.to_json)
 
