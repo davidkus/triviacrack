@@ -1,6 +1,4 @@
-require "unirest"
-
-require "triviacrack/api/constants"
+require "triviacrack/api/common"
 require "triviacrack/errors/request_error"
 
 # Public: All methods in this module make requests to the Trivia Crack login
@@ -9,7 +7,7 @@ module TriviaCrack
   module API
     module Login
 
-      include TriviaCrack::API::Constants
+      include TriviaCrack::API::Common
 
       # Public: Uses the given email and password to log in to Trivia Crack
       # and retrieve a session id and user id.
@@ -24,11 +22,10 @@ module TriviaCrack
       # Returns the user_id and username of the user that has logged in.
       # Raises TriviaCrack::Errors::RequestError if the request fails.
       def login(email, password)
-        response = Unirest.post "#{API_HOST}/api/login",
-                                parameters: { email: email,
-                                  password: password,
-                                  language: "en"
-                                }.to_json
+        response = post "/api/login", parameters: { email: email,
+                                                    password: password,
+                                                    language: "en"
+                                                  }.to_json
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
@@ -39,8 +36,6 @@ module TriviaCrack
         @session = body["session"]["session"]
         @user_id = body["id"]
         @username = body["username"]
-
-        Unirest.default_header("Cookie", "ap_session=#{@session}")
 
         [body["id"], body["username"]]
       end

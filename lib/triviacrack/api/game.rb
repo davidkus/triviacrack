@@ -1,6 +1,4 @@
-require "unirest"
-
-require "triviacrack/api/constants"
+require "triviacrack/api/common"
 require "triviacrack/errors/request_error"
 require "triviacrack/parsers/game_parser"
 
@@ -10,7 +8,7 @@ module TriviaCrack
   module API
     module Game
 
-      include TriviaCrack::API::Constants
+      include TriviaCrack::API::Common
 
       # Public: Uses the Trivia Crack API to fetch the list of games for the
       # current user.
@@ -22,7 +20,7 @@ module TriviaCrack
       # Returns a list of TriviaCrack::Game.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get_games
-        response = Unirest.get "#{API_HOST}/api/users/#{@user_id}/dashboard"
+        response = get "/api/users/#{@user_id}/dashboard"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
@@ -53,8 +51,7 @@ module TriviaCrack
       # Returns the TriviaCrack::Game for the given game_id.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get_game(game_id)
-        response =
-          Unirest.get "#{API_HOST}/api/users/#{@user_id}/games/#{game_id}"
+        response = get "/api/users/#{@user_id}/games/#{game_id}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
@@ -73,8 +70,8 @@ module TriviaCrack
       # Returns the TriviaCrack::Game that was started.
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def start_new_game
-        response = Unirest.post "#{API_HOST}/api/users/#{@user_id}/games",
-                                parameters: { language: "EN" }.to_json
+        response = post "/api/users/#{@user_id}/games",
+                        parameters: { language: "EN" }.to_json
 
         if response.code != 201
           raise TriviaCrack::Errors::RequestError.new(response.code)

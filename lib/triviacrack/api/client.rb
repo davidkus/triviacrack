@@ -1,5 +1,3 @@
-require "unirest"
-
 require "triviacrack/api/game"
 require "triviacrack/api/login"
 require "triviacrack/api/profile"
@@ -11,10 +9,11 @@ module TriviaCrack
   module API
     class Client
 
-      # Public: Initialize a Trivia Crack API Client that can make requests to
-      # the Trivia Crack API.
-      def initialize
-        Unirest.default_header "Content-Type", "application/json; charset=utf-8"
+      # Public: Sets the session for the API client to the given value.
+      #
+      # session  -  The TriviaCrack API session ID.
+      def set_session(session)
+        @session = session
       end
 
       include TriviaCrack::API::Game

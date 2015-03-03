@@ -1,6 +1,4 @@
-require "unirest"
-
-require "triviacrack/api/constants"
+require "triviacrack/api/common"
 require "triviacrack/errors/request_error"
 require "triviacrack/parsers/game_parser"
 
@@ -10,7 +8,7 @@ module TriviaCrack
   module API
     module Question
 
-      include TriviaCrack::API::Constants
+      include TriviaCrack::API::Common
 
       # Public: Uses the Trivia Crack API to answer the given question.
       #
@@ -26,14 +24,14 @@ module TriviaCrack
       # correctly, and the updated TriviaCrack::Game object.
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def answer_question(game_id, question, answer)
-        response = Unirest.post(
-          "#{API_HOST}/api/users/#{@user_id}/games/#{game_id}/answers",
-          parameters: { type: question.type.upcase,
-            answers: [{ id: question.id,
-              answer: answer,
-              category: question.category.upcase
-              }]
-            }.to_json)
+        response = post "/api/users/#{@user_id}/games/#{game_id}/answers",
+                        parameters: { type: question.type.upcase,
+                                      answers: [{
+                                        id: question.id,
+                                        answer: answer,
+                                        category: question.category.upcase
+                                        }]
+                                    }.to_json
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)

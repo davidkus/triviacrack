@@ -1,6 +1,4 @@
-require "unirest"
-
-require "triviacrack/api/constants"
+require "triviacrack/api/common"
 require "triviacrack/errors/request_error"
 require "triviacrack/parsers/user_parser"
 
@@ -10,7 +8,7 @@ module TriviaCrack
   module API
     module User
 
-      include TriviaCrack::API::Constants
+      include TriviaCrack::API::Common
 
       # Public: Uses the Trivia Crack Search API to find the numeric user id of
       # the user identified by the given username.
@@ -29,7 +27,7 @@ module TriviaCrack
           username = username[1..-1]
         end
 
-        response = Unirest.get "#{API_HOST}/api/search?username=#{username}"
+        response = get "/api/search?username=#{username}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
@@ -53,7 +51,7 @@ module TriviaCrack
       # Returns a TriviaCrack::User representing the current user.
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def get_user
-        response = Unirest.get "#{API_HOST}/api/users/#{@user_id}"
+        response = get "/api/users/#{@user_id}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)

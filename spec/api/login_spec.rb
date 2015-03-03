@@ -18,17 +18,6 @@ describe TriviaCrack::API::Login do
       expect(username).to eq("example")
     end
 
-    it "should set the session id to the value returned by the request" do
-      response = double(code: 200, body: login_data)
-
-      allow(Unirest).to receive(:post) { response }
-
-      expect(Unirest).to receive(:default_header)
-                           .with("Cookie", "ap_session=session123")
-
-      client.login "user@example.com", "password123"
-    end
-
     it "should raise an exception when request fails" do
       response = double(code: error_code)
 

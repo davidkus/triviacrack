@@ -1,13 +1,11 @@
-require "unirest"
-
-require "triviacrack/api/constants"
+require "triviacrack/api/common"
 
 # Public: Interface to the Trivia Crack Profile API.
 module TriviaCrack
   module API
     module Profile
 
-      include TriviaCrack::API::Constants
+      include TriviaCrack::API::Common
 
       # Public: Uses the Trivia Crack API to get the profile of the user with
       # the given user id.
@@ -21,8 +19,7 @@ module TriviaCrack
       # Returns the TriviaCrack::Profile for the given user.
       # Raises TriviaCrack::Errors::RequestError if the request fails.
       def get_profile(user_id)
-        response =
-          Unirest.get "#{API_HOST}/api/users/#{@user_id}/profiles/#{user_id}"
+        response = get "/api/users/#{@user_id}/profiles/#{user_id}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
@@ -40,8 +37,7 @@ module TriviaCrack
       # Returns the TriviaCrack::Profile for the current user.
       # Raises TriviaCrack::Errors::RequestError if the request fails.
       def get_my_profile
-        response =
-          Unirest.get "#{API_HOST}/api/users/#{@user_id}/profiles/#{@user_id}"
+        response = get "/api/users/#{@user_id}/profiles/#{@user_id}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
