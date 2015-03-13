@@ -26,7 +26,8 @@ module TriviaCrack
           text: raw_data["text"],
           answers: raw_data["answers"],
           correct_answer: raw_data["correct_answer"],
-          media_type: raw_data["media_type"].downcase.to_sym
+          media_type: raw_data["media_type"].downcase.to_sym,
+          image_url: raw_data["base_url"]
         )
       end
 

@@ -24,8 +24,11 @@ module TriviaCrack
     # Public: The type of media used by the question (e.g. :normal, :image).
     attr_reader :media_type
 
+    # Public: The URL for the image.
+    attr_reader :image_url
+
     def initialize(id:, type: nil, category: nil, text: nil, answers: nil,
-                   correct_answer: nil, media_type: nil)
+                   correct_answer: nil, media_type: nil, image_url: nil)
       @id             = id
       @type           = type
       @category       = category
@@ -33,6 +36,7 @@ module TriviaCrack
       @answers        = answers
       @correct_answer = correct_answer
       @media_type     = media_type
+      @image_url      = image_url
     end
 
   end
