@@ -1,5 +1,7 @@
 # Triviacrack
 
+[![Build Status](https://travis-ci.org/davidkus/triviacrack.svg?branch=master)](https://travis-ci.org/davidkus/triviacrack)
+
 A Ruby interface for the Trivia Crack API.
 
 The Trivia Crack iOS app uses an undocumented API to store / retrieve
