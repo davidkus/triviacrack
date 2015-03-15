@@ -37,7 +37,7 @@ module TriviaCrack
         @user_id = body["id"]
         @username = body["username"]
 
-        [body["id"], body["username"]]
+        [@user_id, @username, @session]
       end
 
     end
