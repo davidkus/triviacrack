@@ -21,7 +21,9 @@ describe TriviaCrack::Parsers::GameParser do
       expect(game.round_number).to eq(4)
       expect(game.opponent.username).to eq("example.2")
       expect(game.my_statistics).to_not be_nil
+      expect(game.my_statistics.crowns.count).to eq(3)
       expect(game.opponent_statistics).to_not be_nil
+      expect(game.opponent_statistics.crowns.count).to eq(1)
     end
 
     it "should parse raw data from dashboard API" do
@@ -36,7 +38,9 @@ describe TriviaCrack::Parsers::GameParser do
       expect(game.round_number).to eq(4)
       expect(game.opponent.username).to eq("example.6")
       expect(game.my_statistics).to_not be_nil
+      expect(game.my_statistics.crowns.count).to eq(3)
       expect(game.opponent_statistics).to_not be_nil
+      expect(game.opponent_statistics.crowns.count).to eq(1)
     end
 
     it "should parse raw data from the answers API" do
@@ -50,7 +54,9 @@ describe TriviaCrack::Parsers::GameParser do
       expect(game.round_number).to eq(4)
       expect(game.opponent.username).to eq("example.2")
       expect(game.my_statistics).to_not be_nil
+      expect(game.my_statistics.crowns.count).to eq(3)
       expect(game.opponent_statistics).to_not be_nil
+      expect(game.opponent_statistics.crowns.count).to eq(1)
     end
 
     it "should parse raw data from the new game API" do
@@ -64,7 +70,9 @@ describe TriviaCrack::Parsers::GameParser do
       expect(game.round_number).to eq(1)
       expect(game.opponent.username).to eq("example.2")
       expect(game.my_statistics).to_not be_nil
+      expect(game.my_statistics.crowns.count).to eq(0)
       expect(game.opponent_statistics).to_not be_nil
+      expect(game.opponent_statistics.crowns.count).to eq(0)
     end
 
     it "should parse the date correctly" do

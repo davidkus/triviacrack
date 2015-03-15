@@ -48,7 +48,7 @@ module TriviaCrack
           opponent_player = "player_two"
         else
           my_player = "player_two"
-          opponent_player = "player_two"
+          opponent_player = "player_one"
         end
 
         opponent = TriviaCrack::Parsers::UserParser.parse raw_data["opponent"]
