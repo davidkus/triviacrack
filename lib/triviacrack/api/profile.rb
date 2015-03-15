@@ -19,7 +19,7 @@ module TriviaCrack
       # Returns the TriviaCrack::Profile for the given user.
       # Raises TriviaCrack::Errors::RequestError if the request fails.
       def get_profile(user_id)
-        response = get "/api/users/#{@user_id}/profiles/#{user_id}"
+        response = get "/api/users/#{@session.user_id}/profiles/#{user_id}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
@@ -37,7 +37,8 @@ module TriviaCrack
       # Returns the TriviaCrack::Profile for the current user.
       # Raises TriviaCrack::Errors::RequestError if the request fails.
       def get_my_profile
-        response = get "/api/users/#{@user_id}/profiles/#{@user_id}"
+        response =
+          get "/api/users/#{@session.user_id}/profiles/#{@session.user_id}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)

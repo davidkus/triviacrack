@@ -1,5 +1,6 @@
 require "triviacrack/api/common"
 require "triviacrack/errors/request_error"
+require "triviacrack/parsers/session_parser"
 
 # Public: All methods in this module make requests to the Trivia Crack login
 # API.
@@ -31,13 +32,7 @@ module TriviaCrack
           raise TriviaCrack::Errors::RequestError.new(response.code)
         end
 
-        body = response.body
-
-        @session = body["session"]["session"]
-        @user_id = body["id"]
-        @username = body["username"]
-
-        [@user_id, @username, @session]
+        @session = TriviaCrack::Parsers::SessionParser.parse response.body
       end
 
     end

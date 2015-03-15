@@ -24,14 +24,15 @@ module TriviaCrack
       # correctly, and the updated TriviaCrack::Game object.
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def answer_question(game_id, question, answer)
-        response = post "/api/users/#{@user_id}/games/#{game_id}/answers",
-                        parameters: { type: question.type.upcase,
-                                      answers: [{
-                                        id: question.id,
-                                        answer: answer,
-                                        category: question.category.upcase
-                                        }]
-                                    }.to_json
+        response =
+          post "/api/users/#{@session.user_id}/games/#{game_id}/answers",
+                parameters: { type: question.type.upcase,
+                              answers: [{
+                                id: question.id,
+                                answer: answer,
+                                category: question.category.upcase
+                                }]
+                            }.to_json
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)

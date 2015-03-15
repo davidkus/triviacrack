@@ -20,7 +20,7 @@ module TriviaCrack
       # Returns a list of TriviaCrack::Game.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get_games
-        response = get "/api/users/#{@user_id}/dashboard"
+        response = get "/api/users/#{@session.user_id}/dashboard"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
@@ -51,7 +51,7 @@ module TriviaCrack
       # Returns the TriviaCrack::Game for the given game_id.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get_game(game_id)
-        response = get "/api/users/#{@user_id}/games/#{game_id}"
+        response = get "/api/users/#{@session.user_id}/games/#{game_id}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)
@@ -70,7 +70,7 @@ module TriviaCrack
       # Returns the TriviaCrack::Game that was started.
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def start_new_game
-        response = post "/api/users/#{@user_id}/games",
+        response = post "/api/users/#{@session.user_id}/games",
                         parameters: { language: "EN" }.to_json
 
         if response.code != 201

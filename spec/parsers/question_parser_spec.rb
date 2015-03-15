@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe TriviaCrack::Parsers::QuestionParser do
 
-  describe ".from" do
+  describe ".parse" do
 
     let(:answer_data) { SpecData.get "answer.json" }
     let(:image_data) { SpecData.get "question_image.json" }

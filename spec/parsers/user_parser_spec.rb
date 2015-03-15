@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe TriviaCrack::Parsers::UserParser do
 
-  describe ".from" do
+  describe ".parse" do
 
     let(:user_data) { SpecData.get "user.json" }
     let(:user_id) { 111 }

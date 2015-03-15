@@ -2,7 +2,9 @@ require "spec_helper"
 
 describe TriviaCrack::API::Profile do
 
-  let(:client) { (Class.new { include TriviaCrack::API::Profile }).new }
+  let(:session) { TriviaCrack::Session.new session_id: "a", user_id: 1 }
+  let(:client) { (Class.new(APIStub) { include TriviaCrack::API::Profile }).new session }
+
   let(:profile_data) { SpecData.get "profile.json" }
   let(:my_profile_data) { SpecData.get "my_profile.json" }
   let(:error_code) { 400 }

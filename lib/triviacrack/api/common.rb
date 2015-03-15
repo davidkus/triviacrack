@@ -42,7 +42,7 @@ module TriviaCrack
         headers = { "Content-Type": "application/json; charset=utf-8" }
 
         if @session
-          headers["Cookie"] = "ap_session=#{@session}"
+          headers["Cookie"] = "ap_session=#{@session.session_id}"
         end
 
         headers

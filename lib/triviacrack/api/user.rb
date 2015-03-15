@@ -51,7 +51,7 @@ module TriviaCrack
       # Returns a TriviaCrack::User representing the current user.
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def get_user
-        response = get "/api/users/#{@user_id}"
+        response = get "/api/users/#{@session.user_id}"
 
         if response.code != 200
           raise TriviaCrack::Errors::RequestError.new(response.code)

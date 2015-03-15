@@ -9,14 +9,22 @@ module TriviaCrack
   module API
     class Client
 
-      # Public: The TriviaCrack API session ID.
-      attr_writer :session
-
       include TriviaCrack::API::Game
       include TriviaCrack::API::Login
       include TriviaCrack::API::User
       include TriviaCrack::API::Question
       include TriviaCrack::API::Profile
+
+      # Public: Creates a new TriviaCrack::Session object using the given
+      # session_id and user_id and assigns that session to this
+      # TriviaCrack::API::Client.
+      #
+      # session_id - The Trivia Crack session ID.
+      # user_id    - The Trivia Crack user ID.
+      def set_session(session_id, user_id)
+        @session = TriviaCrack::Session.new session_id: session_id,
+                                            user_id: user_id
+      end
 
     end
   end
