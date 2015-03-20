@@ -1,12 +1,11 @@
 require "triviacrack/session"
+require "triviacrack/parsers/time_parser"
 
 # Internal: This module is used to parse data returned from the Trivia Crack API
 # into a ruby object that represents a Trivia Crack session.
 module TriviaCrack
   module Parsers
     module SessionParser
-
-      include TriviaCrack::Parsers::Constants
 
       # Internal: Parses data returned from the Trivia Crack API to create a
       # TriviaCrack::Session object.
@@ -21,13 +20,14 @@ module TriviaCrack
       #
       # Returns a TriviaCrack::Session.
       def self.parse(raw_data)
+        expiration = TimeParser.parse raw_data["session"]["expirationTime"]
+
         TriviaCrack::Session.new(
           session_id: raw_data["session"]["session"],
           user_id: raw_data["id"],
           username: raw_data["username"],
           device_key: raw_data["session"]["deviceKey"],
-          expiration: Time.strptime(raw_data["session"]["expirationTime"],
-                                    TIME_FORMAT)
+          expiration: expiration
         )
       end
 

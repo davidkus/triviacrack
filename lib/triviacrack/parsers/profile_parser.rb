@@ -1,16 +1,12 @@
-require "time"
-
 require "triviacrack/profile"
 require "triviacrack/parsers/category_statistics_parser"
-require "triviacrack/parsers/constants"
+require "triviacrack/parsers/time_parser"
 
 # Internal: This module is used to parse data returned from the Trivia Crack API
 # into a ruby object that represents a Trivia Crack user profile.
 module TriviaCrack
   module Parsers
     module ProfileParser
-
-      include TriviaCrack::Parsers::Constants
 
       # Internal: Parses data returned from the Trivia Crack API to create a
       # TriviaCrack::Profile object.
@@ -36,6 +32,9 @@ module TriviaCrack
           end
         end
 
+        last_play = TimeParser.parse raw_data["last_play_date"]
+        last_login = TimeParser.parse raw_data["last_log"]
+
         TriviaCrack::Profile.new(
           id: raw_data["id"],
           facebook_name: raw_data["facebook_name"],
@@ -44,8 +43,8 @@ module TriviaCrack
           username: raw_data["username"],
           country: raw_data["country"].downcase.to_sym,
           email: raw_data["email"],
-          last_play: Time.strptime(raw_data["last_play_date"], TIME_FORMAT),
-          last_login: Time.strptime(raw_data["last_log"], TIME_FORMAT),
+          last_play: last_play,
+          last_login: last_login,
           games_won: stats["games_won"],
           games_lost: stats["games_lost"],
           games_resigned: stats["games_resigned"],

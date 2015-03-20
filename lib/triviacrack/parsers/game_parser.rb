@@ -1,9 +1,7 @@
-require "time"
-
 require "triviacrack/game"
-require "triviacrack/parsers/constants"
 require "triviacrack/parsers/game_statistics_parser"
 require "triviacrack/parsers/question_parser"
+require "triviacrack/parsers/time_parser"
 require "triviacrack/parsers/user_parser"
 
 # Internal: This module is used to parse data returned from the Trivia Crack API
@@ -11,8 +9,6 @@ require "triviacrack/parsers/user_parser"
 module TriviaCrack
   module Parsers
     module GameParser
-
-      include TriviaCrack::Parsers::Constants
 
       # Internal: Parses data returned from the Trivia Crack API to create a
       # TriviaCrack::Game object.
@@ -64,16 +60,19 @@ module TriviaCrack
         my_statistics = GameStatisticsParser.parse my_statistics_raw
         opponent_statistics = GameStatisticsParser.parse opponent_statistics_raw
 
+        created = TimeParser.parse raw_data["created"]
+        last_turn = TimeParser.parse raw_data["last_turn"]
+        expiration_date = TimeParser.parse raw_data["expiration_date"]
+
         TriviaCrack::Game.new(
           id: raw_data["id"],
           opponent: opponent,
           game_status: raw_data["game_status"].downcase.to_sym,
           language: raw_data["language"].downcase.to_sym,
-          created: Time.strptime(raw_data["created"], TIME_FORMAT),
-          last_turn: Time.strptime(raw_data["last_turn"], TIME_FORMAT),
+          created: created,
+          last_turn: last_turn,
           type: raw_data["type"].downcase.to_sym,
-          expiration_date: Time.strptime(raw_data["expiration_date"],
-                                         TIME_FORMAT),
+          expiration_date: expiration_date,
           my_turn: raw_data["my_turn"],
           round_number: raw_data["round_number"],
           is_random: raw_data["is_random"],
