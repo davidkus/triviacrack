@@ -1,6 +1,4 @@
-# Triviacrack
-
-[![Build Status](https://travis-ci.org/davidkus/triviacrack.svg?branch=master)](https://travis-ci.org/davidkus/triviacrack)
+# Triviacrack [![Build Status](https://travis-ci.org/davidkus/triviacrack.svg?branch=master)](https://travis-ci.org/davidkus/triviacrack) [![Code Climate](https://codeclimate.com/github/davidkus/triviacrack/badges/gpa.svg)](https://codeclimate.com/github/davidkus/triviacrack) [![Code Climate](https://codeclimate.com/github/davidkus/triviacrack/badges/gpa.svg)](https://codeclimate.com/github/davidkus/triviacrack)
 
 A Ruby interface for the Trivia Crack API.
 
