@@ -30,7 +30,8 @@ module TriviaCrack
         response = get "/api/search?username=#{username}"
 
         if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code)
+          raise TriviaCrack::Errors::RequestError.new(response.code),
+            "Request to the Trivia Crack API failed."
         end
 
         body = response.body
@@ -54,7 +55,8 @@ module TriviaCrack
         response = get "/api/users/#{@session.user_id}"
 
         if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code)
+          raise TriviaCrack::Errors::RequestError.new(response.code),
+            "Request to the Trivia Crack API failed."
         end
 
         TriviaCrack::Parsers::UserParser.parse response.body

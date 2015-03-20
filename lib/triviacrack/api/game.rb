@@ -23,7 +23,8 @@ module TriviaCrack
         response = get "/api/users/#{@session.user_id}/dashboard"
 
         if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code)
+          raise TriviaCrack::Errors::RequestError.new(response.code),
+            "Request to the Trivia Crack API failed."
         end
 
         games_data = response.body["list"]
@@ -54,7 +55,8 @@ module TriviaCrack
         response = get "/api/users/#{@session.user_id}/games/#{game_id}"
 
         if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code)
+          raise TriviaCrack::Errors::RequestError.new(response.code),
+            "Request to the Trivia Crack API failed."
         end
 
         TriviaCrack::Parsers::GameParser.parse response.body
@@ -74,7 +76,8 @@ module TriviaCrack
                         parameters: { language: "EN" }.to_json
 
         if response.code != 201
-          raise TriviaCrack::Errors::RequestError.new(response.code)
+          raise TriviaCrack::Errors::RequestError.new(response.code),
+            "Request to the Trivia Crack API failed."
         end
 
         TriviaCrack::Parsers::GameParser.parse response.body

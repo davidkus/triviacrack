@@ -29,7 +29,8 @@ module TriviaCrack
                                                   }.to_json
 
         if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code)
+          raise TriviaCrack::Errors::RequestError.new(response.code),
+            "Unable to log in to the Trivia Crack API."
         end
 
         @session = TriviaCrack::Parsers::SessionParser.parse response.body

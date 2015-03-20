@@ -35,7 +35,8 @@ module TriviaCrack
                             }.to_json
 
         if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code)
+          raise TriviaCrack::Errors::RequestError.new(response.code),
+            "Request to the Trivia Crack API failed."
         end
 
         game = TriviaCrack::Parsers::GameParser.parse response.body
