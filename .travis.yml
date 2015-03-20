@@ -3,6 +3,6 @@ script: bundle exec rake spec
 rvm:
 - 2.2.0
 addons:
-  code-climate:
-    repo-token:
+  code_climate:
+    repo_token:
       secure: Bji7sACeVb14eG2TEGNvDWrPFMtqX5kf5dKydYZWzKDkFRuV5Dx8776txinBXjHRoWGSobSwkgkGoSJ4oYfg63xKeJayvUv56TmxDPDpx4PqOmSAFNpJw717yM54D6gHYpHmKtPXyh+g3NYl2tTcsauPAD/B2ZcDWZFrDaBNu+E=
