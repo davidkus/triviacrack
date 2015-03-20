@@ -1,3 +1,4 @@
+require "codeclimate-test-reporter"
 require "json"
 require "rspec/its"
 
@@ -26,6 +27,8 @@ require_relative "../lib/triviacrack/parsers/profile_parser"
 require_relative "../lib/triviacrack/parsers/question_parser"
 require_relative "../lib/triviacrack/parsers/session_parser"
 require_relative "../lib/triviacrack/parsers/user_parser"
+
+CodeClimate::TestReporter.start
 
 class SpecData
 
