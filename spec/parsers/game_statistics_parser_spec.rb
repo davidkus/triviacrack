@@ -4,62 +4,53 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
 
   describe ".parse" do
 
-    let(:game_data) { SpecData.get "game.json" }
-    let(:dashboard_data) { SpecData.get "dashboard.json" }
-    let(:answer_data) { SpecData.get "answer.json" }
-    let(:new_game_data) { SpecData.get "new_game.json" }
+    subject { TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data }
 
-    it "should parse raw data from games API" do
-      statistics_data = game_data["statistics"]["player_one_statistics"]
-      statistics_data["crowns"] = game_data["player_one"]["crowns"]
-      game_statistics =
-        TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data
+    let(:statistics_data) { raw_data["statistics"]["player_one_statistics"] }
+    before { statistics_data["crowns"] = raw_data["player_one"]["crowns"] }
 
-      expect(game_statistics.correct_answers).to eq(12)
-      expect(game_statistics.incorrect_answers).to eq(3)
-      expect(game_statistics.challenges_won).to eq(0)
-      expect(game_statistics.questions_answered).to eq(15)
-      expect(game_statistics.crowns.length).to eq(3)
+    context 'when given data from the games API' do
+      let(:raw_data) { SpecData.get "game.json" }
+
+      it { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:correct_answers) { is_expected.to be 12 }
+      its(:incorrect_answers) { is_expected.to be 3 }
+      its(:challenges_won) { is_expected.to be 0 }
+      its(:questions_answered) { is_expected.to be 15 }
+      its(:crowns) { is_expected.to contain_exactly :history, :science, :geography }
     end
 
-    it "should parse raw data from the dashboard API" do
-      game = dashboard_data["list"][3]
-      statistics_data = game["statistics"]["player_one_statistics"]
-      statistics_data["crowns"] = game["player_one"]["crowns"]
-      game_statistics =
-        TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data
+    context 'when given data from the dashboard API' do
+      let(:raw_data) { SpecData.get("dashboard.json")["list"][3] }
 
-      expect(game_statistics.correct_answers).to eq(13)
-      expect(game_statistics.incorrect_answers).to eq(3)
-      expect(game_statistics.challenges_won).to eq(0)
-      expect(game_statistics.questions_answered).to eq(16)
-      expect(game_statistics.crowns.length).to eq(3)
+      it { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:correct_answers) { is_expected.to be 13 }
+      its(:incorrect_answers) { is_expected.to be 3 }
+      its(:challenges_won) { is_expected.to be 0 }
+      its(:questions_answered) { is_expected.to be 16 }
+      its(:crowns) { is_expected.to contain_exactly :history, :science, :geography }
     end
 
-    it "should parse raw data from the answer API" do
-      statistics_data = answer_data["statistics"]["player_one_statistics"]
-      statistics_data["crowns"] = answer_data["player_one"]["crowns"]
-      game_statistics =
-        TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data
+    context 'when given data from the answer API' do
+      let(:raw_data) { SpecData.get "answer.json" }
 
-      expect(game_statistics.correct_answers).to eq(13)
-      expect(game_statistics.incorrect_answers).to eq(3)
-      expect(game_statistics.challenges_won).to eq(0)
-      expect(game_statistics.questions_answered).to eq(16)
-      expect(game_statistics.crowns.length).to eq(3)
+      it { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:correct_answers) { is_expected.to be 13 }
+      its(:incorrect_answers) { is_expected.to be 3 }
+      its(:challenges_won) { is_expected.to be 0 }
+      its(:questions_answered) { is_expected.to be 16 }
+      its(:crowns) { is_expected.to contain_exactly :history, :science, :geography }
     end
 
-    it "should parse raw data from the new game API" do
-      statistics_data = new_game_data["statistics"]["player_one_statistics"]
-      statistics_data["crowns"] = new_game_data["player_one"]["crowns"]
-      game_statistics =
-        TriviaCrack::Parsers::GameStatisticsParser.parse statistics_data
+    context 'when given data from the new game API' do
+      let(:raw_data) { SpecData.get "new_game.json" }
 
-        expect(game_statistics.correct_answers).to eq(0)
-        expect(game_statistics.incorrect_answers).to eq(0)
-        expect(game_statistics.challenges_won).to eq(0)
-        expect(game_statistics.questions_answered).to eq(0)
-        expect(game_statistics.crowns.length).to eq(0)
+      it { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:correct_answers) { is_expected.to be 0 }
+      its(:incorrect_answers) { is_expected.to be 0 }
+      its(:challenges_won) { is_expected.to be 0 }
+      its(:questions_answered) { is_expected.to be 0 }
+      its(:crowns) { is_expected.to be_empty}
     end
   end
 end

@@ -2,51 +2,50 @@ require "spec_helper"
 
 describe TriviaCrack::API::Profile do
 
-  let(:session) { TriviaCrack::Session.new session_id: "a", user_id: 1 }
+  let(:session) { TriviaCrack::Session.new session_id: "session", user_id: 1 }
   let(:client) { (Class.new(APIStub) { include TriviaCrack::API::Profile }).new session }
 
-  let(:profile_data) { SpecData.get "profile.json" }
-  let(:my_profile_data) { SpecData.get "my_profile.json" }
-  let(:error_code) { 400 }
+  let(:response) { double(code: code, body: raw_data) }
+
+  before { allow(Unirest).to receive(:get) { response } }
 
   describe "#get_profile" do
-    it "should return a profile object" do
-      response = double(code: 200, body: profile_data)
 
-      allow(Unirest).to receive(:get) { response }
+    subject { client.get_profile 111 }
 
-      profile = client.get_profile 111
+    let(:raw_data) { SpecData.get "profile.json" }
 
-      expect(profile.username).to eq("example")
+    context 'given that the request is successful' do
+      let(:code) { 200 }
+
+      it { expect(TriviaCrack::Parsers::ProfileParser).to receive(:parse).once; subject }
+      it { is_expected.to be_a TriviaCrack::Profile }
     end
 
-    it "should raise an exception when request fails" do
-      response = double(code: error_code)
+    context 'given that the request fails' do
+      let(:code) { 400 }
 
-      allow(Unirest).to receive(:get) { response }
-
-      expect { client.get_profile 111 }.to raise_error
+      it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
     end
   end
 
   describe "#get_my_profile" do
-    it "should return a profile object" do
-      response = double(code: 200, body: my_profile_data)
 
-      allow(Unirest).to receive(:get) { response }
+    subject { client.get_my_profile }
 
-      profile = client.get_my_profile
+    let(:raw_data) { SpecData.get "my_profile.json" }
 
-      expect(profile.username).to eq("example2")
+    context 'given that the request is successful' do
+      let(:code) { 200 }
+
+      it { expect(TriviaCrack::Parsers::ProfileParser).to receive(:parse).once; subject }
+      it { is_expected.to be_a TriviaCrack::Profile }
     end
 
-    it "should raise an exception when request fails" do
-      response = double(code: error_code)
+    context 'given that the request fails' do
+      let(:code) { 400 }
 
-      allow(Unirest).to receive(:get) { response }
-
-      expect { client.get_my_profile }.to raise_error
+      it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
     end
   end
-
 end

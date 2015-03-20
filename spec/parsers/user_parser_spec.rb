@@ -4,20 +4,48 @@ describe TriviaCrack::Parsers::UserParser do
 
   describe ".parse" do
 
-    let(:user_data) { SpecData.get "user.json" }
-    let(:user_id) { 111 }
+    subject { TriviaCrack::Parsers::UserParser.parse raw_data }
 
-    it "should parse raw data correctly" do
-      user = TriviaCrack::Parsers::UserParser.parse user_data
+    context 'when given data from the user API' do
+      let(:raw_data) { SpecData.get "user.json" }
 
-      expect(user.coins).to eq(111)
-      expect(user.lives).to eq(3)
-      expect(user.unlimited_lives).to eq(false)
-      expect(user.country).to eq(:ca)
-      expect(user.level).to eq(31)
-      expect(user.level_progress).to eq(63)
-      expect(user.username).to eq("example")
+      it { is_expected.to be_a TriviaCrack::User }
+      its(:id) { is_expected.to be 111 }
+      its(:username) { is_expected.to eq "example" }
+      its(:facebook_id) { is_expected.to eq "1" }
+      its(:facebook_name) { is_expected.to eq "Example Name" }
+      its(:coins) { is_expected.to be 111 }
+      its(:lives) { is_expected.to be 3 }
+      its(:max_lives) { is_expected.to be 3 }
+      its(:unlimited_lives) { is_expected.to be false }
+      its(:country) { is_expected.to be :ca }
+      its(:extra_shots) { is_expected.to be 3 }
+      its(:level) { is_expected.to be 31 }
+      its(:level_points) { is_expected.to be 546 }
+      its(:level_progress) { is_expected.to be 63 }
+      its(:goal_points) { is_expected.to be 558 }
+      its(:level_up) { is_expected.to be false }
+    end
+
+    context 'when given opponent data from the game API' do
+      let(:raw_data) { SpecData.get("game.json")["opponent"] }
+
+      it { is_expected.to be_a TriviaCrack::User }
+      its(:id) { is_expected.to be 111 }
+      its(:username) { is_expected.to eq "example.2" }
+      its(:facebook_id) { is_expected.to eq "" }
+      its(:facebook_name) { is_expected.to be nil }
+      its(:coins) { is_expected.to be nil }
+      its(:lives) { is_expected.to be nil }
+      its(:max_lives) { is_expected.to be nil }
+      its(:unlimited_lives) { is_expected.to be nil }
+      its(:country) { is_expected.to be nil }
+      its(:extra_shots) { is_expected.to be nil }
+      its(:level) { is_expected.to be 116 }
+      its(:level_points) { is_expected.to be nil }
+      its(:level_progress) { is_expected.to be nil }
+      its(:goal_points) { is_expected.to be nil }
+      its(:level_up) { is_expected.to be nil }
     end
   end
-
 end

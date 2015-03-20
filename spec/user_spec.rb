@@ -2,24 +2,32 @@ require_relative "spec_helper"
 
 describe TriviaCrack::User do
 
+  let(:user_id) { 111 }
+  let(:user) { TriviaCrack::User.new id: user_id, lives: lives, unlimited_lives: unlimited_lives }
+
   describe "#start_new_game?" do
-    it "should return true if user has one or more lives" do
-      user = TriviaCrack::User.new id: 111, lives: 1, unlimited_lives: false
 
-      expect(user.start_new_game?).to be(true)
+    subject { user.start_new_game? }
+
+    context 'when the user has one or more live' do
+      let(:lives) { 1 }
+      let(:unlimited_lives) { false }
+
+      it { is_expected.to be true }
     end
 
-    it "should return true if user has unlimited lives" do
-      user = TriviaCrack::User.new id: 111, lives: 0, unlimited_lives: true
+    context 'when the user has unlimited lives' do
+      let(:lives) { 0 }
+      let(:unlimited_lives) { true }
 
-      expect(user.start_new_game?).to be(true)
+      it { is_expected.to be true }
     end
 
-    it "should return false if user has no more lives" do
-      user = TriviaCrack::User.new id: 111, lives: 0, unlimited_lives: false
+    context 'when the user has no more lives' do
+      let(:lives) { 0 }
+      let(:unlimited_lives) { false }
 
-      expect(user.start_new_game?).to be(false)
+      it { is_expected.to be false }
     end
   end
-
 end

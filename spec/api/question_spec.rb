@@ -2,45 +2,44 @@ require "spec_helper"
 
 describe TriviaCrack::API::Question do
 
-  let(:session) { TriviaCrack::Session.new session_id: "a", user_id: 1 }
+  let(:session) { TriviaCrack::Session.new session_id: "session", user_id: 1 }
   let(:client) { (Class.new(APIStub) { include TriviaCrack::API::Question }).new session }
 
-  let(:answer_data) { SpecData.get "answer.json" }
-  let(:error_code) { 400 }
+  let(:response) { double(code: code, body: raw_data) }
+
+  before { allow(Unirest).to receive(:post) { response } }
 
   describe "#answer_question" do
 
-    let(:question) { double(id: 1, correct_answer: 1, type: "NORMAL",
-                            category: "SPORTS") }
+    subject { client.answer_question game_id, question, answer }
+
+    let(:raw_data) { SpecData.get "answer.json" }
+    let(:question) { double(id: 1, correct_answer: 1, type: "NORMAL", category: "SPORTS") }
     let(:game_id) { 22 }
 
-    it "should return true when answered correctly" do
-      response = double(code: 200, body: answer_data)
+    context 'given that the question was answer correctly' do
+      let(:code) { 200 }
+      let(:answer) { 1 }
 
-      allow(Unirest).to receive(:post) { response }
-
-      game, result = client.answer_question game_id, question, 1
-
-      expect(result).to eq(true)
+      it { expect(TriviaCrack::Parsers::GameParser).to receive(:parse).once; subject }
+      it { expect(subject[0]).to be_a TriviaCrack::Game }
+      it { expect(subject[1]).to be true }
     end
 
-    it "should return false when answered incorrectly" do
-      response = double(code: 200, body: answer_data)
+    context 'given that the question was answer incorrectly' do
+      let(:code) { 200 }
+      let(:answer) { 0 }
 
-      allow(Unirest).to receive(:post) { response }
-
-      game, result = client.answer_question game_id, question, 0
-
-      expect(result).to eq(false)
+      it { expect(TriviaCrack::Parsers::GameParser).to receive(:parse).once; subject }
+      it { expect(subject[0]).to be_a TriviaCrack::Game }
+      it { expect(subject[1]).to be false }
     end
 
-    it "should raise an exception when request fails" do
-      response = double(code: error_code)
+    context 'given that the request fails' do
+      let(:code) { 400 }
+      let(:answer) { 1 }
 
-      allow(Unirest).to receive(:post) { response }
-
-      expect { client.answer_question game_id, question, 1 }.to raise_error
+      it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
     end
   end
-
 end

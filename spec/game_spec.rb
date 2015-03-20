@@ -2,35 +2,59 @@ require_relative "spec_helper"
 
 describe TriviaCrack::Game do
 
+  let(:game_id) { 1111 }
+  let(:game) { TriviaCrack::Game.new id: game_id, my_turn: my_turn, game_status: game_status }
+
   describe "#playable?" do
 
-    it "should return true when game is ACTIVE and it is user's turn" do
-      game = TriviaCrack::Game.new id: 1111, my_turn: true,
-                                   game_status: :active
+    subject { game.playable? }
 
-      expect(game.playable?).to eq(true)
+    context 'when the game status is active' do
+      let(:game_status) { :active }
+
+      context 'and it is the users turn' do
+        let(:my_turn) { true }
+
+        it { is_expected.to be true }
+      end
+
+      context 'and it is not the users turn' do
+        let(:my_turn) { false }
+
+        it { is_expected.to be false }
+      end
     end
 
-    it "should return true when game is PENDING_APPROVAL" do
-      game = TriviaCrack::Game.new id: 1111, my_turn: true,
-                                   game_status: :pending_approval
+    context 'when the game status is pending_approval' do
+      let(:game_status) { :pending_approval }
 
-      expect(game.playable?).to eq(true)
+      context 'and it is the users turn' do
+        let(:my_turn) { true }
+
+        it { is_expected.to be true }
+      end
+
+      context 'and it is not the users turn' do
+        let(:my_turn) { false }
+
+        it { is_expected.to be false }
+      end
     end
 
-    it "should return false when game is not ACTIVE" do
-      game = TriviaCrack::Game.new id: 1111, my_turn: true,
-                                   game_status: :ended
+    context 'when the game status is ended' do
+      let(:game_status) { :ended }
 
-      expect(game.playable?).to eq(false)
-    end
+      context 'and it is the users turn' do
+        let(:my_turn) { true }
 
-    it "should return false when it is not user's turn" do
-      game = TriviaCrack::Game.new id: 1111, my_turn: false,
-                                   game_status: :active
+        it { is_expected.to be false }
+      end
 
-      expect(game.playable?).to eq(false)
+      context 'and it is not the users turn' do
+        let(:my_turn) { false }
+
+        it { is_expected.to be false }
+      end
     end
   end
-
 end

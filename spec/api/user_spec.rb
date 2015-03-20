@@ -2,51 +2,49 @@ require "spec_helper"
 
 describe TriviaCrack::API::User do
 
-  let(:session) { TriviaCrack::Session.new session_id: "a", user_id: 1 }
+  let(:session) { TriviaCrack::Session.new session_id: "session", user_id: 1 }
   let(:client) { (Class.new(APIStub) { include TriviaCrack::API::User }).new session }
 
-  let(:search_data) { SpecData.get "search.json" }
-  let(:dashboard_data) { SpecData.get "dashboard.json" }
-  let(:error_code) { 400 }
+  let(:response) { double(code: code, body: raw_data) }
+
+  before { allow(Unirest).to receive(:get) { response } }
 
   describe "#get_user_id" do
-    it "should return the correct user id" do
-      response = double(code: 200, body: search_data)
 
-      allow(Unirest).to receive(:get) { response }
+    subject { client.get_user_id "example.2" }
 
-      user_id = client.get_user_id "@example.2"
+    let(:raw_data) { SpecData.get "search.json" }
 
-      expect(user_id).to eq(112)
+    context 'given that the request is successful' do
+      let(:code) { 200 }
+
+      it { is_expected.to be 112 }
     end
 
-    it "should raise an exception when request fails" do
-      response = double(code: error_code)
+    context 'given that the request fails' do
+      let(:code) { 400 }
 
-      allow(Unirest).to receive(:get) { response }
-
-      expect { client.get_user_id "@example" }.to raise_error
+      it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
     end
   end
 
   describe "#get_user" do
-    it "should return a correctly constructed user object" do
-      response = double(code: 200, body: dashboard_data)
 
-      allow(Unirest).to receive(:get) { response }
+    subject { client.get_user }
 
-      user = client.get_user
+    let(:raw_data) { SpecData.get "dashboard.json" }
 
-      expect(user).to_not be_nil
+    context 'given that the request is successful' do
+      let(:code) { 200 }
+
+      it { expect(TriviaCrack::Parsers::UserParser).to receive(:parse).once; subject }
+      it { is_expected.to be_a TriviaCrack::User }
     end
 
-    it "should raise an exception when request fails" do
-      response = double(code: error_code)
+    context 'given that the request fails' do
+      let(:code) { 400 }
 
-      allow(Unirest).to receive(:get) { response }
-
-      expect { client.get_user 112 }.to raise_error
+      it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
     end
   end
-
 end

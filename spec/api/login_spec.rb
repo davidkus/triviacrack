@@ -2,32 +2,33 @@ require "spec_helper"
 
 describe TriviaCrack::API::Login do
 
-  let(:session) { TriviaCrack::Session.new session_id: "a", user_id: 1 }
-  let(:client) { (Class.new(APIStub) { include TriviaCrack::API::Login }).new session }
+  let(:client) { (Class.new(APIStub) { include TriviaCrack::API::Login }).new }
 
-  let(:login_data) { SpecData.get "login.json" }
-  let(:error_code) { 400 }
+  let(:response) { double(code: code, body: raw_data) }
+
+  before { allow(Unirest).to receive(:post) { response } }
 
   describe "#login" do
-    it "should return correct user id and username when succesful" do
-      response = double(code: 200, body: login_data)
 
-      allow(Unirest).to receive(:post) { response }
+    subject { client.login email, password }
 
-      session = client.login "user@example.com", "password123"
+    let(:email) { "user@example.com" }
+    let(:password) { "password123" }
+    let(:raw_data) { SpecData.get "login.json" }
 
-      expect(session.user_id).to eq(111)
-      expect(session.username).to eq("example")
-      expect(session.session_id).to eq("session123")
+    context 'given that the request is successful' do
+      let(:code) { 200 }
+
+      it { expect(TriviaCrack::Parsers::SessionParser).to receive(:parse).once; subject }
+      its(:user_id) { is_expected.to be 111 }
+      its(:username) { is_expected.to eq "example" }
+      its(:session_id) { is_expected.to eq "session123" }
     end
 
-    it "should raise an exception when request fails" do
-      response = double(code: error_code)
+    context 'given that the request is fails' do
+      let(:code) { 400 }
 
-      allow(Unirest).to receive(:post) { response }
-
-      expect { client.login "user@example.com", "password123" }.to raise_error
+      it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
     end
   end
-
 end

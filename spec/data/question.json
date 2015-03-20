@@ -1,0 +1,14 @@
+{
+  "id":4227,
+  "category":"ENTERTAINMENT",
+  "text":"Who recorded this album?",
+  "answers":[
+    "Creedence Cleawater Revival",
+    "Bob Marley",
+    "blink-182",
+    "Jimmy Hendrix"
+  ],
+  "correct_answer":3,
+  "media_type":"NORMAL",
+  "type": "NORMAL"
+}

@@ -4,34 +4,31 @@ describe TriviaCrack::Parsers::QuestionParser do
 
   describe ".parse" do
 
-    let(:answer_data) { SpecData.get "answer.json" }
-    let(:image_data) { SpecData.get "question_image.json" }
+    subject { TriviaCrack::Parsers::QuestionParser.parse raw_data }
 
-    it "should parse raw data correctly" do
-      question_data = answer_data["spins_data"]["spins"][0]["questions"][0]["question"]
-      question_data["type"] = answer_data["spins_data"]["spins"][0]["type"]
+    context 'when given data without an image' do
+      let(:raw_data) { SpecData.get "question.json" }
 
-      question = TriviaCrack::Parsers::QuestionParser.parse question_data
-
-      expect(question.type).to eq(:normal)
-      expect(question.text).to eq("What country is the soccer team Real Madrid from?")
-      expect(question.category).to eq(:sports)
-      expect(question.correct_answer).to eq(0)
-      expect(question.answers.size).to eq(4)
-      expect(question.media_type).to eq(:normal)
+      it { is_expected.to be_a TriviaCrack::Question }
+      its(:type) { is_expected.to be :normal }
+      its(:media_type) { is_expected.to be :normal }
+      its(:text) { is_expected.to eq "Who recorded this album?" }
+      its(:correct_answer) { is_expected.to be 3 }
+      its(:category) { is_expected.to be :entertainment }
+      its(:answers) { is_expected.to contain_exactly "Creedence Cleawater Revival", "Bob Marley", "blink-182", "Jimmy Hendrix" }
     end
 
-    it "should parse correctly when the question has an image associated" do
-      question = TriviaCrack::Parsers::QuestionParser.parse image_data
+    context 'when given data with an image' do
+      let(:raw_data) { SpecData.get "question_image.json" }
 
-      expect(question.media_type).to eq(:image)
-      expect(question.text).to eq("Who recorded this album?")
-      expect(question.category).to eq(:entertainment)
-      expect(question.correct_answer).to eq(3)
-      expect(question.answers.size).to eq(4)
-      expect(question.image_url).to eq("http://qimg.preguntados.com/ENT_3028")
+      it { is_expected.to be_a TriviaCrack::Question }
+      its(:type) { is_expected.to be :normal }
+      its(:media_type) { is_expected.to be :image }
+      its(:text) { is_expected.to eq "Who recorded this album?" }
+      its(:correct_answer) { is_expected.to be 3 }
+      its(:category) { is_expected.to be :entertainment }
+      its(:image_url) { is_expected.to eq "http://qimg.preguntados.com/ENT_3028" }
+      its(:answers) { is_expected.to contain_exactly "Creedence Cleawater Revival", "Bob Marley", "blink-182", "Jimmy Hendrix" }
     end
-
   end
-
 end

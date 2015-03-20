@@ -4,88 +4,111 @@ describe TriviaCrack::Parsers::GameParser do
 
   describe ".parse" do
 
+    subject { TriviaCrack::Parsers::GameParser.parse raw_data }
+
     let(:game_data) { SpecData.get "game.json" }
     let(:dashboard_data) { SpecData.get "dashboard.json" }
     let(:answer_data) { SpecData.get "answer.json" }
     let(:new_game_data) { SpecData.get "new_game.json" }
 
-    it "should parse raw data from games API" do
-      game = TriviaCrack::Parsers::GameParser.parse game_data
+    context 'when given data from the games API' do
+      let(:raw_data) { SpecData.get "game.json" }
 
-      expect(game.id).to eq(1111)
-      expect(game.type).to eq(:normal)
-      expect(game.language).to eq(:en)
-      expect(game.my_turn).to eq(true)
-      expect(game.game_status).to eq(:active)
-      expect(game.questions.size).to eq(1)
-      expect(game.round_number).to eq(4)
-      expect(game.opponent.username).to eq("example.2")
-      expect(game.my_statistics).to_not be_nil
-      expect(game.my_statistics.crowns.count).to eq(3)
-      expect(game.opponent_statistics).to_not be_nil
-      expect(game.opponent_statistics.crowns.count).to eq(1)
+      it { is_expected.to be_a TriviaCrack::Game }
+      its(:id) { is_expected.to be 1111 }
+      its(:opponent) { is_expected.to be_a TriviaCrack::User }
+      its('opponent.id') { is_expected.to be 111 }
+      its(:game_status) { is_expected.to be :active }
+      its(:language) { is_expected.to be :en }
+      its(:created) { is_expected.to be_a Time }
+      its(:last_turn) { is_expected.to be_a Time }
+      its(:type) { is_expected.to be :normal }
+      its(:expiration_date) { is_expected.to be_a Time }
+      its(:my_turn) { is_expected.to be true }
+      its(:round_number) { is_expected.to be 4 }
+      its(:is_random) { is_expected.to be true }
+      its(:unread_messages) { is_expected.to be 0 }
+      its(:status_version) { is_expected.to be 23 }
+      its(:available_crowns) { is_expected.to contain_exactly(:entertainment, :arts, :sports) }
+      its('questions.first') { is_expected.to be_a TriviaCrack::Question }
+      its('questions.first.id') { is_expected.to be 16653413 }
+      its(:my_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:opponent_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
     end
 
-    it "should parse raw data from dashboard API" do
-      game = TriviaCrack::Parsers::GameParser.parse dashboard_data["list"][3]
+    context 'when given data from the dashboard API' do
+      let(:raw_data) { SpecData.get("dashboard.json")["list"][3] }
 
-      expect(game.id).to eq(1115)
-      expect(game.language).to eq(:en)
-      expect(game.my_turn).to eq(true)
-      expect(game.game_status).to eq(:active)
-      expect(game.questions.size).to eq(1)
-      expect(game.questions.first.id).to eq(15593975)
-      expect(game.round_number).to eq(4)
-      expect(game.opponent.username).to eq("example.6")
-      expect(game.my_statistics).to_not be_nil
-      expect(game.my_statistics.crowns.count).to eq(3)
-      expect(game.opponent_statistics).to_not be_nil
-      expect(game.opponent_statistics.crowns.count).to eq(1)
+      it { is_expected.to be_a TriviaCrack::Game }
+      its(:id) { is_expected.to be 1115 }
+      its(:opponent) { is_expected.to be_a TriviaCrack::User }
+      its('opponent.id') { is_expected.to be 114 }
+      its(:game_status) { is_expected.to be :active }
+      its(:language) { is_expected.to be :en }
+      its(:created) { is_expected.to be_a Time }
+      its(:last_turn) { is_expected.to be_a Time }
+      its(:type) { is_expected.to be :normal }
+      its(:expiration_date) { is_expected.to be_a Time }
+      its(:my_turn) { is_expected.to be true }
+      its(:round_number) { is_expected.to be 4 }
+      its(:is_random) { is_expected.to be true }
+      its(:unread_messages) { is_expected.to be 0 }
+      its(:status_version) { is_expected.to be 24 }
+      its(:available_crowns) { is_expected.to contain_exactly(:entertainment, :arts, :sports) }
+      its('questions.first') { is_expected.to be_a TriviaCrack::Question }
+      its('questions.first.id') { is_expected.to be 15593975 }
+      its(:my_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:opponent_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
     end
 
-    it "should parse raw data from the answers API" do
-      game = TriviaCrack::Parsers::GameParser.parse answer_data
+    context 'when given data from the answers API' do
+      let(:raw_data) { SpecData.get "answer.json" }
 
-      expect(game.id).to eq(1111)
-      expect(game.language).to eq(:en)
-      expect(game.my_turn).to eq(true)
-      expect(game.game_status).to eq(:active)
-      expect(game.questions.size).to eq(1)
-      expect(game.round_number).to eq(4)
-      expect(game.opponent.username).to eq("example.2")
-      expect(game.my_statistics).to_not be_nil
-      expect(game.my_statistics.crowns.count).to eq(3)
-      expect(game.opponent_statistics).to_not be_nil
-      expect(game.opponent_statistics.crowns.count).to eq(1)
+      it { is_expected.to be_a TriviaCrack::Game }
+      its(:id) { is_expected.to be 1111 }
+      its(:opponent) { is_expected.to be_a TriviaCrack::User }
+      its('opponent.id') { is_expected.to be 111 }
+      its(:game_status) { is_expected.to be :active }
+      its(:language) { is_expected.to be :en }
+      its(:created) { is_expected.to be_a Time }
+      its(:last_turn) { is_expected.to be_a Time }
+      its(:type) { is_expected.to be :normal }
+      its(:expiration_date) { is_expected.to be_a Time }
+      its(:my_turn) { is_expected.to be true }
+      its(:round_number) { is_expected.to be 4 }
+      its(:is_random) { is_expected.to be true }
+      its(:unread_messages) { is_expected.to be 0 }
+      its(:status_version) { is_expected.to be 24 }
+      its(:available_crowns) { is_expected.to contain_exactly(:entertainment, :arts, :sports) }
+      its('questions.first') { is_expected.to be_a TriviaCrack::Question }
+      its('questions.first.id') { is_expected.to be 15593975 }
+      its(:my_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:opponent_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
     end
 
-    it "should parse raw data from the new game API" do
-      game = TriviaCrack::Parsers::GameParser.parse new_game_data
+    context 'when given data from the new game API' do
+      let(:raw_data) { SpecData.get "new_game.json" }
 
-      expect(game.id).to eq(2222)
-      expect(game.language).to eq(:en)
-      expect(game.my_turn).to eq(true)
-      expect(game.game_status).to eq(:pending_approval)
-      expect(game.questions.size).to eq(6)
-      expect(game.round_number).to eq(1)
-      expect(game.opponent.username).to eq("example.2")
-      expect(game.my_statistics).to_not be_nil
-      expect(game.my_statistics.crowns.count).to eq(0)
-      expect(game.opponent_statistics).to_not be_nil
-      expect(game.opponent_statistics.crowns.count).to eq(0)
+      it { is_expected.to be_a TriviaCrack::Game }
+      its(:id) { is_expected.to be 2222 }
+      its(:opponent) { is_expected.to be_a TriviaCrack::User }
+      its('opponent.id') { is_expected.to be 0 }
+      its(:game_status) { is_expected.to be :pending_approval }
+      its(:language) { is_expected.to be :en }
+      its(:created) { is_expected.to be_a Time }
+      its(:last_turn) { is_expected.to be_a Time }
+      its(:type) { is_expected.to be :normal }
+      its(:expiration_date) { is_expected.to be_a Time }
+      its(:my_turn) { is_expected.to be true }
+      its(:round_number) { is_expected.to be 1 }
+      its(:is_random) { is_expected.to be true }
+      its(:unread_messages) { is_expected.to be 0 }
+      its(:status_version) { is_expected.to be 0 }
+      its(:available_crowns) { is_expected.to contain_exactly(:arts, :entertainment, :geography, :history, :science, :sports) }
+      its('questions.first') { is_expected.to be_a TriviaCrack::Question }
+      its('questions.first.id') { is_expected.to be 12785 }
+      its(:my_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:opponent_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
     end
-
-    it "should parse the date correctly" do
-      game = TriviaCrack::Parsers::GameParser.parse game_data
-
-      expect(game.created.day).to eq(18)
-      expect(game.created.month).to eq(2)
-      expect(game.created.year).to eq(2015)
-      expect(game.created.hour).to eq(0)
-      expect(game.created.min).to eq(11)
-      expect(game.created.sec).to eq(33)
-    end
-
   end
-
 end

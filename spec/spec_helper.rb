@@ -1,4 +1,5 @@
 require "json"
+require "rspec/its"
 
 require_relative "../lib/triviacrack/category_statistics"
 require_relative "../lib/triviacrack/game"
@@ -37,7 +38,7 @@ end
 
 class APIStub
 
-  def initialize(session)
+  def initialize(session = nil)
     @session = session
   end
 
