@@ -67,7 +67,7 @@ module TriviaCrack
       @country          = country
       @extra_shots      = extra_shots
       @level            = level
-      @level_points     = level_points,
+      @level_points     = level_points
       @level_progress   = level_progress
       @goal_points      = goal_points
       @level_up         = level_up
