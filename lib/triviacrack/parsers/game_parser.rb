@@ -39,40 +39,24 @@ module TriviaCrack
           crowns = []
         end
 
-        if raw_data["my_player_number"] == 1
-          my_player = "player_one"
-          opponent_player = "player_two"
-        else
-          my_player = "player_two"
-          opponent_player = "player_one"
-        end
+        me = raw_data["my_player_number"] == 1 ? "player_one" : "player_two"
+        them = raw_data["my_player_number"] == 1 ? "player_two" : "player_one"
 
-        opponent = TriviaCrack::Parsers::UserParser.parse raw_data["opponent"]
+        my_statistics = raw_data["statistics"]["#{me}_statistics"]
+        my_statistics["crowns"] = raw_data[me]["crowns"]
 
-        my_statistics_raw = raw_data["statistics"]["#{my_player}_statistics"]
-        my_statistics_raw["crowns"] = raw_data[my_player]["crowns"]
-
-        opponent_statistics_raw =
-          raw_data["statistics"]["#{opponent_player}_statistics"]
-
-        opponent_statistics_raw["crowns"] = raw_data[opponent_player]["crowns"]
-
-        my_statistics = GameStatisticsParser.parse my_statistics_raw
-        opponent_statistics = GameStatisticsParser.parse opponent_statistics_raw
-
-        created = TimeParser.parse raw_data["created"]
-        last_turn = TimeParser.parse raw_data["last_turn"]
-        expiration_date = TimeParser.parse raw_data["expiration_date"]
+        opponent_statistics = raw_data["statistics"]["#{them}_statistics"]
+        opponent_statistics["crowns"] = raw_data[them]["crowns"]
 
         TriviaCrack::Game.new(
           id: raw_data["id"],
-          opponent: opponent,
+          opponent: UserParser.parse(raw_data["opponent"]),
           game_status: raw_data["game_status"].downcase.to_sym,
           language: raw_data["language"].downcase.to_sym,
-          created: created,
-          last_turn: last_turn,
+          created: TimeParser.parse(raw_data["created"]),
+          last_turn: TimeParser.parse(raw_data["last_turn"]),
           type: raw_data["type"].downcase.to_sym,
-          expiration_date: expiration_date,
+          expiration_date: TimeParser.parse(raw_data["expiration_date"]),
           my_turn: raw_data["my_turn"],
           round_number: raw_data["round_number"],
           is_random: raw_data["is_random"],
@@ -80,8 +64,8 @@ module TriviaCrack
           status_version: raw_data["status_version"],
           available_crowns: crowns,
           questions: questions,
-          my_statistics: my_statistics,
-          opponent_statistics: opponent_statistics
+          my_statistics: GameStatisticsParser.parse(my_statistics),
+          opponent_statistics: GameStatisticsParser.parse(opponent_statistics)
         )
       end
 
