@@ -24,16 +24,7 @@ module TriviaCrack
         stats = raw_data["statistics"]
         versus = raw_data["versus"]
 
-        categories = {}
-        if stats["category_questions"]
-          stats["category_questions"].each do |category|
-            categories[category["category"].downcase.to_sym] =
-              TriviaCrack::Parsers::CategoryStatisticsParser.parse category
-          end
-        end
-
-        last_play = TimeParser.parse raw_data["last_play_date"]
-        last_login = TimeParser.parse raw_data["last_log"]
+        categories = CategoryStatisticsParser.parse stats["category_questions"]
 
         TriviaCrack::Profile.new(
           id: raw_data["id"],
@@ -43,8 +34,8 @@ module TriviaCrack
           username: raw_data["username"],
           country: raw_data["country"].downcase.to_sym,
           email: raw_data["email"],
-          last_play: last_play,
-          last_login: last_login,
+          last_play: TimeParser.parse(raw_data["last_play_date"]),
+          last_login: TimeParser.parse(raw_data["last_log"]),
           games_won: stats["games_won"],
           games_lost: stats["games_lost"],
           games_resigned: stats["games_resigned"],

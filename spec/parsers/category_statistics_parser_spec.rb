@@ -4,9 +4,9 @@ describe TriviaCrack::Parsers::CategoryStatisticsParser do
 
   describe ".parse" do
 
-    subject { TriviaCrack::Parsers::CategoryStatisticsParser.parse category_data }
+    subject { TriviaCrack::Parsers::CategoryStatisticsParser.parse(category_data).values.first }
 
-    let(:category_data) { raw_data["statistics"]["player_one_statistics"]["category_questions"].first }
+    let(:category_data) { raw_data["statistics"]["player_one_statistics"]["category_questions"] }
 
     context 'when given data from the games API' do
       let(:raw_data) { SpecData.get "game.json" }

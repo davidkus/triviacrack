@@ -20,14 +20,8 @@ module TriviaCrack
       #
       # Returns a TriviaCrack::GameStatistics.
       def self.parse(raw_data)
-        categories = {}
-
-        if raw_data["category_questions"]
-          raw_data["category_questions"].each do |category|
-            categories[category["category"].downcase.to_sym] =
-              TriviaCrack::Parsers::CategoryStatisticsParser.parse category
-          end
-        end
+        categories =
+          CategoryStatisticsParser.parse raw_data["category_questions"]
 
         if raw_data["crowns"]
           crowns = raw_data["crowns"].map { |c| c.downcase.to_sym }

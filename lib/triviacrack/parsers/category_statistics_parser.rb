@@ -7,8 +7,8 @@ module TriviaCrack
   module Parsers
     module CategoryStatisticsParser
 
-      # Internal: Parses data returned from the Trivia Crack API to create a
-      # TriviaCrack::CategoryStatistics object.
+      # Internal: Parses data returned from the Trivia Crack API to create
+      # TriviaCrack::CategoryStatistics objects.
       #
       # raw_data - A hash of the raw data returned by the Trivia Crack API.
       #
@@ -18,14 +18,26 @@ module TriviaCrack
       #   ...
       #   stats = TriviaCrack::Parsers::CategoryStatisticsParser.parse raw_data
       #
-      # Returns a TriviaCrack::CategoryStatistics.
+      # Returns a hash of TriviaCrack::CategoryStatistics objects, keyed by
+      # category.
       def self.parse(raw_data)
-        TriviaCrack::CategoryStatistics.new(
-          category: raw_data["category"].downcase.to_sym,
-          correct: raw_data["correct"],
-          incorrect: raw_data["incorrect"],
-          worst: raw_data["worst"]
-        )
+        categories = {}
+
+        if raw_data
+          raw_data.each do |category|
+            category_name = category["category"].downcase.to_sym
+
+            categories[category_name] =
+              TriviaCrack::CategoryStatistics.new(
+                category: category_name,
+                correct: category["correct"],
+                incorrect: category["incorrect"],
+                worst: category["worst"]
+              )
+          end
+        end
+
+        categories
       end
 
     end
