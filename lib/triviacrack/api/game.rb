@@ -1,5 +1,4 @@
 require "triviacrack/api/common"
-require "triviacrack/errors/request_error"
 require "triviacrack/parsers/game_parser"
 
 # Public: All methods in this module make requests to the Trivia Crack games
@@ -21,11 +20,6 @@ module TriviaCrack
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get_games
         response = get "/api/users/#{@session.user_id}/dashboard"
-
-        if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code),
-            "Request to the Trivia Crack API failed."
-        end
 
         games_data = response.body["list"]
 
@@ -54,11 +48,6 @@ module TriviaCrack
       def get_game(game_id)
         response = get "/api/users/#{@session.user_id}/games/#{game_id}"
 
-        if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code),
-            "Request to the Trivia Crack API failed."
-        end
-
         TriviaCrack::Parsers::GameParser.parse response.body
       end
 
@@ -74,11 +63,6 @@ module TriviaCrack
       def start_new_game
         response = post "/api/users/#{@session.user_id}/games",
                         parameters: { language: "EN" }.to_json
-
-        if response.code != 201
-          raise TriviaCrack::Errors::RequestError.new(response.code),
-            "Request to the Trivia Crack API failed."
-        end
 
         TriviaCrack::Parsers::GameParser.parse response.body
       end

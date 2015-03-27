@@ -1,5 +1,7 @@
 require "unirest"
 
+require "triviacrack/errors/request_error"
+
 # Internal: Common methods used for the Trivia Crack API.
 module TriviaCrack
   module API
@@ -12,9 +14,12 @@ module TriviaCrack
       # parameters - The parameters to send with the request.
       #
       # Returns a Unirest Response object with the server's response.
+      # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get(url, parameters: nil)
-        Unirest.get "#{API_HOST}#{url}", parameters: parameters,
-                                         headers: default_headers
+        response = Unirest.get "#{API_HOST}#{url}", parameters: parameters,
+                                                    headers: default_headers
+
+        check_response response
       end
 
       # Internal: Makes a POST request to the Trivia Crack API using the set of
@@ -24,9 +29,12 @@ module TriviaCrack
       # parameters - The parameters to send with the request.
       #
       # Returns a Unirest Response object with the server's response.
+      # Raises TriviaCrack:Errors::RequestError if the request fails.
       def post(url, parameters: nil)
-        Unirest.post "#{API_HOST}#{url}", parameters: parameters,
-                                          headers: default_headers
+        response = Unirest.post "#{API_HOST}#{url}", parameters: parameters,
+                                                     headers: default_headers
+
+        check_response response
       end
 
       private
@@ -48,6 +56,21 @@ module TriviaCrack
         headers
       end
 
+      # Internal: Checks the response's code to see if the request was
+      # successful
+      #
+      # response - Unirest response returned by the API.
+      #
+      # Returns the response object.
+      # Raises TriviaCrack:Errors::RequestError if the request failed.
+      def check_response(response)
+        if not response.code.between? 200, 299
+          raise TriviaCrack::Errors::RequestError.new(response.code),
+            "Request to the Trivia Crack API failed."
+        end
+
+        response
+      end
     end
   end
 end

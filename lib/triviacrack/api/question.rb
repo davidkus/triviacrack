@@ -1,5 +1,4 @@
 require "triviacrack/api/common"
-require "triviacrack/errors/request_error"
 require "triviacrack/parsers/game_parser"
 
 # Public: All methods in this module make requests to the Trivia Crack answers
@@ -33,11 +32,6 @@ module TriviaCrack
                                 category: question.category.upcase
                                 }]
                             }.to_json
-
-        if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code),
-            "Request to the Trivia Crack API failed."
-        end
 
         game = TriviaCrack::Parsers::GameParser.parse response.body
 

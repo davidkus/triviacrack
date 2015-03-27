@@ -1,5 +1,4 @@
 require "triviacrack/api/common"
-require "triviacrack/errors/request_error"
 require "triviacrack/parsers/session_parser"
 
 # Public: All methods in this module make requests to the Trivia Crack login
@@ -27,11 +26,6 @@ module TriviaCrack
                                                     password: password,
                                                     language: "en"
                                                   }.to_json
-
-        if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code),
-            "Unable to log in to the Trivia Crack API."
-        end
 
         @session = TriviaCrack::Parsers::SessionParser.parse response.body
       end

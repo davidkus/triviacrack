@@ -1,5 +1,4 @@
 require "triviacrack/api/common"
-require "triviacrack/errors/request_error"
 require "triviacrack/parsers/user_parser"
 
 # Public: All methods in this module make requests to the Trivia Crack users
@@ -29,11 +28,6 @@ module TriviaCrack
 
         response = get "/api/search?username=#{username}"
 
-        if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code),
-            "Request to the Trivia Crack API failed."
-        end
-
         body = response.body
 
         user_id = false
@@ -53,11 +47,6 @@ module TriviaCrack
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def get_user
         response = get "/api/users/#{@session.user_id}"
-
-        if response.code != 200
-          raise TriviaCrack::Errors::RequestError.new(response.code),
-            "Request to the Trivia Crack API failed."
-        end
 
         TriviaCrack::Parsers::UserParser.parse response.body
       end
