@@ -1,8 +1,19 @@
 language: ruby
-script: bundle exec rake spec
+
 rvm:
-- 2.2.1
-addons:
-  code_climate:
-    repo_token:
-      secure: Bji7sACeVb14eG2TEGNvDWrPFMtqX5kf5dKydYZWzKDkFRuV5Dx8776txinBXjHRoWGSobSwkgkGoSJ4oYfg63xKeJayvUv56TmxDPDpx4PqOmSAFNpJw717yM54D6gHYpHmKtPXyh+g3NYl2tTcsauPAD/B2ZcDWZFrDaBNu+E=
+- 2.4.1
+
+env:
+  global:
+  - secure: FBRKEwZitjHKzgrugvvp8RbI6CJvAhChsHiI5NfbD9SIjogfmw38Qj503PvPw1h5hrYtrgeLmgFrve/ridbDDLxhN3voGyZ5ugsPmb5vITRtAi2WTI0b8ylrvKOuf/TsyPoENZ7LzLCbblJpJtREgU8UGosEe3BhZ/h6sy/T07Q=
+
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
+
+script:
+- bundle exec rspec
+
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
