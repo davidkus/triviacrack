@@ -8,7 +8,7 @@ env:
   - secure: FBRKEwZitjHKzgrugvvp8RbI6CJvAhChsHiI5NfbD9SIjogfmw38Qj503PvPw1h5hrYtrgeLmgFrve/ridbDDLxhN3voGyZ5ugsPmb5vITRtAi2WTI0b8ylrvKOuf/TsyPoENZ7LzLCbblJpJtREgU8UGosEe3BhZ/h6sy/T07Q=
 
 before_script:
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 ./cc-test-reporter
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
 
