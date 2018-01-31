@@ -14,16 +14,12 @@ time. Changes in the API _may_ break this library.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "triviacrack"
+gem "triviacrack", github: "davidkus/triviacrack"
 ```
 
 And then execute:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install triviacrack
+    $ bundle install
 
 ## Usage
 
