@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["david@kus.dk"]
   spec.summary       = %q{A Ruby interface to the Trivia Crack API.}
   spec.description   = %q{A Ruby interface to the Trivia Crack API.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/davidkus/triviacrack"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
