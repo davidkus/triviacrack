@@ -1,4 +1,4 @@
-Copyright (c) 2015 David Kus
+Copyright (c) 2015-2020 David Kus
 
 MIT License
 
