@@ -1,4 +1,4 @@
-# Triviacrack ![CI](https://github.com/davidkus/triviacrack/workflows/CI/badge.svg) [![Code Climate](https://codeclimate.com/github/davidkus/triviacrack/badges/gpa.svg)](https://codeclimate.com/github/davidkus/triviacrack) [![Test Coverage](https://codeclimate.com/github/davidkus/triviacrack/badges/coverage.svg)](https://codeclimate.com/github/davidkus/triviacrack)
+# Triviacrack [![Gem Version](https://badge.fury.io/rb/triviacrack.svg)](https://badge.fury.io/rb/triviacrack) ![CI](https://github.com/davidkus/triviacrack/workflows/CI/badge.svg) [![Code Climate](https://codeclimate.com/github/davidkus/triviacrack/badges/gpa.svg)](https://codeclimate.com/github/davidkus/triviacrack) [![Test Coverage](https://codeclimate.com/github/davidkus/triviacrack/badges/coverage.svg)](https://codeclimate.com/github/davidkus/triviacrack)
 
 A Ruby interface for the Trivia Crack API.
 

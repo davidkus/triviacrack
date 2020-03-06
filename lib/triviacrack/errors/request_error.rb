@@ -21,6 +21,7 @@ module TriviaCrack
       def initialize(code, url, body)
         @code = code
         @url = url
+        @body = body
       end
     end
   end
