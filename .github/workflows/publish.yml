@@ -1,4 +1,4 @@
-name: CI
+name: Publish
 
 on:
   push:
@@ -29,7 +29,6 @@ jobs:
           coverageCommand: bundle exec rspec
 
       - name: Publish to RubyGems
-        if: github.ref == 'master'
         run: |
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
