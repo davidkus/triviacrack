@@ -10,8 +10,9 @@ describe TriviaCrack::API::User do
   before { allow(Unirest).to receive(:get) { response } }
 
   describe "#get_user_id" do
+    let(:username) { "example.2" }
 
-    subject { client.get_user_id "example.2" }
+    subject { client.get_user_id username }
 
     let(:raw_data) { SpecData.get "search.json" }
 
@@ -25,6 +26,10 @@ describe TriviaCrack::API::User do
       let(:code) { 400 }
 
       it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(code: code)) }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(url: "/api/search?username=#{username}")) }
     end
   end
 
@@ -45,6 +50,10 @@ describe TriviaCrack::API::User do
       let(:code) { 400 }
 
       it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(code: code)) }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(url: "/api/users/#{session.user_id}")) }
     end
   end
 end

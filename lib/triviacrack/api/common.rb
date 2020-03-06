@@ -19,7 +19,7 @@ module TriviaCrack
         response = Unirest.get "#{API_HOST}#{url}", parameters: parameters,
                                                     headers: default_headers
 
-        check_response response
+        check_response url, response
       end
 
       # Internal: Makes a POST request to the Trivia Crack API using the set of
@@ -34,7 +34,7 @@ module TriviaCrack
         response = Unirest.post "#{API_HOST}#{url}", parameters: parameters,
                                                      headers: default_headers
 
-        check_response response
+        check_response url, response
       end
 
       private
@@ -63,10 +63,10 @@ module TriviaCrack
       #
       # Returns the response object.
       # Raises TriviaCrack:Errors::RequestError if the request failed.
-      def check_response(response)
+      def check_response(url, response)
         if not response.code.between? 200, 299
-          raise TriviaCrack::Errors::RequestError.new(response.code),
-            "Request to the Trivia Crack API failed."
+          raise TriviaCrack::Errors::RequestError.new(response.code, url, response.body),
+            "Request to #{API_HOST}#{url} failed with code #{response.code}."
         end
 
         response

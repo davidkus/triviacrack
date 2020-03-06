@@ -25,10 +25,14 @@ describe TriviaCrack::API::Login do
       its(:session_id) { is_expected.to eq "session123" }
     end
 
-    context 'given that the request is fails' do
+    context 'given that the request fails' do
       let(:code) { 400 }
 
       it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(code: code)) }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(url: '/api/login')) }
     end
   end
 end

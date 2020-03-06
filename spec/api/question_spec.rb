@@ -40,6 +40,10 @@ describe TriviaCrack::API::Question do
       let(:answer) { 1 }
 
       it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(code: code)) }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(url: "/api/users/#{session.user_id}/games/#{game_id}/answers")) }
     end
   end
 end

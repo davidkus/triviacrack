@@ -27,12 +27,17 @@ describe TriviaCrack::API::Game do
       let(:code) { 400 }
 
       it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(code: 400)) }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(url: "/api/users/#{session.user_id}/dashboard")) }
     end
   end
 
   describe "#get_game" do
+    let(:game_id) { 123 }
 
-    subject { client.get_game 123 }
+    subject { client.get_game game_id }
 
     let(:raw_data) { SpecData.get "game.json" }
 
@@ -47,6 +52,10 @@ describe TriviaCrack::API::Game do
       let(:code) { 400 }
 
       it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(code: code)) }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(url: "/api/users/#{session.user_id}/games/#{game_id}")) }
     end
   end
 
@@ -67,6 +76,10 @@ describe TriviaCrack::API::Game do
       let(:code) { 400 }
 
       it { expect{ subject }.to raise_error TriviaCrack::Errors::RequestError }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(code: code)) }
+      it { expect{ subject }.to raise_error(an_instance_of(TriviaCrack::Errors::RequestError)
+        .and having_attributes(url: "/api/users/#{session.user_id}/games")) }
     end
   end
 end
