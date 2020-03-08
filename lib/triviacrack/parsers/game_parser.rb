@@ -31,6 +31,12 @@ module TriviaCrack
             question = TriviaCrack::Parsers::QuestionParser.parse q_data
             questions << question
           end
+          if raw_data["spins_data"]["spins"][0]["type"] == "DUEL"
+            q_data = raw_data["spins_data"]["spins"][0]["tie_break_question"]
+            q_data["type"] = raw_data["spins_data"]["spins"][0]["type"]
+            question = TriviaCrack::Parsers::QuestionParser.parse q_data
+            questions << question
+          end
         end
 
         if raw_data["available_crowns"]

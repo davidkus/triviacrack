@@ -110,5 +110,31 @@ describe TriviaCrack::Parsers::GameParser do
       its(:my_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
       its(:opponent_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
     end
+
+    context 'when given data from the games API and the game is a duel' do
+      let(:raw_data) { SpecData.get "game_duel.json" }
+
+      it { is_expected.to be_a TriviaCrack::Game }
+      its(:id) { is_expected.to be 1119 }
+      its(:opponent) { is_expected.to be_a TriviaCrack::User }
+      its('opponent.id') { is_expected.to be 321 }
+      its(:game_status) { is_expected.to be :active }
+      its(:language) { is_expected.to be :en }
+      its(:created) { is_expected.to be_a Time }
+      its(:last_turn) { is_expected.to be_a Time }
+      its(:type) { is_expected.to be :normal }
+      its(:expiration_date) { is_expected.to be_a Time }
+      its(:my_turn) { is_expected.to be true }
+      its(:round_number) { is_expected.to be 2 }
+      its(:is_random) { is_expected.to be true }
+      its(:unread_messages) { is_expected.to be 0 }
+      its(:status_version) { is_expected.to be 13 }
+      its(:available_crowns) { is_expected.to contain_exactly(:entertainment, :science, :history, :sports) }
+      its('questions.size') { is_expected.to eq(7) }
+      its('questions.first') { is_expected.to be_a TriviaCrack::Question }
+      its('questions.first.id') { is_expected.to be 17881223 }
+      its(:my_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
+      its(:opponent_statistics) { is_expected.to be_a TriviaCrack::GameStatistics }
+    end
   end
 end

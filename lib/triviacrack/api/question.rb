@@ -11,7 +11,7 @@ module TriviaCrack
 
       # Public: Uses the Trivia Crack API to answer the given question.
       #
-      # game      - The ID of the TriviaCrack::Game.
+      # game_id   - The ID of the TriviaCrack::Game.
       # question  - The TriviaCrack::Question.
       # answer    - The index of the answer to be submitted.
       #
@@ -36,6 +36,47 @@ module TriviaCrack
         game = TriviaCrack::Parsers::GameParser.parse response.body
 
         [game, answer == question.correct_answer]
+      end
+
+      # Public: Uses the Trivia Crack API to answer duel questions for the game.
+      #
+      # game_id    - The ID of the TriviaCrack::Game.
+      # questions  - The array of TriviaCrack::Question to answer
+      # answer_map - Hash of question ID / answer indices.
+      #
+      # Examples
+      #
+      #   answers = {}
+      #   for question in game.questions do
+      #     answers[question.id] = <some answer index> // 0, 1, 2 or 3
+      #   end
+      #   answer_questions game.id, game.questions, answers
+      #
+      # Returns the update TriviaCrack::Game object, as well as a map
+      # with an entry for each question ID and a boolean indicating if
+      # the question was answered successfully.
+      # Raises TriviaCrack::Errors::RequestError if the request fails
+      def answer_questions(game_id, questions, answer_map)
+        answers = []
+        correct_answers = {}
+
+        for question in questions do
+          answer = {
+            id: question.id,
+            answer: answer_map[question.id],
+            category: question.category.upcase
+          }
+          answers << answer
+          correct_answers[question.id] = answer_map[question.id] == question.correct_answer
+        end
+
+        response =
+          post "/api/users/#{@session.user_id}/games/#{game_id}/answers",
+                parameters: { type: questions.first.type.upcase, answers: answers }.to_json
+
+        game = TriviaCrack::Parsers::GameParser.parse response.body
+
+        [game, correct_answers]
       end
 
     end

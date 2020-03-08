@@ -1,0 +1,336 @@
+{
+    "id": 1119,
+    "safeOpponentSelectionType": "RANDOM",
+    "spins_data": {
+        "spins": [
+            {
+                "type": "DUEL",
+                "second_chance_available": false,
+                "questions": [
+                    {
+                        "question": {
+                            "id": 17881223,
+                            "category": "HISTORY",
+                            "text": "The Suffrage movement pertained to what?",
+                            "answers": [
+                                "Prohibition",
+                                "Racial Equality",
+                                "Women's Rights",
+                                "Right To Unionize"
+                            ],
+                            "correct_answer": 2,
+                            "media_type": "NORMAL",
+                            "author": {
+                                "id": 82565321,
+                                "name": "anniesparkles",
+                                "username": "anniesparkles",
+                                "fb_show_picture": false,
+                                "fb_show_name": false,
+                                "gender": "UNSPECIFIED"
+                            }
+                        }
+                    },
+                    {
+                        "question": {
+                            "id": 53333638,
+                            "category": "GEOGRAPHY",
+                            "text": "Where is Slovakia?",
+                            "answers": [
+                                "Oceania",
+                                "Africa",
+                                "Europe",
+                                "Asia"
+                            ],
+                            "correct_answer": 2,
+                            "media_type": "NORMAL",
+                            "author": {
+                                "id": 204000197,
+                                "name": "martingres",
+                                "username": "martingres",
+                                "fb_show_picture": false,
+                                "fb_show_name": false,
+                                "gender": "UNSPECIFIED"
+                            }
+                        }
+                    },
+                    {
+                        "question": {
+                            "id": 62181053,
+                            "category": "ARTS",
+                            "text": "Who has painted the Sistine Chapel?",
+                            "answers": [
+                                "Michelangelo",
+                                "Van Gogh",
+                                "Picasso",
+                                "Mezzosin"
+                            ],
+                            "correct_answer": 0,
+                            "media_type": "NORMAL",
+                            "author": {
+                                "id": 223909199,
+                                "facebook_id": "843171349124950",
+                                "name": "Kristina Marie Poulsen",
+                                "username": "kp89facebook",
+                                "facebook_name": "Kristina Marie Poulsen",
+                                "fb_show_picture": true,
+                                "fb_show_name": true,
+                                "gender": "female"
+                            },
+                            "translator": {
+                                "id": 252287897,
+                                "name": "ragingraids",
+                                "username": "ragingraids",
+                                "fb_show_picture": false,
+                                "fb_show_name": false,
+                                "gender": "UNSPECIFIED"
+                            }
+                        }
+                    },
+                    {
+                        "question": {
+                            "id": 51360542,
+                            "category": "SPORTS",
+                            "text": "What two Allstars have the number of 23?",
+                            "answers": [
+                                "Steph Curry And Blake Griffen",
+                                "Lebron James And Michael Jordan",
+                                "Chris Paul And Jr Smith",
+                                "Clay Thompson And Kevin Love"
+                            ],
+                            "correct_answer": 1,
+                            "media_type": "NORMAL",
+                            "author": {
+                                "id": 200488852,
+                                "name": "mitchelldonegan06",
+                                "username": "mitchelldonegan06",
+                                "fb_show_picture": false,
+                                "fb_show_name": false,
+                                "gender": "UNSPECIFIED"
+                            }
+                        }
+                    },
+                    {
+                        "question": {
+                            "id": 11817577,
+                            "category": "ENTERTAINMENT",
+                            "text": "Which pop star calls her fans \"Monsters\"?",
+                            "answers": [
+                                "Madonna",
+                                "Lady Gaga",
+                                "Britney Spears",
+                                "Christina Aguilera"
+                            ],
+                            "correct_answer": 1,
+                            "media_type": "NORMAL",
+                            "author": {
+                                "id": 51771646,
+                                "facebook_id": "",
+                                "name": "linda.tsacalides",
+                                "username": "linda.tsacalides",
+                                "facebook_name": "UNSPECIFIED",
+                                "fb_show_picture": false,
+                                "fb_show_name": false,
+                                "gender": "female"
+                            }
+                        }
+                    },
+                    {
+                        "question": {
+                            "id": 54733278,
+                            "category": "SCIENCE",
+                            "text": "Which is NOT a blood type?",
+                            "answers": [
+                                "Ab",
+                                "Oa",
+                                "O",
+                                "B"
+                            ],
+                            "correct_answer": 1,
+                            "media_type": "NORMAL",
+                            "author": {
+                                "id": 114837290,
+                                "name": "rocat26",
+                                "username": "rocat26",
+                                "fb_show_picture": false,
+                                "fb_show_name": false,
+                                "gender": "female"
+                            }
+                        }
+                    }
+                ],
+                "tie_break_question": {
+                    "id": 51774,
+                    "category": "HISTORY",
+                    "text": "Which historical figure is famous for being short?",
+                    "answers": [
+                        "Napoleon",
+                        "Stalin",
+                        "Bismark",
+                        "Julius Caesar"
+                    ],
+                    "correct_answer": 0,
+                    "media_type": "NORMAL",
+                    "author": {
+                        "id": 23831917,
+                        "facebook_id": "100006890463075",
+                        "name": "Igor Gardella Trifunovic",
+                        "username": "kider.jo",
+                        "facebook_name": "Igor Gardella Trifunovic",
+                        "fb_show_picture": true,
+                        "fb_show_name": true,
+                        "gender": "UNSPECIFIED"
+                    },
+                    "translator": {
+                        "id": 100940141,
+                        "facebook_id": "100002352524111",
+                        "name": "Abigail Morgan",
+                        "username": "almangel21",
+                        "facebook_name": "Abigail Morgan",
+                        "fb_show_picture": true,
+                        "fb_show_name": true,
+                        "gender": "female"
+                    }
+                }
+            }
+        ]
+    },
+    "available_crowns": [
+        "SCIENCE",
+        "HISTORY",
+        "ENTERTAINMENT",
+        "SPORTS"
+    ],
+    "my_player_number": 1,
+    "player_one": {
+        "charges": 3,
+        "crowns": [
+            "GEOGRAPHY",
+            "ARTS"
+        ]
+    },
+    "player_two": {
+        "charges": 0,
+        "crowns": [
+            "SCIENCE"
+        ]
+    },
+    "round_number": 2,
+    "crown_events": [
+        {
+            "timestamp": 1583628928756,
+            "userId": 123,
+            "category": "SCIENCE",
+            "won": true
+        }
+    ],
+    "sub_status": "P1_PLAYING_TURN",
+    "previous_sub_status": "P1_PLAYING_TURN",
+    "statistics": {
+        "player_one_statistics": {
+            "category_questions": [
+                {
+                    "category": "HISTORY",
+                    "correct": 1,
+                    "incorrect": 0,
+                    "worst": false
+                },
+                {
+                    "category": "SCIENCE",
+                    "correct": 2,
+                    "incorrect": 0,
+                    "worst": false
+                },
+                {
+                    "category": "ARTS",
+                    "correct": 3,
+                    "incorrect": 0,
+                    "worst": false
+                },
+                {
+                    "category": "ENTERTAINMENT",
+                    "correct": 0,
+                    "incorrect": 1,
+                    "worst": true,
+                    "performance": 0
+                },
+                {
+                    "category": "SPORTS",
+                    "correct": 2,
+                    "incorrect": 0,
+                    "worst": false
+                },
+                {
+                    "category": "GEOGRAPHY",
+                    "correct": 1,
+                    "incorrect": 0,
+                    "worst": false
+                }
+            ],
+            "correct_answers": 9,
+            "incorrect_answers": 1,
+            "challenges_won": 0,
+            "questions_answered": 10,
+            "crowns_won": 2
+        },
+        "player_two_statistics": {
+            "category_questions": [
+                {
+                    "category": "HISTORY",
+                    "correct": 0,
+                    "incorrect": 1,
+                    "worst": false
+                },
+                {
+                    "category": "SCIENCE",
+                    "correct": 1,
+                    "incorrect": 0,
+                    "worst": false
+                }
+            ],
+            "correct_answers": 1,
+            "incorrect_answers": 1,
+            "challenges_won": 0,
+            "questions_answered": 2,
+            "crowns_won": 1
+        }
+    },
+    "is_random": true,
+    "unread_messages": 0,
+    "last_turn": "03/07/2020 19:56:48 EST",
+    "status_version": 13,
+    "my_level_data": {
+        "level": 16,
+        "points": 152,
+        "goal_points": 168,
+        "progress": 11,
+        "level_up": true
+    },
+    "opponent_selection_type": "RANDOM",
+    "nudge_available": false,
+    "opponent": {
+        "id": 321,
+        "alerts_count": 0,
+        "username": "aaa",
+        "facebook_id": "123",
+        "facebookId": {
+            "value": "",
+            "defined": false
+        },
+        "facebook_name": "a b",
+        "fb_show_picture": true,
+        "fb_show_name": true,
+        "allow_og_posts": true,
+        "photo_url": "",
+        "level_data": {
+            "level": 6
+        },
+        "is_friend": false,
+        "league_name": "APPRENTICE_1"
+    },
+    "game_status": "ACTIVE",
+    "language": "EN",
+    "created": "03/07/2020 19:30:03 EST",
+    "type": "NORMAL",
+    "my_turn": true,
+    "expiration_date": "03/09/2020 07:56:48 EST"
+}
