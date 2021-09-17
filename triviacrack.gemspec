@@ -25,8 +25,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 13.0.6"
   spec.add_development_dependency "rspec", "~> 3.10.0"
   spec.add_development_dependency "rspec-its", "~> 1.3.0"
-  spec.add_development_dependency "json", "~> 2.5.1"
   spec.add_development_dependency "fuubar", "~> 2.5.1"
 
+  spec.add_dependency "json", "~> 2.5.1"
   spec.add_dependency "faraday", "~> 1.7.2"
 end

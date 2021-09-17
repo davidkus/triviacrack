@@ -26,9 +26,7 @@ module TriviaCrack
           username = username[1..-1]
         end
 
-        response = get "/api/search?username=#{username}"
-
-        body = response.body
+        body = get "/api/search?username=#{username}"
 
         user_id = false
         body["list"].each do |user|
@@ -48,7 +46,7 @@ module TriviaCrack
       def get_user
         response = get "/api/users/#{@session.user_id}"
 
-        TriviaCrack::Parsers::UserParser.parse response.body
+        TriviaCrack::Parsers::UserParser.parse response
       end
 
     end

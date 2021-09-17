@@ -10,7 +10,7 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
     before { statistics_data["crowns"] = raw_data["player_one"]["crowns"] }
 
     context 'when given data from the games API' do
-      let(:raw_data) { SpecData.get "game.json" }
+      let(:raw_data) { SpecData.get_json "game.json" }
 
       it { is_expected.to be_a TriviaCrack::GameStatistics }
       its(:correct_answers) { is_expected.to be 12 }
@@ -21,7 +21,7 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
     end
 
     context 'when given data from the dashboard API' do
-      let(:raw_data) { SpecData.get("dashboard.json")["list"][3] }
+      let(:raw_data) { SpecData.get_json("dashboard.json")["list"][3] }
 
       it { is_expected.to be_a TriviaCrack::GameStatistics }
       its(:correct_answers) { is_expected.to be 13 }
@@ -32,7 +32,7 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
     end
 
     context 'when given data from the answer API' do
-      let(:raw_data) { SpecData.get "answer.json" }
+      let(:raw_data) { SpecData.get_json "answer.json" }
 
       it { is_expected.to be_a TriviaCrack::GameStatistics }
       its(:correct_answers) { is_expected.to be 13 }
@@ -43,7 +43,7 @@ describe TriviaCrack::Parsers::GameStatisticsParser do
     end
 
     context 'when given data from the new game API' do
-      let(:raw_data) { SpecData.get "new_game.json" }
+      let(:raw_data) { SpecData.get_json "new_game.json" }
 
       it { is_expected.to be_a TriviaCrack::GameStatistics }
       its(:correct_answers) { is_expected.to be 0 }

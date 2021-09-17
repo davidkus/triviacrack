@@ -21,7 +21,7 @@ module TriviaCrack
       def get_profile(user_id)
         response = get "/api/users/#{@session.user_id}/profiles/#{user_id}"
 
-        TriviaCrack::Parsers::ProfileParser.parse response.body
+        TriviaCrack::Parsers::ProfileParser.parse response
       end
 
       # Public: Uses the Trivia Crack API to get the profile of current user.
@@ -36,7 +36,7 @@ module TriviaCrack
         response =
           get "/api/users/#{@session.user_id}/profiles/#{@session.user_id}"
 
-        TriviaCrack::Parsers::ProfileParser.parse response.body
+        TriviaCrack::Parsers::ProfileParser.parse response
       end
 
     end

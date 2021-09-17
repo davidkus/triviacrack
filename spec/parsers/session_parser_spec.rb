@@ -7,7 +7,7 @@ describe TriviaCrack::Parsers::SessionParser do
     subject { TriviaCrack::Parsers::SessionParser.parse raw_data }
 
     context 'when given data from the login API' do
-      let(:raw_data) { SpecData.get "login.json" }
+      let(:raw_data) { SpecData.get_json "login.json" }
 
       it { is_expected.to be_a TriviaCrack::Session }
       its(:user_id) { is_expected.to be 111 }

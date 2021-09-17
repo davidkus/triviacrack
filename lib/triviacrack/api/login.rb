@@ -1,3 +1,4 @@
+require "json"
 require "triviacrack/api/common"
 require "triviacrack/parsers/session_parser"
 
@@ -25,9 +26,9 @@ module TriviaCrack
         response = post "/api/login", parameters: { email: email,
                                                     password: password,
                                                     language: "en"
-                                                  }.to_s
+                                                  }.to_json
 
-        @session = TriviaCrack::Parsers::SessionParser.parse response.body
+        @session = TriviaCrack::Parsers::SessionParser.parse response
       end
 
     end

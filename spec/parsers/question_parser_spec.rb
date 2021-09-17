@@ -7,7 +7,7 @@ describe TriviaCrack::Parsers::QuestionParser do
     subject { TriviaCrack::Parsers::QuestionParser.parse raw_data }
 
     context 'when given data without an image' do
-      let(:raw_data) { SpecData.get "question.json" }
+      let(:raw_data) { SpecData.get_json "question.json" }
 
       it { is_expected.to be_a TriviaCrack::Question }
       its(:type) { is_expected.to be :normal }
@@ -19,7 +19,7 @@ describe TriviaCrack::Parsers::QuestionParser do
     end
 
     context 'when given data with an image' do
-      let(:raw_data) { SpecData.get "question_image.json" }
+      let(:raw_data) { SpecData.get_json "question_image.json" }
 
       it { is_expected.to be_a TriviaCrack::Question }
       its(:type) { is_expected.to be :normal }

@@ -1,3 +1,4 @@
+require "json"
 require "triviacrack/api/common"
 require "triviacrack/parsers/game_parser"
 
@@ -21,7 +22,7 @@ module TriviaCrack
       def get_games
         response = get "/api/users/#{@session.user_id}/dashboard"
 
-        games_data = response.body["list"]
+        games_data = response["list"]
 
         games = []
         if games_data
@@ -48,7 +49,7 @@ module TriviaCrack
       def get_game(game_id)
         response = get "/api/users/#{@session.user_id}/games/#{game_id}"
 
-        TriviaCrack::Parsers::GameParser.parse response.body
+        TriviaCrack::Parsers::GameParser.parse response
       end
 
       # Public: Uses the Trivia Crack API to start a new game for the current
@@ -62,9 +63,9 @@ module TriviaCrack
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def start_new_game
         response = post "/api/users/#{@session.user_id}/games",
-                        parameters: { language: "EN" }.to_s
+                        parameters: { language: "EN" }.to_json
 
-        TriviaCrack::Parsers::GameParser.parse response.body
+        TriviaCrack::Parsers::GameParser.parse response
       end
 
     end

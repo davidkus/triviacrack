@@ -7,7 +7,7 @@ describe TriviaCrack::Parsers::ProfileParser do
     subject { TriviaCrack::Parsers::ProfileParser.parse raw_data }
 
     context 'when given data from the profile API' do
-      let(:raw_data) { SpecData.get "profile.json" }
+      let(:raw_data) { SpecData.get_json "profile.json" }
 
       it { is_expected.to be_a TriviaCrack::Profile }
       its(:id) { is_expected.to be 111 }
@@ -32,7 +32,7 @@ describe TriviaCrack::Parsers::ProfileParser do
     end
 
     context 'when given data from the current user profile API' do
-      let(:raw_data) { SpecData.get "my_profile.json" }
+      let(:raw_data) { SpecData.get_json "my_profile.json" }
 
       it { is_expected.to be_a TriviaCrack::Profile }
       its(:id) { is_expected.to be 222 }

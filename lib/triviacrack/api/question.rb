@@ -1,3 +1,4 @@
+require "json"
 require "triviacrack/api/common"
 require "triviacrack/parsers/game_parser"
 
@@ -31,9 +32,9 @@ module TriviaCrack
                                 answer: answer,
                                 category: question.category.upcase
                                 }]
-                            }.to_s
+                            }.to_json
 
-        game = TriviaCrack::Parsers::GameParser.parse response.body
+        game = TriviaCrack::Parsers::GameParser.parse response
 
         [game, answer == question.correct_answer]
       end
@@ -72,9 +73,9 @@ module TriviaCrack
 
         response =
           post "/api/users/#{@session.user_id}/games/#{game_id}/answers",
-                parameters: { type: questions.first.type.upcase, answers: answers }.to_s
+                parameters: { type: questions.first.type.upcase, answers: answers }.to_json
 
-        game = TriviaCrack::Parsers::GameParser.parse response.body
+        game = TriviaCrack::Parsers::GameParser.parse response
 
         [game, correct_answers]
       end

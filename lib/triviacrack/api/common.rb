@@ -1,3 +1,4 @@
+require "json"
 require "faraday"
 
 require "triviacrack/errors/request_error"
@@ -16,8 +17,7 @@ module TriviaCrack
       # Returns a Faraday Response object with the server's response.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get(url, parameters: nil)
-        response = Faraday.get "#{API_HOST}#{url}", params: parameters,
-                                                    headers: default_headers
+        response = Faraday.get "#{API_HOST}#{url}", parameters, default_headers
 
         check_response url, response
       end
@@ -31,8 +31,7 @@ module TriviaCrack
       # Returns a Faraday Response object with the server's response.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def post(url, parameters: nil)
-        response = Faraday.post "#{API_HOST}#{url}", body: parameters,
-                                                     headers: default_headers
+        response = Faraday.post "#{API_HOST}#{url}", parameters, default_headers
 
         check_response url, response
       end
@@ -61,7 +60,7 @@ module TriviaCrack
       #
       # response - Faraday response returned by the API.
       #
-      # Returns the response object.
+      # Returns the response body parsed from JSON
       # Raises TriviaCrack:Errors::RequestError if the request failed.
       def check_response(url, response)
         if not response.status.between? 200, 299
@@ -69,7 +68,7 @@ module TriviaCrack
             "Request to #{API_HOST}#{url} failed with code #{response.status}."
         end
 
-        response
+        JSON.parse(response.body)
       end
     end
   end

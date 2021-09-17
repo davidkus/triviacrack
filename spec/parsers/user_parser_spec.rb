@@ -7,7 +7,7 @@ describe TriviaCrack::Parsers::UserParser do
     subject { TriviaCrack::Parsers::UserParser.parse raw_data }
 
     context 'when given data from the user API' do
-      let(:raw_data) { SpecData.get "user.json" }
+      let(:raw_data) { SpecData.get_json "user.json" }
 
       it { is_expected.to be_a TriviaCrack::User }
       its(:id) { is_expected.to be 111 }
@@ -28,7 +28,7 @@ describe TriviaCrack::Parsers::UserParser do
     end
 
     context 'when given opponent data from the game API' do
-      let(:raw_data) { SpecData.get("game.json")["opponent"] }
+      let(:raw_data) { SpecData.get_json("game.json")["opponent"] }
 
       it { is_expected.to be_a TriviaCrack::User }
       its(:id) { is_expected.to be 111 }

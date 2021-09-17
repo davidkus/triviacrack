@@ -6,13 +6,13 @@ describe TriviaCrack::Parsers::GameParser do
 
     subject { TriviaCrack::Parsers::GameParser.parse raw_data }
 
-    let(:game_data) { SpecData.get "game.json" }
-    let(:dashboard_data) { SpecData.get "dashboard.json" }
-    let(:answer_data) { SpecData.get "answer.json" }
-    let(:new_game_data) { SpecData.get "new_game.json" }
+    let(:game_data) { SpecData.get_json "game.json" }
+    let(:dashboard_data) { SpecData.get_json "dashboard.json" }
+    let(:answer_data) { SpecData.get_json "answer.json" }
+    let(:new_game_data) { SpecData.get_json "new_game.json" }
 
     context 'when given data from the games API' do
-      let(:raw_data) { SpecData.get "game.json" }
+      let(:raw_data) { SpecData.get_json "game.json" }
 
       it { is_expected.to be_a TriviaCrack::Game }
       its(:id) { is_expected.to be 1111 }
@@ -37,7 +37,7 @@ describe TriviaCrack::Parsers::GameParser do
     end
 
     context 'when given data from the dashboard API' do
-      let(:raw_data) { SpecData.get("dashboard.json")["list"][3] }
+      let(:raw_data) { SpecData.get_json("dashboard.json")["list"][3] }
 
       it { is_expected.to be_a TriviaCrack::Game }
       its(:id) { is_expected.to be 1115 }
@@ -62,7 +62,7 @@ describe TriviaCrack::Parsers::GameParser do
     end
 
     context 'when given data from the answers API' do
-      let(:raw_data) { SpecData.get "answer.json" }
+      let(:raw_data) { SpecData.get_json "answer.json" }
 
       it { is_expected.to be_a TriviaCrack::Game }
       its(:id) { is_expected.to be 1111 }
@@ -87,7 +87,7 @@ describe TriviaCrack::Parsers::GameParser do
     end
 
     context 'when given data from the new game API' do
-      let(:raw_data) { SpecData.get "new_game.json" }
+      let(:raw_data) { SpecData.get_json "new_game.json" }
 
       it { is_expected.to be_a TriviaCrack::Game }
       its(:id) { is_expected.to be 2222 }
@@ -112,7 +112,7 @@ describe TriviaCrack::Parsers::GameParser do
     end
 
     context 'when given data from the games API and the game is a duel' do
-      let(:raw_data) { SpecData.get "game_duel.json" }
+      let(:raw_data) { SpecData.get_json "game_duel.json" }
 
       it { is_expected.to be_a TriviaCrack::Game }
       its(:id) { is_expected.to be 1119 }

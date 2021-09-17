@@ -33,6 +33,10 @@ require_relative "../lib/triviacrack/parsers/user_parser"
 class SpecData
 
   def self.get(filename)
+    File.read(File.expand_path("../data/#{filename}", __FILE__))
+  end
+
+  def self.get_json(filename)
     file = File.read(File.expand_path("../data/#{filename}", __FILE__))
     JSON.parse(file)
   end
