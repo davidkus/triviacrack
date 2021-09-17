@@ -25,7 +25,7 @@ module TriviaCrack
         response = post "/api/login", parameters: { email: email,
                                                     password: password,
                                                     language: "en"
-                                                  }.to_json
+                                                  }.to_s
 
         @session = TriviaCrack::Parsers::SessionParser.parse response.body
       end

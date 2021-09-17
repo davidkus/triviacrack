@@ -31,7 +31,7 @@ module TriviaCrack
                                 answer: answer,
                                 category: question.category.upcase
                                 }]
-                            }.to_json
+                            }.to_s
 
         game = TriviaCrack::Parsers::GameParser.parse response.body
 
@@ -72,7 +72,7 @@ module TriviaCrack
 
         response =
           post "/api/users/#{@session.user_id}/games/#{game_id}/answers",
-                parameters: { type: questions.first.type.upcase, answers: answers }.to_json
+                parameters: { type: questions.first.type.upcase, answers: answers }.to_s
 
         game = TriviaCrack::Parsers::GameParser.parse response.body
 

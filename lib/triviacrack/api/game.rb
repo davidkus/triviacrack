@@ -62,7 +62,7 @@ module TriviaCrack
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def start_new_game
         response = post "/api/users/#{@session.user_id}/games",
-                        parameters: { language: "EN" }.to_json
+                        parameters: { language: "EN" }.to_s
 
         TriviaCrack::Parsers::GameParser.parse response.body
       end
