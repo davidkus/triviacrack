@@ -5,9 +5,9 @@ describe TriviaCrack::API::Profile do
   let(:session) { TriviaCrack::Session.new session_id: "session", user_id: 1 }
   let(:client) { (Class.new(APIStub) { include TriviaCrack::API::Profile }).new session }
 
-  let(:response) { double(code: code, body: raw_data) }
+  let(:response) { double(status: code, body: raw_data) }
 
-  before { allow(Unirest).to receive(:get) { response } }
+  before { allow(Faraday).to receive(:get) { response } }
 
   describe "#get_profile" do
     let(:user_id) { 111 }

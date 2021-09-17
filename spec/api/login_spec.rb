@@ -4,9 +4,9 @@ describe TriviaCrack::API::Login do
 
   let(:client) { (Class.new(APIStub) { include TriviaCrack::API::Login }).new }
 
-  let(:response) { double(code: code, body: raw_data) }
+  let(:response) { double(status: code, body: raw_data) }
 
-  before { allow(Unirest).to receive(:post) { response } }
+  before { allow(Faraday).to receive(:post) { response } }
 
   describe "#login" do
 

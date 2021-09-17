@@ -1,4 +1,4 @@
-#ruby=ruby-2.6.5
+#ruby=ruby-3.0.2
 #ruby-gemset=triviacrack
 
 source 'https://rubygems.org'

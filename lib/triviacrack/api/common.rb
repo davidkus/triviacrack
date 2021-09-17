@@ -1,4 +1,4 @@
-require "unirest"
+require "faraday"
 
 require "triviacrack/errors/request_error"
 
@@ -13,10 +13,10 @@ module TriviaCrack
       # url        - The URL of the TriviaCrack API resource.
       # parameters - The parameters to send with the request.
       #
-      # Returns a Unirest Response object with the server's response.
+      # Returns a Faraday Response object with the server's response.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get(url, parameters: nil)
-        response = Unirest.get "#{API_HOST}#{url}", parameters: parameters,
+        response = Faraday.get "#{API_HOST}#{url}", params: parameters,
                                                     headers: default_headers
 
         check_response url, response
@@ -28,10 +28,10 @@ module TriviaCrack
       # url        - The URL of the TriviaCrack API resource.
       # parameters - The parameters to send with the request.
       #
-      # Returns a Unirest Response object with the server's response.
+      # Returns a Faraday Response object with the server's response.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def post(url, parameters: nil)
-        response = Unirest.post "#{API_HOST}#{url}", parameters: parameters,
+        response = Faraday.post "#{API_HOST}#{url}", body: parameters,
                                                      headers: default_headers
 
         check_response url, response
@@ -59,14 +59,14 @@ module TriviaCrack
       # Internal: Checks the response's code to see if the request was
       # successful
       #
-      # response - Unirest response returned by the API.
+      # response - Faraday response returned by the API.
       #
       # Returns the response object.
       # Raises TriviaCrack:Errors::RequestError if the request failed.
       def check_response(url, response)
-        if not response.code.between? 200, 299
-          raise TriviaCrack::Errors::RequestError.new(response.code, url, response.body),
-            "Request to #{API_HOST}#{url} failed with code #{response.code}."
+        if not response.status.between? 200, 299
+          raise TriviaCrack::Errors::RequestError.new(response.status, url, response.body),
+            "Request to #{API_HOST}#{url} failed with code #{response.status}."
         end
 
         response

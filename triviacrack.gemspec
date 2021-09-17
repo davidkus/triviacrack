@@ -20,13 +20,13 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 2.0"
 
-  spec.add_development_dependency "bundler", "~> 2.1.4"
-  spec.add_development_dependency "simplecov", "~> 0.17.1"
-  spec.add_development_dependency "rake", "~> 13.0.1"
-  spec.add_development_dependency "rspec", "~> 3.9.0"
+  spec.add_development_dependency "bundler", "~> 2.2.27"
+  spec.add_development_dependency "simplecov", "~> 0.21.2"
+  spec.add_development_dependency "rake", "~> 13.0.6"
+  spec.add_development_dependency "rspec", "~> 3.10.0"
   spec.add_development_dependency "rspec-its", "~> 1.3.0"
-  spec.add_development_dependency "json", "~> 2.3.0"
-  spec.add_development_dependency "fuubar", "~> 2.5.0"
+  spec.add_development_dependency "json", "~> 2.5.1"
+  spec.add_development_dependency "fuubar", "~> 2.5.1"
 
-  spec.add_dependency "unirest-2x", "~> 1.1.3"
+  spec.add_dependency "faraday", "~> 1.7.2"
 end

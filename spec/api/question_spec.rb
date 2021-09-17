@@ -5,9 +5,9 @@ describe TriviaCrack::API::Question do
   let(:session) { TriviaCrack::Session.new session_id: "session", user_id: 1 }
   let(:client) { (Class.new(APIStub) { include TriviaCrack::API::Question }).new session }
 
-  let(:response) { double(code: code, body: raw_data) }
+  let(:response) { double(status: code, body: raw_data) }
 
-  before { allow(Unirest).to receive(:post) { response } }
+  before { allow(Faraday).to receive(:post) { response } }
 
   describe "#answer_question" do
 
