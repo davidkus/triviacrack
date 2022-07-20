@@ -30,5 +30,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'faraday', '~> 1.7.2'
   spec.add_dependency 'json', '~> 2.5.1'
-  spec.metadata['rubygems_mfa_required'] = 'true'
 end
