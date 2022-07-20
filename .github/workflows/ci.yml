@@ -17,7 +17,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1.0
+          ruby-version: 3.1.2
 
       - name: Bundle Install
         run: |
