@@ -1,12 +1,12 @@
-require_relative "spec_helper"
+# frozen_string_literal: true
+
+require_relative 'spec_helper'
 
 describe TriviaCrack::Game do
-
   let(:game_id) { 1111 }
   let(:game) { TriviaCrack::Game.new id: game_id, my_turn: my_turn, game_status: game_status }
 
-  describe "#playable?" do
-
+  describe '#playable?' do
     subject { game.playable? }
 
     context 'when the game status is active' do

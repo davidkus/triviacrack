@@ -1,21 +1,21 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 describe TriviaCrack::Parsers::ProfileParser do
-
-  describe ".parse" do
-
+  describe '.parse' do
     subject { TriviaCrack::Parsers::ProfileParser.parse raw_data }
 
     context 'when given data from the profile API' do
-      let(:raw_data) { SpecData.get_json "profile.json" }
+      let(:raw_data) { SpecData.get_json 'profile.json' }
 
       it { is_expected.to be_a TriviaCrack::Profile }
       its(:id) { is_expected.to be 111 }
       its(:is_friend) { is_expected.to be false }
       its(:is_blocked) { is_expected.to be false }
-      its(:username) { is_expected.to eq "example" }
+      its(:username) { is_expected.to eq 'example' }
       its(:country) { is_expected.to be :us }
-      its(:email) { is_expected.to eq "user@example.com" }
+      its(:email) { is_expected.to eq 'user@example.com' }
       its(:last_play) { is_expected.to be_a Time }
       its(:last_login) { is_expected.to be_a Time }
       its(:games_won) { is_expected.to be 530 }
@@ -32,15 +32,15 @@ describe TriviaCrack::Parsers::ProfileParser do
     end
 
     context 'when given data from the current user profile API' do
-      let(:raw_data) { SpecData.get_json "my_profile.json" }
+      let(:raw_data) { SpecData.get_json 'my_profile.json' }
 
       it { is_expected.to be_a TriviaCrack::Profile }
       its(:id) { is_expected.to be 222 }
       its(:is_friend) { is_expected.to be false }
       its(:is_blocked) { is_expected.to be false }
-      its(:username) { is_expected.to eq "example2" }
+      its(:username) { is_expected.to eq 'example2' }
       its(:country) { is_expected.to be :ca }
-      its(:email) { is_expected.to eq "user2@example.com" }
+      its(:email) { is_expected.to eq 'user2@example.com' }
       its(:last_play) { is_expected.to be_a Time }
       its(:last_login) { is_expected.to be_a Time }
       its(:games_won) { is_expected.to be 37 }

@@ -1,11 +1,12 @@
-require "triviacrack/question"
+# frozen_string_literal: true
+
+require 'triviacrack/question'
 
 # Internal: This module is used to parse data returned from the Trivia Crack API
 # into a ruby object that represents a Trivia Crack question.
 module TriviaCrack
   module Parsers
     module QuestionParser
-
       # Internal: Parses data returned from the Trivia Crack API to create a
       # TriviaCrack::Question object.
       #
@@ -20,17 +21,16 @@ module TriviaCrack
       # Returns a TriviaCrack::Question.
       def self.parse(raw_data)
         TriviaCrack::Question.new(
-          id: raw_data["id"],
-          type: raw_data["type"].downcase.to_sym,
-          category: raw_data["category"].downcase.to_sym,
-          text: raw_data["text"],
-          answers: raw_data["answers"],
-          correct_answer: raw_data["correct_answer"],
-          media_type: raw_data["media_type"].downcase.to_sym,
-          image_url: raw_data["base_url"]
+          id: raw_data['id'],
+          type: raw_data['type'].downcase.to_sym,
+          category: raw_data['category'].downcase.to_sym,
+          text: raw_data['text'],
+          answers: raw_data['answers'],
+          correct_answer: raw_data['correct_answer'],
+          media_type: raw_data['media_type'].downcase.to_sym,
+          image_url: raw_data['base_url']
         )
       end
-
     end
   end
 end

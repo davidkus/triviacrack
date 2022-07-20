@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 # Public: This error is raised when a web request to the Trivia Crack API is
 # unsuccessful.
 module TriviaCrack
   module Errors
     class RequestError < StandardError
-
       # Public: The HTTP status code returned by the Trivia Crack server.
       attr_reader :code
 
-      #Public: The URL that was requested.
+      # Public: The URL that was requested.
       attr_reader :url
 
-      #Public: The response body that was returned by the Trivia Crack server.
+      # Public: The response body that was returned by the Trivia Crack server.
       attr_reader :body
 
       # Public: Initializes a RequestError.
@@ -19,6 +20,7 @@ module TriviaCrack
       # url - The URL that was requested.
       # body - The response body that was returned by the Trivia Crack server.
       def initialize(code, url, body)
+        super()
         @code = code
         @url = url
         @body = body

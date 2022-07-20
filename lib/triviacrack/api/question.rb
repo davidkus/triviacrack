@@ -1,13 +1,14 @@
-require "json"
-require "triviacrack/api/common"
-require "triviacrack/parsers/game_parser"
+# frozen_string_literal: true
+
+require 'json'
+require 'triviacrack/api/common'
+require 'triviacrack/parsers/game_parser'
 
 # Public: All methods in this module make requests to the Trivia Crack answers
 # API.
 module TriviaCrack
   module API
     module Question
-
       include TriviaCrack::API::Common
 
       # Public: Uses the Trivia Crack API to answer the given question.
@@ -26,13 +27,12 @@ module TriviaCrack
       def answer_question(game_id, question, answer)
         response =
           post "/api/users/#{@session.user_id}/games/#{game_id}/answers",
-                parameters: { type: question.type.upcase,
-                              answers: [{
-                                id: question.id,
-                                answer: answer,
-                                category: question.category.upcase
-                                }]
-                            }.to_json
+               parameters: { type: question.type.upcase,
+                             answers: [{
+                               id: question.id,
+                               answer: answer,
+                               category: question.category.upcase
+                             }] }.to_json
 
         game = TriviaCrack::Parsers::GameParser.parse response
 
@@ -57,11 +57,11 @@ module TriviaCrack
       # with an entry for each question ID and a boolean indicating if
       # the question was answered successfully.
       # Raises TriviaCrack::Errors::RequestError if the request fails
-      def answer_questions(game_id, questions, answer_map)
+      def answer_questions(game_id, questions, answer_map) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
         answers = []
         correct_answers = {}
 
-        for question in questions do
+        questions.each do |question|
           answer = {
             id: question.id,
             answer: answer_map[question.id],
@@ -73,13 +73,12 @@ module TriviaCrack
 
         response =
           post "/api/users/#{@session.user_id}/games/#{game_id}/answers",
-                parameters: { type: questions.first.type.upcase, answers: answers }.to_json
+               parameters: { type: questions.first.type.upcase, answers: answers }.to_json
 
         game = TriviaCrack::Parsers::GameParser.parse response
 
         [game, correct_answers]
       end
-
     end
   end
 end

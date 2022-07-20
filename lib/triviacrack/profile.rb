@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 # Public: An object containing the Trivia Crack profile information of a user.
 module TriviaCrack
   class Profile
-
     # Public: The unique identifier of the user.
     attr_reader :id
 
@@ -63,7 +64,7 @@ module TriviaCrack
     # Public: Number of games lost against the requesting user.
     attr_reader :my_losses_vs_user
 
-    def initialize(id: nil, facebook_name: nil, is_friend: nil, is_blocked: nil,
+    def initialize(id: nil, facebook_name: nil, is_friend: nil, is_blocked: nil, # rubocop:disable Metrics/MethodLength, Metrics/AbcSize, Metrics/ParameterLists
                    username: nil, country: nil, email: nil, last_play: nil,
                    last_login: nil, games_won: nil, games_lost: nil,
                    games_resigned: nil, consecutive_games_won: nil,
@@ -91,6 +92,5 @@ module TriviaCrack
       @my_wins_vs_user              = my_wins_vs_user
       @my_losses_vs_user            = my_losses_vs_user
     end
-
   end
 end

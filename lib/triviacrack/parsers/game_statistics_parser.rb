@@ -1,12 +1,13 @@
-require "triviacrack/game_statistics"
-require "triviacrack/parsers/category_statistics_parser"
+# frozen_string_literal: true
+
+require 'triviacrack/game_statistics'
+require 'triviacrack/parsers/category_statistics_parser'
 
 # Internal: This module is used to parse data returned from the Trivia Crack API
 # into a ruby object that represents player statistics for a Trivia Crack game.
 module TriviaCrack
   module Parsers
     module GameStatisticsParser
-
       # Internal: Parses data returned from the Trivia Crack API to create a
       # TriviaCrack::GameStatistics object.
       #
@@ -19,26 +20,25 @@ module TriviaCrack
       #   stats = TriviaCrack::Parsers::GameStatisticsParser.parse raw_data
       #
       # Returns a TriviaCrack::GameStatistics.
-      def self.parse(raw_data)
+      def self.parse(raw_data) # rubocop:disable Metrics/MethodLength
         categories =
-          CategoryStatisticsParser.parse raw_data["category_questions"]
+          CategoryStatisticsParser.parse raw_data['category_questions']
 
-        if raw_data["crowns"]
-          crowns = raw_data["crowns"].map { |c| c.downcase.to_sym }
-        else
-          crowns = []
-        end
+        crowns = if raw_data['crowns']
+                   raw_data['crowns'].map { |c| c.downcase.to_sym }
+                 else
+                   []
+                 end
 
         TriviaCrack::GameStatistics.new(
-          correct_answers: raw_data["correct_answers"],
-          incorrect_answers: raw_data["incorrect_answers"],
-          questions_answered: raw_data["questions_answered"],
-          challenges_won: raw_data["challenges_won"],
+          correct_answers: raw_data['correct_answers'],
+          incorrect_answers: raw_data['incorrect_answers'],
+          questions_answered: raw_data['questions_answered'],
+          challenges_won: raw_data['challenges_won'],
           crowns: crowns,
           categories: categories
         )
       end
-
     end
   end
 end

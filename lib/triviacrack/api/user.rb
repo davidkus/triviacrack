@@ -1,12 +1,13 @@
-require "triviacrack/api/common"
-require "triviacrack/parsers/user_parser"
+# frozen_string_literal: true
+
+require 'triviacrack/api/common'
+require 'triviacrack/parsers/user_parser'
 
 # Public: All methods in this module make requests to the Trivia Crack users
 # API.
 module TriviaCrack
   module API
     module User
-
       include TriviaCrack::API::Common
 
       # Public: Uses the Trivia Crack Search API to find the numeric user id of
@@ -22,16 +23,14 @@ module TriviaCrack
       # Raises TriviaCrack:Errors::RequestError if the request fails.
       def get_user_id(username)
         # Trim the @ character from the start of the username
-        if username.start_with? "@"
-          username = username[1..-1]
-        end
+        username = username[1..-1] if username.start_with? '@'
 
         body = get "/api/search?username=#{username}"
 
         user_id = false
-        body["list"].each do |user|
-          if user["username"] == username
-            user_id = user["id"]
+        body['list'].each do |user|
+          if user['username'] == username
+            user_id = user['id']
             break
           end
         end
@@ -43,12 +42,11 @@ module TriviaCrack
       #
       # Returns a TriviaCrack::User representing the current user.
       # Raises TriviaCrack::Errors::RequestError if the request fails
-      def get_user
+      def get_user # rubocop:disable Naming/AccessorMethodName
         response = get "/api/users/#{@session.user_id}"
 
         TriviaCrack::Parsers::UserParser.parse response
       end
-
     end
   end
 end

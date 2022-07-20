@@ -1,12 +1,12 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 describe TriviaCrack::Parsers::TimeParser do
-
-  describe ".parse" do
-
+  describe '.parse' do
     subject { TriviaCrack::Parsers::TimeParser.parse raw_data }
 
-    let(:raw_data) { "02/18/2015 00:11:33 EST" }
+    let(:raw_data) { '02/18/2015 00:11:33 EST' }
 
     it { is_expected.to be_a Time }
     its(:day) { is_expected.to be 18 }

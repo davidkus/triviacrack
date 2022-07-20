@@ -1,19 +1,19 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 describe TriviaCrack::Parsers::UserParser do
-
-  describe ".parse" do
-
+  describe '.parse' do
     subject { TriviaCrack::Parsers::UserParser.parse raw_data }
 
     context 'when given data from the user API' do
-      let(:raw_data) { SpecData.get_json "user.json" }
+      let(:raw_data) { SpecData.get_json 'user.json' }
 
       it { is_expected.to be_a TriviaCrack::User }
       its(:id) { is_expected.to be 111 }
-      its(:username) { is_expected.to eq "example" }
-      its(:facebook_id) { is_expected.to eq "1" }
-      its(:facebook_name) { is_expected.to eq "Example Name" }
+      its(:username) { is_expected.to eq 'example' }
+      its(:facebook_id) { is_expected.to eq '1' }
+      its(:facebook_name) { is_expected.to eq 'Example Name' }
       its(:coins) { is_expected.to be 111 }
       its(:lives) { is_expected.to be 3 }
       its(:max_lives) { is_expected.to be 3 }
@@ -28,12 +28,12 @@ describe TriviaCrack::Parsers::UserParser do
     end
 
     context 'when given opponent data from the game API' do
-      let(:raw_data) { SpecData.get_json("game.json")["opponent"] }
+      let(:raw_data) { SpecData.get_json('game.json')['opponent'] }
 
       it { is_expected.to be_a TriviaCrack::User }
       its(:id) { is_expected.to be 111 }
-      its(:username) { is_expected.to eq "example.2" }
-      its(:facebook_id) { is_expected.to eq "" }
+      its(:username) { is_expected.to eq 'example.2' }
+      its(:facebook_id) { is_expected.to eq '' }
       its(:facebook_name) { is_expected.to be nil }
       its(:coins) { is_expected.to be nil }
       its(:lives) { is_expected.to be nil }

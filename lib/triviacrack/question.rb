@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 # Public: An object representing a Trivia Crack Question, including the list of
 # available answers as well as the correct answer.
 module TriviaCrack
   class Question
-
     # Public: The unique identifier of the question.
     attr_reader :id
 
@@ -27,7 +28,7 @@ module TriviaCrack
     # Public: The URL for the image.
     attr_reader :image_url
 
-    def initialize(id:, type: nil, category: nil, text: nil, answers: nil,
+    def initialize(id:, type: nil, category: nil, text: nil, answers: nil, # rubocop:disable Metrics/ParameterLists
                    correct_answer: nil, media_type: nil, image_url: nil)
       @id             = id
       @type           = type
@@ -38,6 +39,5 @@ module TriviaCrack
       @media_type     = media_type
       @image_url      = image_url
     end
-
   end
 end

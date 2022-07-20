@@ -1,14 +1,15 @@
-require "triviacrack/api/game"
-require "triviacrack/api/login"
-require "triviacrack/api/profile"
-require "triviacrack/api/question"
-require "triviacrack/api/user"
+# frozen_string_literal: true
+
+require 'triviacrack/api/game'
+require 'triviacrack/api/login'
+require 'triviacrack/api/profile'
+require 'triviacrack/api/question'
+require 'triviacrack/api/user'
 
 # Public: Interface for interacting with the Trivia Crack API.
 module TriviaCrack
   module API
     class Client
-
       include TriviaCrack::API::Game
       include TriviaCrack::API::Login
       include TriviaCrack::API::User
@@ -25,7 +26,6 @@ module TriviaCrack
         @session = TriviaCrack::Session.new session_id: session_id,
                                             user_id: user_id
       end
-
     end
   end
 end

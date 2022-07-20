@@ -1,13 +1,14 @@
-require "json"
-require "triviacrack/api/common"
-require "triviacrack/parsers/game_parser"
+# frozen_string_literal: true
+
+require 'json'
+require 'triviacrack/api/common'
+require 'triviacrack/parsers/game_parser'
 
 # Public: All methods in this module make requests to the Trivia Crack games
 # API.
 module TriviaCrack
   module API
     module Game
-
       include TriviaCrack::API::Common
 
       # Public: Uses the Trivia Crack API to fetch the list of games for the
@@ -19,17 +20,15 @@ module TriviaCrack
       #
       # Returns a list of TriviaCrack::Game.
       # Raises TriviaCrack:Errors::RequestError if the request fails.
-      def get_games
+      def get_games # rubocop:disable Naming/AccessorMethodName
         response = get "/api/users/#{@session.user_id}/dashboard"
 
-        games_data = response["list"]
+        games_data = response['list']
 
         games = []
-        if games_data
-          games_data.each do |game_data|
-            game = TriviaCrack::Parsers::GameParser.parse game_data
-            games << game
-          end
+        games_data&.each do |game_data|
+          game = TriviaCrack::Parsers::GameParser.parse game_data
+          games << game
         end
 
         games
@@ -63,11 +62,10 @@ module TriviaCrack
       # Raises TriviaCrack::Errors::RequestError if the request fails
       def start_new_game
         response = post "/api/users/#{@session.user_id}/games",
-                        parameters: { language: "EN" }.to_json
+                        parameters: { language: 'EN' }.to_json
 
         TriviaCrack::Parsers::GameParser.parse response
       end
-
     end
   end
 end

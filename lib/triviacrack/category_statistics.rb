@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 # Public: An object representing category statistics for a player within a
 # single Trivia Crack game.
 module TriviaCrack
   class CategoryStatistics
-
     # Public: The category for these statistics (:arts, :geography, etc).
     attr_reader :category
 
@@ -22,6 +23,5 @@ module TriviaCrack
       @incorrect = incorrect
       @worst     = worst
     end
-
   end
 end

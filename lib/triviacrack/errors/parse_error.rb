@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Public: This error is raised when a block of data cannot be correctly parsed.
 module TriviaCrack
   module Errors

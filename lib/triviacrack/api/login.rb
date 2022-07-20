@@ -1,13 +1,14 @@
-require "json"
-require "triviacrack/api/common"
-require "triviacrack/parsers/session_parser"
+# frozen_string_literal: true
+
+require 'json'
+require 'triviacrack/api/common'
+require 'triviacrack/parsers/session_parser'
 
 # Public: All methods in this module make requests to the Trivia Crack login
 # API.
 module TriviaCrack
   module API
     module Login
-
       include TriviaCrack::API::Common
 
       # Public: Uses the given email and password to log in to Trivia Crack
@@ -23,14 +24,12 @@ module TriviaCrack
       # Returns the user_id and username of the user that has logged in.
       # Raises TriviaCrack::Errors::RequestError if the request fails.
       def login(email, password)
-        response = post "/api/login", parameters: { email: email,
+        response = post '/api/login', parameters: { email: email,
                                                     password: password,
-                                                    language: "en"
-                                                  }.to_json
+                                                    language: 'en' }.to_json
 
         @session = TriviaCrack::Parsers::SessionParser.parse response
       end
-
     end
   end
 end

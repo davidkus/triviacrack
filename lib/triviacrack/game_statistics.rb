@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 # Public: An object representing player statistics for a Trivia Crack game.
 module TriviaCrack
   class GameStatistics
-
     # Public: The number of questions answered correctly.
     attr_reader :correct_answers
 
@@ -20,7 +21,7 @@ module TriviaCrack
     # Public: A hash of category statistics.
     attr_reader :categories
 
-    def initialize(correct_answers: nil, incorrect_answers: nil,
+    def initialize(correct_answers: nil, incorrect_answers: nil, # rubocop:disable Metrics/ParameterLists
                    questions_answered: nil, challenges_won: nil,
                    crowns: nil, categories: nil)
       @correct_answers    = correct_answers
@@ -30,6 +31,5 @@ module TriviaCrack
       @crowns             = crowns
       @categories         = categories
     end
-
   end
 end

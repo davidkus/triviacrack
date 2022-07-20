@@ -1,10 +1,11 @@
-require "triviacrack/api/common"
+# frozen_string_literal: true
+
+require 'triviacrack/api/common'
 
 # Public: Interface to the Trivia Crack Profile API.
 module TriviaCrack
   module API
     module Profile
-
       include TriviaCrack::API::Common
 
       # Public: Uses the Trivia Crack API to get the profile of the user with
@@ -32,13 +33,12 @@ module TriviaCrack
       #
       # Returns the TriviaCrack::Profile for the current user.
       # Raises TriviaCrack::Errors::RequestError if the request fails.
-      def get_my_profile
+      def get_my_profile # rubocop:disable Naming/AccessorMethodName
         response =
           get "/api/users/#{@session.user_id}/profiles/#{@session.user_id}"
 
         TriviaCrack::Parsers::ProfileParser.parse response
       end
-
     end
   end
 end

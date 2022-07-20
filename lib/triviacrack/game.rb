@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 # Public: An object representing a Trivia Crack Game, including information
 # about the questions to be asked in the game, the state of the game, opponent
 # information, and more.
 module TriviaCrack
   class Game
-
     # Public: The unique identifier of the game.
     attr_reader :id
 
@@ -58,7 +59,7 @@ module TriviaCrack
     # Public: TriviaCrack::GameStatistics for the opponent.
     attr_reader :opponent_statistics
 
-    def initialize(id:, opponent: nil, game_status: nil, language: nil,
+    def initialize(id:, opponent: nil, game_status: nil, language: nil, # rubocop:disable Metrics/MethodLength, Metrics/ParameterLists
                    created: nil, last_turn: nil, type: nil,
                    expiration_date: nil, my_turn: nil, round_number: nil,
                    is_random: nil, unread_messages: nil, status_version: nil,
@@ -95,6 +96,5 @@ module TriviaCrack
     def playable?
       @my_turn && @game_status != :ended
     end
-
   end
 end

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 # Public: An object representing a Trivia Crack User, including information
 # about the user's level, lives and coins.
 module TriviaCrack
   class User
-
     # Public: The unique identifier of the user.
     attr_reader :id
 
@@ -51,7 +52,7 @@ module TriviaCrack
     # Public: Boolean indicating whether the user has leveled up.
     attr_reader :level_up
 
-    def initialize(id:, username: nil, facebook_id: nil, facebook_name: nil,
+    def initialize(id:, username: nil, facebook_id: nil, facebook_name: nil, # rubocop:disable Metrics/MethodLength, Metrics/ParameterLists
                    coins: nil, lives: nil, max_lives: nil, unlimited_lives: nil,
                    country: nil, extra_shots: nil, level: nil,
                    level_points: nil, level_progress: nil, goal_points: nil,
@@ -86,6 +87,5 @@ module TriviaCrack
     def start_new_game?
       @lives >= 1 || @unlimited_lives
     end
-
   end
 end

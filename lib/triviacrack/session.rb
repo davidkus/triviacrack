@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 # Public: An object representing a Trivia Crack Session.
 module TriviaCrack
   class Session
-
     # Public: The session id.
     attr_reader :session_id
 
@@ -25,6 +26,5 @@ module TriviaCrack
       @device_key     = device_key
       @expiration     = expiration
     end
-
   end
 end

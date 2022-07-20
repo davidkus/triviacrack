@@ -1,12 +1,13 @@
-require "time"
+# frozen_string_literal: true
+
+require 'time'
 
 # Internal: This module is used to parse date_time strings returned by the
 # Trivia Crack API.
 module TriviaCrack
   module Parsers
     module TimeParser
-
-      TIME_FORMAT = "%m/%d/%Y %H:%M:%S"
+      TIME_FORMAT = '%m/%d/%Y %H:%M:%S'
 
       # Internal: Parses a date_time string returned by the Trivia Crack API.
       #
@@ -20,7 +21,6 @@ module TriviaCrack
       def self.parse(raw_data)
         Time.strptime(raw_data, TIME_FORMAT)
       end
-
     end
   end
 end

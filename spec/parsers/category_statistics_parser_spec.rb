@@ -1,15 +1,15 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 describe TriviaCrack::Parsers::CategoryStatisticsParser do
-
-  describe ".parse" do
-
+  describe '.parse' do
     subject { TriviaCrack::Parsers::CategoryStatisticsParser.parse(category_data).values.first }
 
-    let(:category_data) { raw_data["statistics"]["player_one_statistics"]["category_questions"] }
+    let(:category_data) { raw_data['statistics']['player_one_statistics']['category_questions'] }
 
     context 'when given data from the games API' do
-      let(:raw_data) { SpecData.get_json "game.json" }
+      let(:raw_data) { SpecData.get_json 'game.json' }
 
       it { is_expected.to be_a TriviaCrack::CategoryStatistics }
       its(:category) { is_expected.to be :geography }
@@ -19,7 +19,7 @@ describe TriviaCrack::Parsers::CategoryStatisticsParser do
     end
 
     context 'when given data from the dashboard API' do
-      let(:raw_data) { SpecData.get_json("dashboard.json")["list"][3] }
+      let(:raw_data) { SpecData.get_json('dashboard.json')['list'][3] }
 
       it { is_expected.to be_a TriviaCrack::CategoryStatistics }
       its(:category) { is_expected.to eq :arts }
@@ -29,7 +29,7 @@ describe TriviaCrack::Parsers::CategoryStatisticsParser do
     end
 
     context 'when given data from the answers API' do
-      let(:raw_data) { SpecData.get_json "answer.json" }
+      let(:raw_data) { SpecData.get_json 'answer.json' }
 
       it { is_expected.to be_a TriviaCrack::CategoryStatistics }
       its(:category) { is_expected.to eq :sports }
