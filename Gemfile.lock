@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    triviacrack (0.7.0)
+    triviacrack (0.8.0)
       faraday (~> 2.3.0)
       json (~> 2.6.2)
 
