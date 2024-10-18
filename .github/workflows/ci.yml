@@ -8,22 +8,28 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: RuboCop Linter Action
-        uses: andrewmcodes/rubocop-linter-action@v3.3.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Rubocop
+        uses: reviewdog/action-rubocop@v2
+        with:
+          skip_install: true
+          use_bundler: true
+          reviewdog_flags: -fail-level=any
 
       - name: Run RSpec and Code Coverage
         uses: paambaati/codeclimate-action@v2.4.0
